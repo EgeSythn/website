@@ -1,8 +1,7 @@
 website
 ---
----
-This website is for people to get to know about me!
+* Project has the express purpose of introducing myself to a larger crowd of developers, or anyone who might want to learn more about me.
 
-It's just front-end code (React + TypeScript)
+* The project is just front-end code, with TypeScript using the React framework.
 
-//TODO: Later explain the tech stack better
+> TODO: Later explain the tech choices, libraries, and stack better.
