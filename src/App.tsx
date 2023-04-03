@@ -27,7 +27,7 @@ function App() {
               <Route path="/" element={<Shell />}>
                 <Route path="/" element={<Home />} />
               </Route>
-              <Route path="/*" element={<NotFound />}/>
+              <Route path="*" element={<NotFound />}/>
             </Routes>
 
           </ModalsProvider>
