@@ -293,6 +293,7 @@ function CustomNavbar(props: CustomNavbarProps) {
       <Center>
         <a
           href="https://www.flaticon.com/free-icons/panda"
+          target="_blank"
           title="panda icons"
           style={{ textDecoration: "none", color: "white" }}
         >
