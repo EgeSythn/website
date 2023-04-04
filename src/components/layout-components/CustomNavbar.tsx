@@ -4,7 +4,6 @@ import {
   rem,
   createStyles,
   getStylesRef,
-  useMantineTheme,
   Text,
   Stack,
   Group,
@@ -28,7 +27,6 @@ import {
 } from "@tabler/icons-react";
 import panda from "../../assets/panda.png";
 import useStoredTheme from "../../hooks/useStoredTheme";
-import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -150,7 +148,6 @@ interface CustomNavbarProps {
 }
 
 function CustomNavbar(props: CustomNavbarProps) {
-  const theme = useMantineTheme();
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
 
@@ -270,13 +267,13 @@ function CustomNavbar(props: CustomNavbarProps) {
           </Tooltip>
           {mediaButtons()}
           <a
-            href="mailto:eseyith1@jhu.edu"
+            href="mailto:dev_seyithan@outlook.com?subject=Web Contact: <Enter Subject Here>"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <Text weight={500} size="md" className={classes.title} mb="xs">
-              eseyith1@jhu.edu
+              dev_seyithan@outlook.com
             </Text>
           </a>
         </Stack>
@@ -311,27 +308,38 @@ function CustomNavbar(props: CustomNavbarProps) {
       className={classes.navbar}
       style={{ display: props.hidden ? "none" : "block" }}
     >
-      <Navbar.Section>{topSection()}</Navbar.Section>
-      <Navbar.Section grow>
-        {data.map((item, index) => (
-          <NavLink
-            key={index}
-            className={cx(classes.link, {
-              [classes.linkActive]: item.name === active,
-            })}
-            to={item.to}
-            onClick={() => {
-              setActive(item.name);
-            }}
-          >
-            <item.icon className={classes.linkIcon} stroke={1.5} />
-            <span>{item.name}</span>
-          </NavLink>
-        ))}
-      </Navbar.Section>
-      <Navbar.Section className={classes.footer}>
-        {bottomSection()}
-      </Navbar.Section>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "100%",
+        }}
+      >
+        <div>
+          <Navbar.Section>{topSection()}</Navbar.Section>
+          <Navbar.Section grow>
+            {data.map((item, index) => (
+              <NavLink
+                key={index}
+                className={cx(classes.link, {
+                  [classes.linkActive]: item.name === active,
+                })}
+                to={item.to}
+                onClick={() => {
+                  setActive(item.name);
+                }}
+              >
+                <item.icon className={classes.linkIcon} stroke={1.5} />
+                <span>{item.name}</span>
+              </NavLink>
+            ))}
+          </Navbar.Section>
+        </div>
+        <Navbar.Section className={classes.footer}>
+          {bottomSection()}
+        </Navbar.Section>
+      </div>
     </Navbar>
   );
 }

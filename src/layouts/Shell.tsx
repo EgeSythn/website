@@ -44,10 +44,7 @@ function Shell() {
       navbarOffsetBreakpoint="sm"
       navbar={navbar}
       header={
-        <MediaQuery
-          largerThan="sm"
-          styles={{ display: smallScreen ? "block" : "none" }}
-        >
+        <MediaQuery largerThan="sm" styles={{ display: "none" }}>
           <Header
             height={{ base: 50, sm: 0 }}
             p="sm"
