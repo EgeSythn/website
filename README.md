@@ -18,6 +18,5 @@ If you managed to find your way here, welcome! Below is some information about t
 ## Relevant technologies
 
 - As mentioned, this is a front-end web application with React & TypeScript, utilizing the _[Mantine](https://mantine.dev/)_ component library.
-<a href="https://mantine.dev/" target="_blank" rel="noopener noreferrer">Link</a>
 
 - // TO DO: Add relevant details as the project is further developed.
