@@ -1,3 +1,5 @@
+<base target="_blank">
+
 # Hello World 👋
 
 > CURRENTLY IN PROGRESS
@@ -7,7 +9,7 @@ If you managed to find your way here, welcome! Below is some information about t
 ## What is this website?
 
 - This is a front-end React & TypeScript website that has the aim of introducing myself to a larger crowd of developers, or anyone who might want to learn more about me.
-- It is deployed on GitHub Pages, and you can find the deployed version _[here](https://egesythn.github.io/website/){:target="_blank"}_.
+- It is deployed on GitHub Pages, and you can find the deployed version _[here](https://egesythn.github.io/website/)_.
 
 ## What to do if you want more information?
 
@@ -15,6 +17,6 @@ If you managed to find your way here, welcome! Below is some information about t
 
 ## Relevant technologies
 
-- As mentioned, this is a front-end web application with React & TypeScript, utilizing the _[Mantine](https://mantine.dev/){:target="_blank"}_ component library.
+- As mentioned, this is a front-end web application with React & TypeScript, utilizing the _[Mantine](https://mantine.dev/)_ component library.
 
 - // TO DO: Add relevant details as the project is further developed.
