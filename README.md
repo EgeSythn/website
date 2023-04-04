@@ -1,6 +1,6 @@
 # Hello World 👋
 
-> CURRENT IN PROGRESS, NO CONTENT AVAILABLE
+> CURRENTLY IN PROGRESS
 
 If you managed to find your way here, welcome! Below is some information about this repository.
 
