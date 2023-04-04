@@ -1,19 +1,18 @@
 import { useState } from "react";
 import {
+  useMantineTheme,
   AppShell,
   Header,
-  Footer,
-  Text,
   MediaQuery,
   Burger,
-  useMantineTheme,
 } from "@mantine/core";
-
 import CustomNavbar from "../components/layout-components/CustomNavbar";
+import { Outlet } from "react-router-dom";
 
 function Shell() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+
   return (
     <AppShell
       styles={{
@@ -21,43 +20,31 @@ function Shell() {
           background:
             theme.colorScheme === "dark"
               ? theme.colors.dark[8]
-              : theme.colors.gray[0],
+              : theme.colors.blue[0],
         },
       }}
       navbarOffsetBreakpoint="sm"
-      navbar={
-        <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
-          <CustomNavbar hidden={opened}/>
-        </MediaQuery>
-      }
-      footer={
-        <Footer height={60} p="md">
-          Application footer
-        </Footer>
-      }
+      navbar={<CustomNavbar hidden={opened} />}
       header={
-        <Header height={{ base: 50, md: 70 }} p="md">
-          <div
-            style={{ display: "flex", alignItems: "center", height: "100%" }}
-          >
-            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+        <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+          <Header height={{ base: 50, sm: 0 }} p="sm">
+            <div
+              style={{ display: "flex", alignItems: "center", height: "100%" }}
+            >
               <Burger
                 opened={opened}
                 onClick={() => {
-                  setOpened((o) => !o)
+                  setOpened((o) => !o);
                 }}
                 size="sm"
                 color={theme.colors.gray[6]}
-                mr="xl"
               />
-            </MediaQuery>
-
-            <Text>Application header</Text>
-          </div>
-        </Header>
+            </div>
+          </Header>
+        </MediaQuery>
       }
     >
-      <Text>Resize app to see responsive navbar in action</Text>
+      <Outlet />
     </AppShell>
   );
 }

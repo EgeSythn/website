@@ -4,10 +4,14 @@ import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import Shell from "./layouts/Shell";
 import NotFound from "./pages/NotFound";
-import Loadable from "./components/Loadable";
+import Loadable from "./components/layout-components/Loadable";
 import useStoredTheme from "./hooks/useStoredTheme";
 
-const Home = Loadable(lazy(() => import("./pages/home/Home")));
+const Home = Loadable(lazy(() => import("./pages/Home")));
+const About = Loadable(lazy(() => import("./pages/About")));
+const Education = Loadable(lazy(() => import("./pages/Education")));
+const Experience = Loadable(lazy(() => import("./pages/Experience")));
+const Projects = Loadable(lazy(() => import("./pages/Projects")));
 
 function App() {
   const { colorScheme, toggleColorScheme } = useStoredTheme();
@@ -22,15 +26,18 @@ function App() {
         withGlobalStyles
         withNormalizeCSS
       >
-          <ModalsProvider>
-            <Routes>
-              <Route path="*" element={<NotFound />}/>
-              <Route path="/" element={<Shell />}>
-                <Route path="/" element={<Home />} />
-              </Route>
-            </Routes>
-
-          </ModalsProvider>
+        <ModalsProvider>
+          <Routes>
+            <Route path="/" element={<Shell />}>
+              <Route path="/" element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="education" element={<Education />} />
+              <Route path="experience" element={<Experience />} />
+              <Route path="projects" element={<Projects />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ModalsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   );

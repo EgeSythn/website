@@ -6,7 +6,8 @@
   "homepage": ".",
   "scripts": {
     "dev": "vite",
-    "clean_dev": "prettier --write .",
+    "clean": "prettier --write .",
+    "clean:dev": "prettier --write . && vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

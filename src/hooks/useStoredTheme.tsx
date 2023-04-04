@@ -2,9 +2,9 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 type ThemeState = {
-    colorScheme: "light" | "dark";
-    toggleColorScheme: (value?: "light" | "dark") => void;
-}
+  colorScheme: "light" | "dark";
+  toggleColorScheme: (value?: "light" | "dark") => void;
+};
 
 const localStorageMiddleware = {
   getItem: (name: string) =>
@@ -15,24 +15,24 @@ const localStorageMiddleware = {
 };
 
 const useStoredTheme = create(
-    persist(
-      (set) => ({
-        colorScheme: "light",
-        toggleColorScheme: (value: ThemeState['toggleColorScheme']) => {
-          set((state: any) => ({
-            colorScheme:
-              value || (state.colorScheme === "dark" ? "light" : "dark"),
-          }));
-        },
+  persist(
+    (set) => ({
+      colorScheme: "light",
+      toggleColorScheme: (value: ThemeState["toggleColorScheme"]) => {
+        set((state: any) => ({
+          colorScheme:
+            value || (state.colorScheme === "dark" ? "light" : "dark"),
+        }));
+      },
+    }),
+    {
+      name: "caams:theme",
+      storage: localStorageMiddleware,
+      partialize: (state: any) => ({
+        colorScheme: state.colorScheme,
       }),
-      {
-        name: "caams:theme",
-        storage: localStorageMiddleware,
-        partialize: (state: any) => ({
-          colorScheme: state.colorScheme,
-        }),
-      }
-    )
-  );
-  
-  export default useStoredTheme;
+    }
+  )
+);
+
+export default useStoredTheme;

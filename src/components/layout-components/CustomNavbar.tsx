@@ -1,102 +1,333 @@
-import { useState } from 'react';
-import { createStyles, Navbar, getStylesRef } from '@mantine/core';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
+  rem,
+  createStyles,
+  getStylesRef,
+  useMantineTheme,
+  Text,
+  Stack,
+  Group,
+  Center,
+  Navbar,
+  Avatar,
+  ActionIcon,
+  Tooltip,
+  Title,
+  Flex,
+} from "@mantine/core";
+import {
+  IconSun,
   IconUser,
+  IconHome,
+  IconBackpack,
+  IconMoonStars,
   IconMicroscope,
   IconBrandGithub,
-  IconBackpack,
-  IconHome,
-} from '@tabler/icons-react';
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
+import panda from "../../assets/panda.png";
+import useStoredTheme from "../../hooks/useStoredTheme";
+import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   navbar: {
-    backgroundColor: theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background,
-},
-
-  version: {
-    backgroundColor: theme.fn.lighten(
-      theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background!,
-      0.1
-    ),
-    color: theme.white,
-    fontWeight: 700,
+    backgroundColor:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[7]
+        : theme.colors.blue[3],
   },
 
   link: {
     ...theme.fn.focusStyles(),
-    display: 'flex',
-    alignItems: 'center',
-    textDecoration: 'none',
+    display: "flex",
+    alignItems: "center",
+    textDecoration: "none",
     fontSize: theme.fontSizes.sm,
-    color: theme.white,
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.blue[0]
+        : theme.colors.dark[7],
     padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
     borderRadius: theme.radius.sm,
     fontWeight: 500,
 
-    '&:hover': {
+    "&:hover": {
       backgroundColor: theme.fn.lighten(
-        theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background!,
+        theme.fn.variant({
+          variant: "filled",
+          color:
+            theme.colorScheme === "dark"
+              ? theme.colors.dark[7]
+              : theme.colors.blue[4],
+        }).background!,
         0.1
       ),
     },
   },
 
   linkIcon: {
-    ref: getStylesRef('icon'),
-    color: theme.white,
+    ref: getStylesRef("icon"),
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.blue[0]
+        : theme.colors.dark[7],
     opacity: 0.75,
     marginRight: theme.spacing.sm,
   },
 
   linkActive: {
-    '&, &:hover': {
+    "&, &:hover": {
       backgroundColor: theme.fn.lighten(
-        theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background!,
+        theme.fn.variant({
+          variant: "filled",
+          color:
+            theme.colorScheme === "dark"
+              ? theme.colors.dark[7]
+              : theme.colors.blue[0],
+        }).background!,
         0.15
       ),
-      [`& .${getStylesRef('icon')}`]: {
+      [`& .${getStylesRef("icon")}`]: {
         opacity: 0.9,
       },
     },
   },
 
+  title: {
+    letterSpacing: rem(-0.25),
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.blue[0]
+        : theme.colors.dark[7],
+    "&:hover": {
+      color:
+        theme.colorScheme === "dark"
+          ? theme.colors.blue[4]
+          : theme.colors.blue[0],
+    },
+  },
 
+  text: {
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.blue[0]
+        : theme.colors.dark[7],
+    "&:hover": {
+      color:
+        theme.colorScheme === "dark"
+          ? theme.colors.blue[4]
+          : theme.colors.blue[0],
+    },
+  },
+
+  tooltip: {
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[7]
+        : theme.colors.blue[0],
+  },
+
+  footer: {
+    paddingTop: theme.spacing.md,
+    marginTop: theme.spacing.md,
+    borderTop: `${rem(1)} solid ${
+      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.blue[4]
+    }`,
+  },
 }));
 
 const data = [
-  { link: '/', label: "Home", icon: IconHome},
-  { link: '', label: 'About', icon: IconUser },
-  { link: '', label: 'Education', icon: IconBackpack },
-  { link: '', label: 'Experience', icon: IconMicroscope },
-  { link: '', label: 'Projects', icon: IconBrandGithub },
+  { name: "Home", icon: IconHome, to: "/" },
+  { name: "About", icon: IconUser, to: "/about" },
+  { name: "Education", icon: IconBackpack, to: "/education" },
+  { name: "Experience", icon: IconMicroscope, to: "/experience" },
+  { name: "Projects", icon: IconBrandGithub, to: "/projects" },
 ];
 
 interface CustomNavbarProps {
-    hidden: boolean;
+  hidden: boolean;
 }
 
-function CustomNavbar(props:CustomNavbarProps) {
+function CustomNavbar(props: CustomNavbarProps) {
+  const theme = useMantineTheme();
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState('Home');
-  const links = data.map((item) => (
-    <a
-      className={cx(classes.link, { [classes.linkActive]: item.label === active })}
-      href={item.link}
-      key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(item.label);
-      }}
-    >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
-      <span>{item.label}</span>
-    </a>
-  ));
+  const { colorScheme, toggleColorScheme } = useStoredTheme();
+  
+  
+  const [active, setActive] = useState(() => {
+    const pathname = window.location.pathname;
+    const label = data.find((item) => item.to === pathname)?.name;
+    return (label ? label : "Home") as string;
+  });
+
+  const darkMode = () => {
+    return (
+      <Group position="right">
+        <ActionIcon
+          onClick={() => toggleColorScheme()}
+          size="lg"
+          sx={(theme) => ({
+            backgroundColor:
+              theme.colorScheme === "dark"
+                ? theme.colors.dark[4]
+                : theme.colors.gray[0],
+            color:
+              theme.colorScheme === "dark"
+                ? theme.colors.yellow[4]
+                : theme.colors.blue[6],
+            "&:hover": {
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.dark[3]
+                  : theme.colors.gray[2],
+            },
+          })}
+        >
+          {colorScheme === "dark" ? (
+            <IconSun size="1.2rem" />
+          ) : (
+            <IconMoonStars size="1.2rem" />
+          )}
+        </ActionIcon>
+      </Group>
+    );
+  };
+
+  const label = () => {
+    return (
+      <>
+        <Center style={{ paddingBottom: "5%" }}>
+          <Title order={4}>Why No Profile Image?</Title>
+        </Center>
+        I appreacite your interest in seeing my image. While it's not cruical to
+        get to know me, a quick Google search should help you out.
+        <br />
+        <br />
+        Thank you for understanding and happy browsing!
+      </>
+    );
+  };
+
+  const mediaButtons = () => {
+    return (
+      <Flex gap="xs" direction="row" style={{ marginBottom: "-0.75rem" }}>
+        <ActionIcon
+          onClick={() => window.open("https://github.com/EgeSythn", "_blank")}
+          sx={(theme) => ({
+            color:
+              theme.colorScheme === "dark"
+                ? theme.colors.blue[0]
+                : theme.colors.dark[7],
+            "&:hover": {
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.dark[3]
+                  : theme.colors.gray[2],
+            },
+          })}
+        >
+          <IconBrandGithub size="1.5rem" />
+        </ActionIcon>
+        <ActionIcon
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/ege-seyithanoglu-847570141/",
+              "_blank"
+            )
+          }
+          sx={(theme) => ({
+            color:
+              theme.colorScheme === "dark"
+                ? theme.colors.blue[6]
+                : theme.colors.dark[7],
+            "&:hover": {
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.dark[3]
+                  : theme.colors.gray[2],
+            },
+          })}
+        >
+          <IconBrandLinkedin size="1.5rem" />
+        </ActionIcon>
+      </Flex>
+    );
+  };
+
+  const topSection = () => {
+    return (
+      <>
+        {darkMode()}
+        <Stack justify="center" align="center">
+          <Tooltip
+            multiline
+            withArrow
+            width={220}
+            className={classes.tooltip}
+            label={label()}
+          >
+            <Avatar radius="xl" size="xl" src={panda} />
+          </Tooltip>
+          {mediaButtons()}
+          <a
+            href="mailto:eseyith1@jhu.edu"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <Text weight={500} size="md" className={classes.title} mb="xs">
+              eseyith1@jhu.edu
+            </Text>
+          </a>
+        </Stack>
+      </>
+    );
+  };
+
+  const bottomSection = () => {
+    return (
+      <Center>
+        <a
+          href="https://www.flaticon.com/free-icons/panda"
+          title="panda icons"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          <Text size="xs" className={classes.text}>
+            Panda icon created by Freepik - Flaticon
+          </Text>
+        </a>
+      </Center>
+    );
+  };
 
   return (
-    <Navbar width={{ sm: 300 }} p="md" className={classes.navbar} hidden={!props.hidden}>
+    <Navbar
+      width={{ sm: 300 }}
+      p="md"
+      className={classes.navbar}
+      style={{ display: props.hidden ? "none" : "block"}}
+    >
+      <Navbar.Section>{topSection()}</Navbar.Section>
       <Navbar.Section grow>
-        {links}
+        {data.map((item, index) => (
+          <NavLink
+            key={index}
+            className={cx(classes.link, {
+              [classes.linkActive]: item.name === active,
+            })}
+            to={item.to}
+            onClick={() => {
+              setActive(item.name);
+            }}
+          >
+            <item.icon className={classes.linkIcon} stroke={1.5} />
+            <span>{item.name}</span>
+          </NavLink>
+        ))}
+      </Navbar.Section>
+      <Navbar.Section className={classes.footer}>
+        {bottomSection()}
       </Navbar.Section>
     </Navbar>
   );
