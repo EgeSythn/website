@@ -7,7 +7,7 @@
 
 ## What to do if you want more information?
 
-- Due to various concerns, from privacy to intellectual rights of team members, I cannot fully share everything. If you saw something mentioned, and you want further information, or to look at a specific project and its codebase, you can contact me from the relevant email on the website => <dev_seyithan@outlook.com>
+- Due to various concerns, from privacy to intellectual rights of team members, I cannot fully share everything. If you saw something mentioned, and you want further information, or to look at a specific project and its codebase, you can contact me from the relevant [email](mailto:dev_seyithan@outlook.com?subject=Web%20Contact:%20<Enter%20Subject%20Here>) on the website
 
 ## Relevant technologies
 
