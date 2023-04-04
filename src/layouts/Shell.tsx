@@ -13,7 +13,6 @@ import { useMediaQuery } from "@mantine/hooks";
 function Shell() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
-  const [smallScreen, setSmallScreen] = useState(false);
   const [navbar, setNavbar] = useState(
     <CustomNavbar hidden={useMediaQuery("(min-width: 768px)")} />
   );

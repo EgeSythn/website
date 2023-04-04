@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   rem,
   createStyles,
@@ -150,12 +150,19 @@ interface CustomNavbarProps {
 function CustomNavbar(props: CustomNavbarProps) {
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
+  const location = useLocation();
 
   const [active, setActive] = useState(() => {
-    const pathname = window.location.pathname;
+    const pathname = location.pathname;
     const label = data.find((item) => item.to === pathname)?.name;
+    console.log("label: ", label);
     return (label ? label : "Home") as string;
   });
+
+  useEffect(() => {
+    const label = data.find((item) => item.to === location.pathname)?.name;
+    setActive((label ? label : "Home") as string);
+  }, [location.pathname]);
 
   const darkMode = () => {
     return (
@@ -296,10 +303,6 @@ function CustomNavbar(props: CustomNavbarProps) {
       </Center>
     );
   };
-
-  useEffect(() => {
-    console.log(props.hidden);
-  }, [props.hidden]);
 
   return (
     <Navbar
