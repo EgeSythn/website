@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   rem,
@@ -299,6 +299,10 @@ function CustomNavbar(props: CustomNavbarProps) {
       </Center>
     );
   };
+
+  useEffect(() => {
+    console.log(props.hidden);
+  }, [props.hidden]);
 
   return (
     <Navbar

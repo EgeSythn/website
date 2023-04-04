@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   useMantineTheme,
   AppShell,
@@ -8,10 +8,28 @@ import {
 } from "@mantine/core";
 import CustomNavbar from "../components/layout-components/CustomNavbar";
 import { Outlet } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
 
 function Shell() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+  const [smallScreen, setSmallScreen] = useState(false);
+  const [navbar, setNavbar] = useState(
+    <CustomNavbar hidden={useMediaQuery("(min-width: 768px)")} />
+  );
+  const largerThanSm = useMediaQuery("(min-width: 768px)");
+
+  useEffect(() => {
+    if (largerThanSm) {
+      setNavbar(<CustomNavbar hidden={false} />);
+    } else {
+      if (opened) {
+        setNavbar(<CustomNavbar hidden={false} />);
+      } else {
+        setNavbar(<CustomNavbar hidden={true} />);
+      }
+    }
+  }, [largerThanSm, opened]);
 
   return (
     <AppShell
@@ -24,10 +42,22 @@ function Shell() {
         },
       }}
       navbarOffsetBreakpoint="sm"
-      navbar={<CustomNavbar hidden={opened} />}
+      navbar={navbar}
       header={
-        <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-          <Header height={{ base: 50, sm: 0 }} p="sm">
+        <MediaQuery
+          largerThan="sm"
+          styles={{ display: smallScreen ? "block" : "none" }}
+        >
+          <Header
+            height={{ base: 50, sm: 0 }}
+            p="sm"
+            style={{
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.dark[8]
+                  : theme.colors.blue[0],
+            }}
+          >
             <div
               style={{ display: "flex", alignItems: "center", height: "100%" }}
             >
