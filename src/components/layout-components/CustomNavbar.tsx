@@ -61,6 +61,7 @@ const useStyles = createStyles((theme) => ({
         }).background!,
         0.1
       ),
+      borderRadius: theme.radius.xl,
     },
   },
 
@@ -86,6 +87,7 @@ const useStyles = createStyles((theme) => ({
         }).background!,
         0.15
       ),
+      borderRadius: theme.radius.xl,
       [`& .${getStylesRef("icon")}`]: {
         opacity: 0.9,
       },
@@ -151,7 +153,6 @@ function CustomNavbar(props: CustomNavbarProps) {
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
   const location = useLocation();
-
   const [active, setActive] = useState(() => {
     const pathname = location.pathname;
     const label = data.find((item) => item.to === pathname)?.name;
@@ -163,6 +164,19 @@ function CustomNavbar(props: CustomNavbarProps) {
     const label = data.find((item) => item.to === location.pathname)?.name;
     setActive((label ? label : "Home") as string);
   }, [location.pathname]);
+
+  const time = new Date().getHours();
+  const greeting = (
+    <Title order={3} align="center" style={{ paddingTop: "2.5%" }}>
+      {time < 12
+        ? "Good Morning"
+        : time < 17
+        ? "Good Afternoon"
+        : time < 19
+        ? "Good Evening"
+        : "Good Night"}
+    </Title>
+  );
 
   const darkMode = () => {
     return (
@@ -262,7 +276,8 @@ function CustomNavbar(props: CustomNavbarProps) {
     return (
       <>
         {darkMode()}
-        <Stack justify="center" align="center">
+        {greeting}
+        <Stack style={{ paddingTop: "5%" }} justify="center" align="center">
           <Tooltip
             multiline
             withArrow
