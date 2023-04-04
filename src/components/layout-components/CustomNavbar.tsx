@@ -153,8 +153,7 @@ function CustomNavbar(props: CustomNavbarProps) {
   const theme = useMantineTheme();
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
-  
-  
+
   const [active, setActive] = useState(() => {
     const pathname = window.location.pathname;
     const label = data.find((item) => item.to === pathname)?.name;
@@ -306,7 +305,7 @@ function CustomNavbar(props: CustomNavbarProps) {
       width={{ sm: 300 }}
       p="md"
       className={classes.navbar}
-      style={{ display: props.hidden ? "none" : "block"}}
+      style={{ display: props.hidden ? "none" : "block" }}
     >
       <Navbar.Section>{topSection()}</Navbar.Section>
       <Navbar.Section grow>
