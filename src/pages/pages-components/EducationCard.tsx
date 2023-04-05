@@ -100,6 +100,11 @@ function EducationCard(props: EducationCardProps) {
             <Text size={20} fw={500} style={{ paddingLeft: "2.5%" }}>
               {skill.name}
             </Text>
+            {skill.note && (
+              <Text size={10} fw={200} style={{ paddingLeft: "2.5%" }}>
+                * {skill.note}
+              </Text>
+            )}
             <Flex
               wrap="wrap"
               align="start"
