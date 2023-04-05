@@ -1,11 +1,12 @@
 import { Title, Container, Divider, useMantineTheme } from "@mantine/core";
 import EducationCard from "./pages-components/EducationCard";
 import jhu_logo from "../assets/jhu_logo.png";
-import Intro_to_SQL from "../assets/Intro_to_SQL.png";
-import Advanced_SQL from "../assets/Advanced_SQL.png";
-import Feature_Engineering from "../assets/Feature_Engineering.png";
-import Intro_to_Machine_Learning from "../assets/Intro_to_Machine_Learning.png";
-import Intermediate_Machine_Learning from "../assets/Intermediate_Machine_Learning.png";
+import intro_sql from "../assets/Intro_to_SQL.png";
+import advanced_sql from "../assets/Advanced_SQL.png";
+import feature_engineering from "../assets/Feature_Engineering.png";
+import intro_machine_learning from "../assets/Intro_to_Machine_Learning.png";
+import intermediate_machine_learning from "../assets/Intermediate_Machine_Learning.png";
+import python from "../assets/Python.png";
 
 function Education() {
   const theme = useMantineTheme();
@@ -53,14 +54,18 @@ function Education() {
     },
   ];
   const certifications = [
-    { name: "Intro to SQL", source: Intro_to_SQL },
-    { name: "Advanced SQL", source: Advanced_SQL },
-    { name: "Feature Engineering", source: Feature_Engineering },
-    { name: "Intro to Machine Learning", source: Intro_to_Machine_Learning },
+    { name: "Intro to SQL", source: intro_sql },
+    { name: "Advanced SQL", source: advanced_sql },
+    { name: "Feature Engineering", source: feature_engineering },
+    { name: "Intro to Machine Learning", source: intro_machine_learning },
     {
       name: "Intermediate Machine Learning",
-      source: Intermediate_Machine_Learning,
+      source: intermediate_machine_learning,
     },
+    {
+      name: "Python",
+      source: python,
+    }
   ];
 
   return (
