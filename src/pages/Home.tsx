@@ -86,8 +86,8 @@ function Home() {
         questions, feel free to contact me!
       </Text>
       <Center>
-        <Title order={3} style={{paddingTop: "2.5%"}}>
-          Happy Browsing!
+        <Title order={3} style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}>
+          ✨ Enjoy Your Stay ✨
         </Title>
       </Center>
     </Container>
