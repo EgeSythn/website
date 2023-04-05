@@ -6,8 +6,16 @@ import {
   Stack,
   Accordion,
   Text,
+  Button,
+  Badge,
+  Group,
 } from "@mantine/core";
-import { IconCertificate, IconBackpack } from "@tabler/icons-react";
+import {
+  IconPencil,
+  IconBackpack,
+  IconCertificate,
+  IconExternalLink,
+} from "@tabler/icons-react";
 
 interface EducationCardProps {
   institution: string;
@@ -15,67 +23,156 @@ interface EducationCardProps {
   study: string;
   startDate: string;
   endDate: string;
-  image: string; // path to image
+  image: string;
   location: string;
+  skills: { name: string; skills: string[]; note: string }[];
+  certifications: { name: string; source: string }[];
 }
 
 function EducationCard(props: EducationCardProps) {
-  const { institution, degree, study, startDate, endDate, image, location } =
-    props;
+  const {
+    institution,
+    degree,
+    study,
+    startDate,
+    endDate,
+    image,
+    location,
+    skills,
+    certifications,
+  } = props;
+
+  const institution_control = (
+    <>
+      <Flex direction="row" gap="md" align="center">
+        <IconBackpack size={25} />
+        <Text size={25} fw={700}>
+          {institution}
+        </Text>
+      </Flex>
+      <Flex direction="row" gap="md" align="center">
+        <IconBackpack size={25} visibility="hidden" />
+        <Text size={16} fw={500}>
+          {startDate} - {endDate}
+        </Text>
+      </Flex>
+    </>
+  );
+
+  const institution_panel = (
+    <Flex direction="row" align="flex-start">
+      <Image
+        maw={200}
+        radius="md"
+        src={image}
+        style={{ paddingRight: "2.5%" }}
+      />
+      <Stack align="flex-start">
+        <Text size={15} fw={500}>
+          <strong>Degree:</strong> {degree}
+        </Text>
+        <Text size={15} fw={500}>
+          <strong>Areas of Study:</strong> {study}
+        </Text>
+        <Text size={15} fw={500}>
+          <strong>Location:</strong> {location}
+        </Text>
+      </Stack>
+    </Flex>
+  );
+
+  const skills_control = (
+    <>
+      <Flex direction="row" gap="md" align="center">
+        <IconPencil size={25} />
+        <Text size={25} fw={700}>
+          Skills
+        </Text>
+      </Flex>
+    </>
+  );
+
+  const skills_panel = (
+    <Stack style={{ paddingTop: "2.5%" }}>
+      {skills.map((skill) => {
+        return (
+          <div key={skill.name}>
+            <Text size={20} fw={500} style={{ paddingLeft: "2.5%" }}>
+              {skill.name}
+            </Text>
+            <Flex
+              wrap="wrap"
+              align="start"
+              gap={5}
+              style={{
+                paddingTop: "1.5%",
+                paddingLeft: "1.5%",
+                paddingBottom: "2.5%",
+              }}
+            >
+              {skill.skills.map((sk, index) => (
+                <Badge
+                  key={`${skill.name}-${index}`}
+                  fw={500}
+                  size="lg"
+                  style={{ margin: "0.25rem" }}
+                >
+                  {sk}
+                </Badge>
+              ))}
+            </Flex>
+          </div>
+        );
+      })}
+    </Stack>
+  );
+
+  const certifications_control = (
+    <Flex direction="row" gap="md" align="center">
+      <IconCertificate size={25} />
+      <Text size={25} fw={700}>
+        Kaggle Certifications
+      </Text>
+    </Flex>
+  );
+
+  const certifications_panel = (
+    <Group style={{ paddingTop: "2.5%" }}>
+      {certifications.map((cert) => (
+        <Card shadow="sm" padding="lg" radius="md" withBorder>
+          <Flex direction="column" gap="md" align="center">
+            <Text key={cert.name} size={15} fw={500}>
+              {cert.name}
+            </Text>
+            <Button
+              variant="outline"
+              radius="xl"
+              rightIcon={<IconExternalLink size={15} />}
+              onClick={() => window.open(cert.source, "_blank")}
+            >
+              Certificate
+            </Button>
+          </Flex>
+        </Card>
+      ))}
+    </Group>
+  );
 
   return (
     <Container style={{ paddingTop: "5%" }}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Accordion defaultValue={institution} defaultChecked>
+        <Accordion multiple={true} defaultValue={[institution]} defaultChecked>
           <Accordion.Item value={institution}>
-            <Accordion.Control>
-              <Flex direction="row" gap="md" align="center">
-                <IconBackpack size={25} />
-                <Text size={25} fw={700}>
-                  {institution}
-                </Text>
-              </Flex>
-              <Flex direction="row" gap="md" align="center">
-                <IconBackpack size={25} visibility="hidden" />
-                <Text size={16} fw={500}>
-                  {startDate} - {endDate}
-                </Text>
-              </Flex>
-            </Accordion.Control>
-            <Accordion.Panel>
-              <Flex direction="row" align="flex-start">
-                <Image
-                  maw={200}
-                  radius="md"
-                  src={image}
-                  style={{ paddingRight: "2.5%" }}
-                />
-                <Stack align="flex-start">
-                  <Text size={16} fw={500}>
-                    <strong>Degree:</strong> {degree}
-                  </Text>
-                  <Text size={16} fw={500}>
-                    <strong>Areas of Study:</strong> {study}
-                  </Text>
-                  <Text size={16} fw={500}>
-                    <strong>Location:</strong> {location}
-                  </Text>
-                </Stack>
-              </Flex>
-            </Accordion.Panel>
+            <Accordion.Control>{institution_control}</Accordion.Control>
+            <Accordion.Panel>{institution_panel}</Accordion.Panel>
+          </Accordion.Item>
+          <Accordion.Item value="Skills">
+            <Accordion.Control>{skills_control}</Accordion.Control>
+            <Accordion.Panel>{skills_panel}</Accordion.Panel>
           </Accordion.Item>
           <Accordion.Item value="Certifications">
-            <Accordion.Control>
-              <Flex direction="row" gap="md" align="center">
-                <IconCertificate size={25} />
-                <Text size={25} fw={700}>
-                  Kaggle Certifications
-                </Text>
-              </Flex>
-            </Accordion.Control>
-            <Accordion.Panel>
-              <Text size={16} fw={500} style={{ paddingLeft: "2.5%" }}></Text>
-            </Accordion.Panel>
+            <Accordion.Control>{certifications_control}</Accordion.Control>
+            <Accordion.Panel>{certifications_panel}</Accordion.Panel>
           </Accordion.Item>
         </Accordion>
       </Card>
