@@ -1,5 +1,13 @@
-import { Container, Title, Divider, useMantineTheme } from "@mantine/core";
+import {
+  Container,
+  Title,
+  Divider,
+  useMantineTheme,
+  Center,
+  Image,
+} from "@mantine/core";
 import ProjectCard from "./pages-components/ProjectCard";
+import inProgress from "../assets/inProgress.gif";
 
 function Projects() {
   const theme = useMantineTheme();
@@ -15,6 +23,9 @@ function Projects() {
             : theme.colors.blue[4]
         }
       />
+      <Center>
+        <Image src={inProgress} />
+      </Center>
     </Container>
   );
 }

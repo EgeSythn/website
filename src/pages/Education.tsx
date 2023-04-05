@@ -65,7 +65,7 @@ function Education() {
     {
       name: "Python",
       source: python,
-    }
+    },
   ];
 
   return (

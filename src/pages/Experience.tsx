@@ -1,5 +1,13 @@
-import { Container, Title, Divider, useMantineTheme } from "@mantine/core";
+import {
+  Container,
+  Title,
+  Divider,
+  useMantineTheme,
+  Center,
+  Image,
+} from "@mantine/core";
 import ExperienceCard from "./pages-components/ExperienceCard";
+import inProgress from "../assets/inProgress.gif";
 
 function Experience() {
   const theme = useMantineTheme();
@@ -15,6 +23,9 @@ function Experience() {
             : theme.colors.blue[4]
         }
       />
+      <Center>
+        <Image src={inProgress} />
+      </Center>
     </Container>
   );
 }
