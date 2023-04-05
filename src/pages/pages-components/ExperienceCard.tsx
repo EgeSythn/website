@@ -20,7 +20,7 @@ function ExperienceCard(props: ExperienceCardProps) {
     image,
     links,
   } = props;
-  
+
   return <></>;
 }
 
