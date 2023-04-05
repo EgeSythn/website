@@ -155,7 +155,6 @@ function CustomNavbar(props: CustomNavbarProps) {
   const [active, setActive] = useState(() => {
     const pathname = location.pathname;
     const label = data.find((item) => item.to === pathname)?.name;
-    console.log("label: ", label);
     return (label ? label : "Home") as string;
   });
 

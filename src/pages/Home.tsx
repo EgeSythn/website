@@ -6,8 +6,9 @@ import {
   Flex,
   Divider,
   Center,
+  Button,
 } from "@mantine/core";
-
+import { IconExternalLink } from "@tabler/icons-react";
 import Map from "./pages-components/Map";
 
 function Home() {
@@ -78,13 +79,36 @@ function Home() {
         progress as a developer, and share it with the greater engineering and
         tech community.
       </Text>
-      <Text size={18} style={{ lineHeight: "1.6", paddingLeft: "2.5%" }}>
+      <Text
+        size={18}
+        style={{ lineHeight: "1.6", paddingLeft: "2.5%", marginBottom: "24px" }}
+      >
         &emsp;Hopefully, within this website, you will be able to get a better
         understanding of who I am and what I do. There are certain limitations I
         have to abide by in terms of sharing projects I am involved with, either
         due to privacy concerns, or intellectual rights. If you have any
         questions, feel free to contact me!
       </Text>
+      <Text
+        size={18}
+        style={{ lineHeight: "1.6", paddingLeft: "2.5%", marginBottom: "24px" }}
+      >
+        &emsp;If you are a recruiter, and want to access my detailed resume or
+        transcript, please fill out the form below and I will get back to you as
+        soon as possible. Thank you!
+      </Text>
+      <Center style={{ marginBottom: "24px" }}>
+        <Button
+          variant="outline"
+          radius="xl"
+          rightIcon={<IconExternalLink size={15} />}
+          onClick={() =>
+            window.open("https://forms.gle/CjLDnHVoThv2kiYB7", "_blank")
+          }
+        >
+          Fill Out Form
+        </Button>
+      </Center>
       <Center>
         <Title order={3} style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}>
           ✨ Enjoy Your Stay ✨
