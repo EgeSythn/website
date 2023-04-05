@@ -6,7 +6,7 @@ import {
   MediaQuery,
   Burger,
 } from "@mantine/core";
-import CustomNavbar from "../components/layout-components/CustomNavbar";
+import CustomNavbar from "./layout-components/CustomNavbar";
 import { Outlet } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
 

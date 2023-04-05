@@ -5,7 +5,10 @@ import {
   Text,
   Flex,
   Divider,
+  Center,
 } from "@mantine/core";
+
+import Map from "./pages-components/Map";
 
 function Home() {
   const theme = useMantineTheme();
@@ -21,33 +24,11 @@ function Home() {
         }
       />
       <Title order={2} style={{ paddingTop: "5%" }}>
-        What is this website about?
-      </Title>
-      <Text
-        size={18}
-        style={{
-          paddingTop: "2.5%",
-          lineHeight: "1.6",
-          marginBottom: "24px",
-        }}
-      >
-        &emsp;&emsp;This website is a collection of my projects, my resume, and
-        some other information. It is also a place where I can keep track of my
-        progress as a developer, and share it with the greater engineering and
-        tech community.
-      </Text>
-      <Text size={18} style={{ lineHeight: "1.6" }}>
-        &emsp;&emsp;Hopefully, within this website, you will be able to get a
-        better understanding of who I am, what I do, and what I am capable of.
-        If you have any questions, feel free to contact me! Otherwise, enjoy
-        your stay!
-      </Text>
-      <Title order={2} style={{ paddingTop: "5%" }}>
         Who am I?
       </Title>
       <Flex style={{ paddingTop: "2.5%" }} align="center" wrap="nowrap">
-        <Text size={18} style={{ lineHeight: "1.6" }}>
-          &emsp;&emsp;Hi! My name is
+        <Text size={18} style={{ lineHeight: "1.6", paddingLeft: "2.5%" }}>
+          &emsp;Hi! My name is
           <Text
             span
             component="span"
@@ -73,10 +54,42 @@ function Home() {
               marginBottom: "24px",
             }}
           >
-            &emsp;&emsp;I
+            &emsp;I am Turkish-American, and originally from the beautiful
+            coastal city of Izmir, Turkey, where I lived up until college.
+            Currently, I am situated in Baltimore, Maryland; the Charm City!
+            <Map />
           </Text>
         </Text>
       </Flex>
+      <Title order={2} style={{ paddingTop: "5%" }}>
+        What is this website about?
+      </Title>
+      <Text
+        size={18}
+        style={{
+          paddingTop: "2.5%",
+          paddingLeft: "2.5%",
+          lineHeight: "1.6",
+          marginBottom: "24px",
+        }}
+      >
+        &emsp;This website is a collection of my projects, my experience, and
+        some other information. It is also a place where I can keep track of my
+        progress as a developer, and share it with the greater engineering and
+        tech community.
+      </Text>
+      <Text size={18} style={{ lineHeight: "1.6", paddingLeft: "2.5%" }}>
+        &emsp;Hopefully, within this website, you will be able to get a better
+        understanding of who I am and what I do. There are certain limitations I
+        have to abide by in terms of sharing projects I am involved with, either
+        due to privacy concerns, or intellectual rights. If you have any
+        questions, feel free to contact me!
+      </Text>
+      <Center>
+        <Title order={3} style={{paddingTop: "2.5%"}}>
+          Happy Browsing!
+        </Title>
+      </Center>
     </Container>
   );
 }

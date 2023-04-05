@@ -26,7 +26,7 @@ const useStoredTheme = create(
       },
     }),
     {
-      name: "caams:theme",
+      name: "project:theme",
       storage: localStorageMiddleware,
       partialize: (state: any) => ({
         colorScheme: state.colorScheme,

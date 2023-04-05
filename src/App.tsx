@@ -4,11 +4,10 @@ import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import Shell from "./layouts/Shell";
 import NotFound from "./pages/NotFound";
-import Loadable from "./components/layout-components/Loadable";
+import Loadable from "./layouts/layout-components/Loadable";
 import useStoredTheme from "./hooks/useStoredTheme";
 
 const Home = Loadable(lazy(() => import("./pages/Home")));
-const About = Loadable(lazy(() => import("./pages/About")));
 const Education = Loadable(lazy(() => import("./pages/Education")));
 const Experience = Loadable(lazy(() => import("./pages/Experience")));
 const Projects = Loadable(lazy(() => import("./pages/Projects")));
@@ -30,7 +29,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Shell />}>
               <Route path="/" element={<Home />} />
-              <Route path="about" element={<About />} />
               <Route path="education" element={<Education />} />
               <Route path="experience" element={<Experience />} />
               <Route path="projects" element={<Projects />} />

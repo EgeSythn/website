@@ -139,7 +139,6 @@ const useStyles = createStyles((theme) => ({
 
 const data = [
   { name: "Home", icon: IconHome, to: "/" },
-  { name: "About", icon: IconUser, to: "/about" },
   { name: "Education", icon: IconBackpack, to: "/education" },
   { name: "Experience", icon: IconMicroscope, to: "/experience" },
   { name: "Projects", icon: IconBrandGithub, to: "/projects" },
