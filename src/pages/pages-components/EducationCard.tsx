@@ -26,7 +26,7 @@ function EducationCard(props: EducationCardProps) {
   return (
     <Container style={{ paddingTop: "5%" }}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Accordion defaultValue={institution}>
+        <Accordion defaultValue={institution} defaultChecked>
           <Accordion.Item value={institution}>
             <Accordion.Control>
               <Flex direction="row" gap="md" align="center">
