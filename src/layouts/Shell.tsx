@@ -14,18 +14,21 @@ function Shell() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const [navbar, setNavbar] = useState(
-    <CustomNavbar hidden={useMediaQuery("(min-width: 768px)")} />
+    <CustomNavbar
+      hidden={useMediaQuery("(min-width: 768px)")}
+      setOpened={setOpened}
+    />
   );
   const largerThanSm = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     if (largerThanSm) {
-      setNavbar(<CustomNavbar hidden={false} />);
+      setNavbar(<CustomNavbar hidden={false} setOpened={setOpened} />);
     } else {
       if (opened) {
-        setNavbar(<CustomNavbar hidden={false} />);
+        setNavbar(<CustomNavbar hidden={false} setOpened={setOpened} />);
       } else {
-        setNavbar(<CustomNavbar hidden={true} />);
+        setNavbar(<CustomNavbar hidden={true} setOpened={setOpened} />);
       }
     }
   }, [largerThanSm, opened]);

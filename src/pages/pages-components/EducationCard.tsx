@@ -94,7 +94,7 @@ function EducationCard(props: EducationCardProps) {
 
   const skills_panel = (
     <Stack style={{ paddingTop: "2.5%" }}>
-      {skills.map((skill) => {
+      {skills.map((skill, index) => {
         return (
           <div key={skill.name}>
             <Text size={20} fw={500} style={{ paddingLeft: "2.5%" }}>
@@ -144,7 +144,13 @@ function EducationCard(props: EducationCardProps) {
   const certifications_panel = (
     <Group style={{ paddingTop: "2.5%" }}>
       {certifications.map((cert) => (
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Card
+          key={`Certification ${cert.name}`}
+          shadow="sm"
+          padding="lg"
+          radius="md"
+          withBorder
+        >
           <Flex direction="column" gap="md" align="center">
             <Text key={cert.name} size={15} fw={500}>
               {cert.name}

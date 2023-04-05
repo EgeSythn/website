@@ -146,6 +146,7 @@ const data = [
 
 interface CustomNavbarProps {
   hidden: boolean;
+  setOpened: Function;
 }
 
 function CustomNavbar(props: CustomNavbarProps) {
@@ -161,6 +162,7 @@ function CustomNavbar(props: CustomNavbarProps) {
   useEffect(() => {
     const label = data.find((item) => item.to === location.pathname)?.name;
     setActive((label ? label : "Home") as string);
+    props.setOpened(false);
   }, [location.pathname]);
 
   const time = new Date().getHours();
