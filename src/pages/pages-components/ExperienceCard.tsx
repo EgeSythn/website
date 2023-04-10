@@ -1,6 +1,7 @@
 import {
   Container,
   Card,
+  Button,
   Accordion,
   Text,
   Flex,
@@ -8,6 +9,11 @@ import {
   Image,
   Stack,
 } from "@mantine/core";
+import {
+  IconExternalLink,
+  IconBrandGithub,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 
 interface ExperienceCardProps {
   names: string[];
@@ -59,7 +65,7 @@ function ExperienceCard(props: ExperienceCardProps) {
                     <Text size={15} fw={600}>
                       Role:
                     </Text>
-                    <Text size={15} fw={400} style={{ paddingLeft: "2.5%" }}>
+                    <Text size={15} fw={400} style={{ paddingLeft: "5%" }}>
                       {descriptions[index]}
                     </Text>
                     <Text size={15} fw={600}>
@@ -74,16 +80,44 @@ function ExperienceCard(props: ExperienceCardProps) {
                     </List>
                     {links[index] !== "" ? (
                       <>
-                        <Text size={15} fw={600}>
-                          Link:
-                        </Text>
-                        <Text
-                          size={15}
-                          fw={400}
-                          style={{ paddingLeft: "2.5%" }}
-                        >
-                          {links[index]}
-                        </Text>
+                        <Flex direction="column" gap="md" align="center">
+                          {links[index].includes("linkedin") ? (
+                            <Button
+                              variant="outline"
+                              radius="xl"
+                              leftIcon={<IconBrandLinkedin size={15} />}
+                              rightIcon={<IconExternalLink size={15} />}
+                              onClick={() =>
+                                window.open(links[index], "_blank")
+                              }
+                            >
+                              LinkedIn
+                            </Button>
+                          ) : links[index].includes("github") ? (
+                            <Button
+                              variant="outline"
+                              radius="xl"
+                              leftIcon={<IconBrandGithub size={15} />}
+                              rightIcon={<IconExternalLink size={15} />}
+                              onClick={() =>
+                                window.open(links[index], "_blank")
+                              }
+                            >
+                              GitHub
+                            </Button>
+                          ) : (
+                            <Button
+                              variant="outline"
+                              radius="xl"
+                              rightIcon={<IconExternalLink size={15} />}
+                              onClick={() =>
+                                window.open(links[index], "_blank")
+                              }
+                            >
+                              Link
+                            </Button>
+                          )}
+                        </Flex>
                       </>
                     ) : (
                       <></>

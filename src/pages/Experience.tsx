@@ -61,9 +61,9 @@ function Experience() {
           "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
           "Turkey (Remote)",
-          "", // Location not specified, leave empty or add a location if available
-          "", // Location not specified, leave empty or add a location if available
-          "", // Location not specified, leave empty or add a location if available
+          "United States / DC – Baltimore Area", // Location not specified, leave empty or add a location if available
+          "United States / DC – Baltimore Area", // Location not specified, leave empty or add a location if available
+          "United States / DC – Baltimore Area", // Location not specified, leave empty or add a location if available
         ]}
         skills={[
           [
@@ -82,7 +82,10 @@ function Experience() {
             "Organized in-person and virtual meetings",
             "Developed personalized plans for students",
           ],
-          ["Instructed workshop for high school students"],
+          [
+            "Instructed workshop for high school students",
+            "Prepared a curriculum of theoretical Machine Learning",
+          ],
           [
             "Designed and implemented front-end features using React",
             "Lead the front-end developer team",
@@ -109,13 +112,13 @@ function Experience() {
           blue_jay,
         ]}
         links={[
-          "", // Add project links or repository URLs here
+          "http://milemarker.me/", // Add project links or repository URLs here
           "",
-          "",
-          "",
-          "",
-          "",
-          "",
+          "https://academicsupport.jhu.edu/study-consulting/",
+          "https://www.linkedin.com/company/mysev-bootcamp/",
+          "https://www.linkedin.com/company/jhu-collab/mycompany/",
+          "https://github.com/EgeSythn/hci_project_2",
+          "https://github.com/HopReview/HopReview",
         ]}
       />
     </Container>
