@@ -1,14 +1,9 @@
-import {
-  Container,
-  Title,
-  Divider,
-  useMantineTheme,
-  Image,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Container, Title, Divider, useMantineTheme } from "@mantine/core";
 import ExperienceCard from "./pages-components/ExperienceCard";
-import hard_hat from "../assets/hard_hat.png";
+import jhu_icon from "../assets/jhu_icon.png";
+import milemarker from "../assets/milemarker.png";
+import mySev from "../assets/mySev.png";
+import blue_jay from "../assets/blue_jay.png";
 
 function Experience() {
   const theme = useMantineTheme();
@@ -24,20 +19,105 @@ function Experience() {
             : theme.colors.blue[4]
         }
       />
-      <Stack style={{ paddingTop: "2.5%" }} align="center">
-        <Image src={hard_hat} maw={240} />
-        <Text size={25} weight={700}>
-          Page Under Construction
-        </Text>
-        <Text size={10}>
-          <a
-            href="https://www.flaticon.com/free-icons/work-in-progress"
-            title="work in progress icons"
-          >
-            Work in progress icons created by Freepik - Flaticon
-          </a>
-        </Text>
-      </Stack>
+      <ExperienceCard
+        names={[
+          "MileMarker (EduMD, LLC) – Resident Health Education System",
+          "JHU Computer Science Department",
+          "JHU Study Consulting Program",
+          "mySEV Bootcamp",
+          "Project CAAMS – JHU CS Department Course Assistant Application System",
+          "Wealth, Health, and Racial Inequality",
+          "HopReview - JHU Course Review Application",
+        ]}
+        descriptions={[
+          "Data Science & Software Engineering Intern",
+          "Automata and Computation Theory Course Assistant / Mathematical Foundations for Computer Science Lead Course Assistant",
+          "Study Consultant",
+          "AI & Machine Learning Workshop Instructor",
+          "Full-stack Developer / Front-end Lead (PERN Stack)",
+          "Front-end Developer (React)",
+          "Android Developer",
+        ]}
+        startDates={[
+          "June 2022",
+          "January 2022",
+          "September 2021",
+          "August 2021",
+          "Fall 2022",
+          "Fall 2022",
+          "Spring 2022",
+        ]}
+        endDates={[
+          "August 2022",
+          "Present",
+          "Present",
+          "August 2021",
+          "Present",
+          "Fall 2022",
+          "Spring 2022",
+        ]}
+        locations={[
+          "United States / DC – Baltimore Area",
+          "United States / DC – Baltimore Area",
+          "United States / DC – Baltimore Area",
+          "Turkey (Remote)",
+          "", // Location not specified, leave empty or add a location if available
+          "", // Location not specified, leave empty or add a location if available
+          "", // Location not specified, leave empty or add a location if available
+        ]}
+        skills={[
+          [
+            "Developed machine learning models",
+            "Created data visualizations and dashboard prototypes",
+            "Contributed to front end development",
+            "Designed UI wireframes and prototypes",
+            "Introduced UX features",
+          ],
+          [
+            "Provided feedback to students",
+            "Organized student help sessions",
+            "Instructed weekly classes",
+          ],
+          [
+            "Organized in-person and virtual meetings",
+            "Developed personalized plans for students",
+          ],
+          ["Instructed workshop for high school students"],
+          [
+            "Designed and implemented front-end features using React",
+            "Lead the front-end developer team",
+          ],
+          [
+            "Designed and implemented visualizations",
+            "Handled and organized JSON data",
+            "Deployed features to production using GitHub Actions",
+          ],
+          [
+            "Conducted user research",
+            "Prototyped UI/UX designs with Figma",
+            "Worked in an Agile development team",
+            "Created mock datasets and integrated front-end and back-end",
+          ],
+        ]}
+        images={[
+          milemarker, // Add image paths or URLs here
+          jhu_icon,
+          jhu_icon,
+          mySev,
+          jhu_icon,
+          jhu_icon,
+          blue_jay,
+        ]}
+        links={[
+          "", // Add project links or repository URLs here
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+        ]}
+      />
     </Container>
   );
 }

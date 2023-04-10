@@ -17,7 +17,6 @@ import {
 } from "@mantine/core";
 import {
   IconSun,
-  IconUser,
   IconHome,
   IconBackpack,
   IconMoonStars,
@@ -140,8 +139,7 @@ const useStyles = createStyles((theme) => ({
 const data = [
   { name: "Home", icon: IconHome, to: "/" },
   { name: "Education", icon: IconBackpack, to: "/education" },
-  { name: "Experience", icon: IconMicroscope, to: "/experience" },
-  { name: "Projects", icon: IconBrandGithub, to: "/projects" },
+  { name: "Experience", icon: IconBrandGithub, to: "/experience" },
 ];
 
 interface CustomNavbarProps {

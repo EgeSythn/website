@@ -50,12 +50,6 @@ function EducationCard(props: EducationCardProps) {
           {institution}
         </Text>
       </Flex>
-      <Flex direction="row" gap="md" align="center">
-        <IconBackpack size={25} visibility="hidden" />
-        <Text size={16} fw={500}>
-          {startDate} - {endDate}
-        </Text>
-      </Flex>
     </>
   );
 
@@ -76,6 +70,9 @@ function EducationCard(props: EducationCardProps) {
         </Text>
         <Text size={15} fw={500}>
           <strong>Location:</strong> {location}
+        </Text>
+        <Text size={15} fw={500}>
+          <strong>Attendance:</strong> {startDate} - {endDate}
         </Text>
       </Stack>
     </Flex>
