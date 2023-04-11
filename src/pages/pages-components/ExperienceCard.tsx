@@ -15,6 +15,18 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
 } from "@tabler/icons-react";
+import styled from "styled-components";
+
+const ResponsiveImage = styled(Image)`
+  max-width: 200px;
+  object-fit: cover;
+  border-radius: var(--mantine-radius-md);
+  padding-right: 2.5%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 interface ExperienceCardProps {
   names: string[];
@@ -57,7 +69,7 @@ function ExperienceCard(props: ExperienceCardProps) {
           </Accordion.Control>
           <Accordion.Panel>
             <Flex direction="row" align="flex-start">
-              <Image
+              <ResponsiveImage
                 maw={200}
                 radius="md"
                 src={images[index]}

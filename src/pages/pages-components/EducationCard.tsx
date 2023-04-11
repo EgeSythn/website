@@ -16,6 +16,17 @@ import {
   IconCertificate,
   IconExternalLink,
 } from "@tabler/icons-react";
+import styled from "styled-components";
+
+const IconTextFlex = styled(Flex)`
+  align-items: center;
+  @media (max-width: 768px) {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+`;
 
 interface EducationCardProps {
   institution: string;
@@ -44,12 +55,12 @@ function EducationCard(props: EducationCardProps) {
 
   const institution_control = (
     <>
-      <Flex direction="row" gap="md" align="center">
+      <IconTextFlex direction="row" gap="md">
         <IconBackpack size={25} />
         <Text size={25} fw={700}>
           {institution}
         </Text>
-      </Flex>
+      </IconTextFlex>
     </>
   );
 
@@ -80,12 +91,12 @@ function EducationCard(props: EducationCardProps) {
 
   const skills_control = (
     <>
-      <Flex direction="row" gap="md" align="center">
+      <IconTextFlex direction="row" gap="md">
         <IconPencil size={25} />
         <Text size={25} fw={700}>
           Skills
         </Text>
-      </Flex>
+      </IconTextFlex>
     </>
   );
 
@@ -130,12 +141,12 @@ function EducationCard(props: EducationCardProps) {
   );
 
   const certifications_control = (
-    <Flex direction="row" gap="md" align="center">
+    <IconTextFlex direction="row" gap="md">
       <IconCertificate size={25} />
       <Text size={25} fw={700}>
         Kaggle Certifications
       </Text>
-    </Flex>
+    </IconTextFlex>
   );
 
   const certifications_panel = (
