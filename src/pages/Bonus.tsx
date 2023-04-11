@@ -37,7 +37,6 @@ function Bonus() {
                 paddingTop: "2.5%",
                 paddingBottom: "2.5%",
               }}
-              color="white"
               size={25}
               fw={700}
             >
