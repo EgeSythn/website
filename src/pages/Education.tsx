@@ -1,6 +1,6 @@
 import { Title, Container, Divider, useMantineTheme } from "@mantine/core";
 import EducationCard from "./pages-components/EducationCard";
-import jhu_logo from "../assets/jhu_logo.png";
+import jhu_icon from "../assets/jhu_icon.png";
 import intro_sql from "../assets/Intro_to_SQL.png";
 import advanced_sql from "../assets/Advanced_SQL.png";
 import feature_engineering from "../assets/Feature_Engineering.png";
@@ -86,7 +86,7 @@ function Education() {
         startDate="August 2019"
         endDate="May 2023"
         location="Baltimore, MD"
-        image={jhu_logo}
+        image={jhu_icon}
         skills={skills}
         certifications={certifications}
       />
