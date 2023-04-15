@@ -14,6 +14,7 @@ import {
   IconExternalLink,
   IconBrandGithub,
   IconBrandLinkedin,
+  IconBrandFigma,
 } from "@tabler/icons-react";
 
 interface ExperienceCardProps {
@@ -24,7 +25,7 @@ interface ExperienceCardProps {
   locations: string[];
   skills: string[][];
   images: string[]; // path to image
-  links: string[]; // array of links
+  links: string[][]; // array of links
 }
 
 function ExperienceCard(props: ExperienceCardProps) {
@@ -45,9 +46,14 @@ function ExperienceCard(props: ExperienceCardProps) {
   const renderAccordionItems = (start: number, end: number) =>
     names.slice(start, end).map((name, currIndex) => {
       const index = start + currIndex;
+      const isLastItem = currIndex === end - start - 1;
 
       return (
-        <Accordion.Item key={index} value={name}>
+        <Accordion.Item
+          key={index}
+          value={name}
+          style={isLastItem ? { borderBottom: "none" } : {}}
+        >
           <Accordion.Control>
             <Text size={25} fw={700}>
               {name}
@@ -80,44 +86,54 @@ function ExperienceCard(props: ExperienceCardProps) {
                     </List.Item>
                   ))}
                 </List>
-                {links[index] !== "" ? (
-                  <>
-                    <Flex direction="column" gap="md" align="center">
-                      {links[index].includes("linkedin") ? (
-                        <Button
-                          variant="outline"
-                          radius="xl"
-                          leftIcon={<IconBrandLinkedin size={15} />}
-                          rightIcon={<IconExternalLink size={15} />}
-                          onClick={() => window.open(links[index], "_blank")}
-                        >
-                          LinkedIn
-                        </Button>
-                      ) : links[index].includes("github") ? (
-                        <Button
-                          variant="outline"
-                          radius="xl"
-                          leftIcon={<IconBrandGithub size={15} />}
-                          rightIcon={<IconExternalLink size={15} />}
-                          onClick={() => window.open(links[index], "_blank")}
-                        >
-                          GitHub
-                        </Button>
-                      ) : (
-                        <Button
-                          variant="outline"
-                          radius="xl"
-                          rightIcon={<IconExternalLink size={15} />}
-                          onClick={() => window.open(links[index], "_blank")}
-                        >
-                          Link
-                        </Button>
-                      )}
-                    </Flex>
-                  </>
-                ) : (
-                  <></>
-                )}
+                <Flex direction="row" gap="md" align="center">
+                  {links[index].map((link) => {
+                    return (
+                      <>
+                        {link.includes("linkedin") ? (
+                          <Button
+                            variant="outline"
+                            radius="xl"
+                            leftIcon={<IconBrandLinkedin size={15} />}
+                            rightIcon={<IconExternalLink size={15} />}
+                            onClick={() => window.open(link, "_blank")}
+                          >
+                            LinkedIn
+                          </Button>
+                        ) : link.includes("github") ? (
+                          <Button
+                            variant="outline"
+                            radius="xl"
+                            leftIcon={<IconBrandGithub size={15} />}
+                            rightIcon={<IconExternalLink size={15} />}
+                            onClick={() => window.open(link, "_blank")}
+                          >
+                            GitHub
+                          </Button>
+                        ) : link.includes("figma") ? (
+                          <Button
+                            variant="outline"
+                            radius="xl"
+                            leftIcon={<IconBrandFigma size={15} />}
+                            rightIcon={<IconExternalLink size={15} />}
+                            onClick={() => window.open(link, "_blank")}
+                          >
+                            Figma
+                          </Button>
+                        ) : (
+                          <Button
+                            variant="outline"
+                            radius="xl"
+                            rightIcon={<IconExternalLink size={15} />}
+                            onClick={() => window.open(link, "_blank")}
+                          >
+                            Link
+                          </Button>
+                        )}
+                      </>
+                    );
+                  })}
+                </Flex>
               </Stack>
             </Flex>
           </Accordion.Panel>

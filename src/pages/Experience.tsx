@@ -4,6 +4,7 @@ import jhu_icon from "../assets/jhu_icon.png";
 import milemarker from "../assets/milemarker.png";
 import mySev from "../assets/mySev.png";
 import blue_jay from "../assets/blue_jay.png";
+import dash_icon from "../assets/dash_icon.png";
 
 function Experience() {
   const theme = useMantineTheme();
@@ -28,15 +29,17 @@ function Experience() {
           "Project CAAMS – JHU CS Department Course Assistant Application System",
           "Wealth, Health, and Racial Inequality",
           "HopReview - JHU Course Review Application",
+          "Linear Regression Web Tool",
         ]}
         descriptions={[
           "Data Science & Software Engineering Intern",
-          "Automata and Computation Theory Course Assistant / Mathematical Foundations for Computer Science Lead Course Assistant",
+          "Automata and Computation Theory Course Assistant \n\n Mathematical Foundations for Computer Science Lead Course Assistant",
           "Study Consultant",
           "AI & Machine Learning Workshop Instructor",
           "Full-stack Developer / Front-end Lead (PERN Stack)",
           "Front-end Developer (React)",
-          "Android Developer",
+          "Android Developer (Java)",
+          "Front-end Developer (Dash)",
         ]}
         startDates={[
           "June 2022",
@@ -45,6 +48,7 @@ function Experience() {
           "August 2021",
           "Fall 2022",
           "Fall 2022",
+          "Spring 2022",
           "Spring 2022",
         ]}
         endDates={[
@@ -55,15 +59,17 @@ function Experience() {
           "Present",
           "Fall 2022",
           "Spring 2022",
+          "Spring 2022",
         ]}
         locations={[
           "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
           "Turkey (Remote)",
-          "United States / DC – Baltimore Area", // Location not specified, leave empty or add a location if available
-          "United States / DC – Baltimore Area", // Location not specified, leave empty or add a location if available
-          "United States / DC – Baltimore Area", // Location not specified, leave empty or add a location if available
+          "United States / DC – Baltimore Area",
+          "United States / DC – Baltimore Area",
+          "United States / DC – Baltimore Area",
+          "United States / DC – Baltimore Area",
         ]}
         skills={[
           [
@@ -101,6 +107,11 @@ function Experience() {
             "Worked in an Agile development team",
             "Created mock datasets and integrated front-end and back-end",
           ],
+          [
+            "Used Dash to create a single page web application for linear regression",
+            "Engaged in data visualizations",
+            "Documented development process and user guide",
+          ],
         ]}
         images={[
           milemarker, // Add image paths or URLs here
@@ -110,15 +121,23 @@ function Experience() {
           jhu_icon,
           jhu_icon,
           blue_jay,
+          dash_icon,
         ]}
         links={[
-          "http://milemarker.me/", // Add project links or repository URLs here
-          "",
-          "https://academicsupport.jhu.edu/study-consulting/",
-          "https://www.linkedin.com/company/mysev-bootcamp/",
-          "https://www.linkedin.com/company/jhu-collab/mycompany/",
-          "https://github.com/EgeSythn/hci_project_2",
-          "https://github.com/HopReview/HopReview",
+          ["http://milemarker.me/"], // Add project links or repository URLs here
+          [],
+          ["https://academicsupport.jhu.edu/study-consulting/"],
+          ["https://www.linkedin.com/company/mysev-bootcamp/"],
+          ["https://www.linkedin.com/company/jhu-collab/mycompany/"],
+          ["https://github.com/EgeSythn/hci_project_2"],
+          [
+            "https://github.com/HopReview/HopReview",
+            "https://www.figma.com/file/ryJtpAtK2IzIzZgqsswa1Q/T2?node-id=0%3A1&t=HMfJauiKtIyrodYA-1",
+          ],
+          [
+            "https://github.com/ayousuf23/ai-final-project",
+            "https://linear-regression-viz.herokuapp.com/",
+          ],
         ]}
       />
     </Container>

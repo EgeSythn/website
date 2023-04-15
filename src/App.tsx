@@ -11,6 +11,7 @@ const Home = Loadable(lazy(() => import("./pages/Home")));
 const Education = Loadable(lazy(() => import("./pages/Education")));
 const Experience = Loadable(lazy(() => import("./pages/Experience")));
 const Bonus = Loadable(lazy(() => import("./pages/Bonus")));
+const Tools = Loadable(lazy(() => import("./pages/Tools")));
 
 function App() {
   const { colorScheme, toggleColorScheme } = useStoredTheme();
@@ -31,6 +32,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="education" element={<Education />} />
               <Route path="experience" element={<Experience />} />
+              <Route path="tools" element={<Tools />} />
               <Route path="bonus" element={<Bonus />} />
             </Route>
             <Route path="*" element={<NotFound />} />

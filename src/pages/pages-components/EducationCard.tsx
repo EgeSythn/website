@@ -7,6 +7,7 @@ import {
   Accordion,
   Text,
   Button,
+  Title,
   Badge,
   Group,
 } from "@mantine/core";
@@ -168,17 +169,30 @@ function EducationCard(props: EducationCardProps) {
 
   return (
     <Container style={{ paddingTop: "5%" }}>
+      <Title order={2} style={{ paddingBottom: "2.5%" }}>
+        College
+      </Title>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Accordion multiple={true} defaultValue={[institution]} defaultChecked>
-          <Accordion.Item value={institution}>
+          <Accordion.Item value={institution} style={{ borderBottom: "none" }}>
             <Accordion.Control>{institution_control}</Accordion.Control>
             <Accordion.Panel>{institution_panel}</Accordion.Panel>
           </Accordion.Item>
+        </Accordion>
+      </Card>
+      <Title order={2} style={{ paddingTop: "5%", paddingBottom: "2.5%" }}>
+        Skills & Certifications
+      </Title>
+      <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Accordion multiple={true} defaultValue={["Skills"]}>
           <Accordion.Item value="Skills">
             <Accordion.Control>{skills_control}</Accordion.Control>
             <Accordion.Panel>{skills_panel}</Accordion.Panel>
           </Accordion.Item>
-          <Accordion.Item value="Certifications">
+          <Accordion.Item
+            value="Certifications"
+            style={{ borderBottom: "none" }}
+          >
             <Accordion.Control>{certifications_control}</Accordion.Control>
             <Accordion.Panel>{certifications_panel}</Accordion.Panel>
           </Accordion.Item>

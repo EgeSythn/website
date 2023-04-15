@@ -16,9 +16,10 @@ import {
   Flex,
 } from "@mantine/core";
 import {
-  IconGift,
   IconSun,
   IconHome,
+  IconTool,
+  IconGift,
   IconBackpack,
   IconMoonStars,
   IconBrandGithub,
@@ -140,6 +141,7 @@ const data = [
   { name: "Home", icon: IconHome, to: "/" },
   { name: "Education", icon: IconBackpack, to: "/education" },
   { name: "Experience", icon: IconBrandGithub, to: "/experience" },
+  { name: "Tools", icon: IconTool, to: "/tools" },
   { name: "Bonus", icon: IconGift, to: "/bonus" },
 ];
 
