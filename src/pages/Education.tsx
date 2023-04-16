@@ -36,7 +36,15 @@ function Education() {
     },
     {
       name: "Other Programming Knowledge",
-      skills: ["Java", "C", "C++", "Ruby", "Shell Script", "Git", "GitHub Actions"],
+      skills: [
+        "Java",
+        "C",
+        "C++",
+        "Ruby",
+        "Shell Script",
+        "Git",
+        "GitHub Actions",
+      ],
       note: "",
     },
     { name: "Operating Systems", skills: ["Windows", "Linux"], note: "" },

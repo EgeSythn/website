@@ -100,7 +100,8 @@ function ExperienceCard(props: ExperienceCardProps) {
                           >
                             LinkedIn
                           </Button>
-                        ) : link.includes("github") ? (
+                        ) : link.includes("github") &&
+                          !link.includes("egesythn") ? (
                           <Button
                             variant="outline"
                             radius="xl"

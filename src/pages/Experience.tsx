@@ -129,7 +129,10 @@ function Experience() {
           ["https://academicsupport.jhu.edu/study-consulting/"],
           ["https://www.linkedin.com/company/mysev-bootcamp/"],
           ["https://www.linkedin.com/company/jhu-collab/mycompany/"],
-          ["https://github.com/EgeSythn/hci_project_2", "https://egesythn.github.io/hci_project_2/"],
+          [
+            "https://github.com/EgeSythn/hci_project_2",
+            "https://egesythn.github.io/hci_project_2/",
+          ],
           [
             "https://github.com/HopReview/HopReview",
             "https://www.figma.com/file/ryJtpAtK2IzIzZgqsswa1Q/T2?node-id=0%3A1&t=HMfJauiKtIyrodYA-1",
