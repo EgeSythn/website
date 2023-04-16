@@ -36,10 +36,10 @@ function Experience() {
           ["Mathematical Foundations for Computer Science Lead Course Assistant", "Automata and Computation Theory Course Assistant"],
           ["Study Consultant"],
           ["AI & Machine Learning Workshop Instructor"],
-          ["Front-end Lead", "Full-stack Developer (PERN Stack)"],
-          ["Front-end Developer (React)"],
+          ["Front-End Lead", "Full-Stack Developer (PERN Stack)"],
+          ["Front-End Developer (React)"],
           ["Android Developer (Java)"],
-          ["Front-end Developer (Dash)"],
+          ["Front-End Developer (Dash)"],
         ]}
         startDates={[
           "June 2022",
