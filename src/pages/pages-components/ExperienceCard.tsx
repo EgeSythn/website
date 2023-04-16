@@ -19,13 +19,13 @@ import {
 
 interface ExperienceCardProps {
   names: string[];
-  descriptions: string[];
+  descriptions: string[][];
   startDates: string[];
   endDates: string[];
   locations: string[];
   skills: string[][];
-  images: string[]; // path to image
-  links: string[][]; // array of links
+  images: string[];
+  links: string[][];
 }
 
 function ExperienceCard(props: ExperienceCardProps) {
@@ -73,9 +73,13 @@ function ExperienceCard(props: ExperienceCardProps) {
                 <Text size={15} fw={600}>
                   Role:
                 </Text>
-                <Text size={15} fw={400} style={{ paddingLeft: "5%" }}>
-                  {descriptions[index]}
-                </Text>
+                <List style={{ paddingLeft: "2.5%" }}>
+                  {descriptions[index].map((description, index) => (
+                    <List.Item key={index} fw={400}>
+                      {description}
+                    </List.Item>
+                  ))}
+                </List>
                 <Text size={15} fw={600}>
                   Skills:
                 </Text>

@@ -32,14 +32,14 @@ function Experience() {
           "Linear Regression Web Tool",
         ]}
         descriptions={[
-          "Data Science & Software Engineering Intern",
-          "Automata and Computation Theory Course Assistant \n\n Mathematical Foundations for Computer Science Lead Course Assistant",
-          "Study Consultant",
-          "AI & Machine Learning Workshop Instructor",
-          "Full-stack Developer / Front-end Lead (PERN Stack)",
-          "Front-end Developer (React)",
-          "Android Developer (Java)",
-          "Front-end Developer (Dash)",
+          ["Data Science & Software Engineering Intern"],
+          ["Automata and Computation Theory Course Assistant", "Mathematical Foundations for Computer Science Lead Course Assistant"],
+          ["Study Consultant"],
+          ["AI & Machine Learning Workshop Instructor"],
+          ["Front-end Lead", "Full-stack Developer(PERN Stack)"],
+          ["Front-end Developer (React)"],
+          ["Android Developer (Java)"],
+          ["Front-end Developer (Dash)"],
         ]}
         startDates={[
           "June 2022",
@@ -114,7 +114,7 @@ function Experience() {
           ],
         ]}
         images={[
-          milemarker, // Add image paths or URLs here
+          milemarker,
           jhu_icon,
           jhu_icon,
           mySev,
@@ -124,7 +124,7 @@ function Experience() {
           dash_icon,
         ]}
         links={[
-          ["http://milemarker.me/"], // Add project links or repository URLs here
+          ["http://milemarker.me/"],
           [],
           ["https://academicsupport.jhu.edu/study-consulting/"],
           ["https://www.linkedin.com/company/mysev-bootcamp/"],
