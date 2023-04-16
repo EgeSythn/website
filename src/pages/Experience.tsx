@@ -32,11 +32,11 @@ function Experience() {
           "Linear Regression Web Tool",
         ]}
         descriptions={[
-          ["Data Science & Software Engineering Intern"],
-          ["Automata and Computation Theory Course Assistant", "Mathematical Foundations for Computer Science Lead Course Assistant"],
+          ["Data Science Intern", " Full-Stack Software Engineering Intern"],
+          ["Mathematical Foundations for Computer Science Lead Course Assistant", "Automata and Computation Theory Course Assistant"],
           ["Study Consultant"],
           ["AI & Machine Learning Workshop Instructor"],
-          ["Front-end Lead", "Full-stack Developer(PERN Stack)"],
+          ["Front-end Lead", "Full-stack Developer (PERN Stack)"],
           ["Front-end Developer (React)"],
           ["Android Developer (Java)"],
           ["Front-end Developer (Dash)"],
