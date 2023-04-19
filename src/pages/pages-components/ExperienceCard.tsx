@@ -131,7 +131,8 @@ function ExperienceCard(props: ExperienceCardProps) {
                           <Button
                             variant="outline"
                             radius="xl"
-                            rightIcon={<IconBrandYoutube size={15} />}
+                            leftIcon={<IconBrandYoutube size={15} />}
+                            rightIcon={<IconExternalLink size={15} />}
                             onClick={() => window.open(link, "_blank")}
                           >
                             Video
@@ -140,7 +141,8 @@ function ExperienceCard(props: ExperienceCardProps) {
                           <Button
                             variant="outline"
                             radius="xl"
-                            rightIcon={<IconBrandGoogleDrive size={15} />}
+                            leftIcon={<IconBrandGoogleDrive size={15} />}
+                            rightIcon={<IconExternalLink size={15} />}
                             onClick={() => window.open(link, "_blank")}
                           >
                             File
