@@ -15,6 +15,8 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandFigma,
+  IconBrandYoutube,
+  IconBrandGoogleDrive,
 } from "@tabler/icons-react";
 
 interface ExperienceCardProps {
@@ -124,6 +126,24 @@ function ExperienceCard(props: ExperienceCardProps) {
                             onClick={() => window.open(link, "_blank")}
                           >
                             Figma
+                          </Button>
+                        ) : link.includes("youtu") ? (
+                          <Button
+                            variant="outline"
+                            radius="xl"
+                            rightIcon={<IconBrandYoutube size={15} />}
+                            onClick={() => window.open(link, "_blank")}
+                          >
+                            Video
+                          </Button>
+                        ) : link.includes("drive") ? (
+                          <Button
+                            variant="outline"
+                            radius="xl"
+                            rightIcon={<IconBrandGoogleDrive size={15} />}
+                            onClick={() => window.open(link, "_blank")}
+                          >
+                            File
                           </Button>
                         ) : (
                           <Button

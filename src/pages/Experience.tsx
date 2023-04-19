@@ -5,6 +5,7 @@ import milemarker from "../assets/milemarker.png";
 import mySev from "../assets/mySev.png";
 import blue_jay from "../assets/blue_jay.png";
 import dash_icon from "../assets/dash_icon.png";
+import ux_ui from "../assets/ux_ui.png";
 
 function Experience() {
   const theme = useMantineTheme();
@@ -30,6 +31,7 @@ function Experience() {
           "Wealth, Health, and Racial Inequality",
           "HopReview - JHU Course Review Application",
           "Linear Regression Web Tool",
+          "UI/UX User Research"
         ]}
         descriptions={[
           ["Data Science Intern", " Full-Stack Software Engineering Intern"],
@@ -40,6 +42,7 @@ function Experience() {
           ["Front-End Developer (React)"],
           ["Android Developer (Java)"],
           ["Front-End Developer (Dash)"],
+          ["User Researcher"],
         ]}
         startDates={[
           "June 2022",
@@ -50,6 +53,7 @@ function Experience() {
           "Fall 2022",
           "Spring 2022",
           "Spring 2022",
+          "Fall 2022",
         ]}
         endDates={[
           "August 2022",
@@ -60,12 +64,14 @@ function Experience() {
           "Fall 2022",
           "Spring 2022",
           "Spring 2022",
+          "Fall 2022",
         ]}
         locations={[
           "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
           "Turkey (Remote)",
+          "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
           "United States / DC – Baltimore Area",
@@ -112,6 +118,10 @@ function Experience() {
             "Engaged in data visualizations",
             "Documented development process and user guide",
           ],
+          [
+            "Conducted user research to identify user needs, and usability issues",
+            "Redesigned the user interface of a mobile application based on identified problems",
+          ],
         ]}
         images={[
           milemarker,
@@ -122,6 +132,7 @@ function Experience() {
           jhu_icon,
           blue_jay,
           dash_icon,
+          ux_ui
         ]}
         links={[
           ["http://milemarker.me/"],
@@ -141,6 +152,11 @@ function Experience() {
             "https://github.com/ayousuf23/ai-final-project",
             "https://linear-regression-viz.herokuapp.com/",
           ],
+          [
+            "https://drive.google.com/file/d/1YLCfANaG2aGdH_h_-4kYBBSpzVSyHphx/view?usp=sharing",
+            "https://drive.google.com/file/d/1RUWAHOjEMQJTO_-D-y-gpxwt3p4e09ek/view?usp=sharing",
+            "https://youtu.be/D6jiUJfigZY",
+          ]
         ]}
       />
     </Container>
