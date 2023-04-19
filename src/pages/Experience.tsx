@@ -31,11 +31,14 @@ function Experience() {
           "Wealth, Health, and Racial Inequality",
           "HopReview - JHU Course Review Application",
           "Linear Regression Web Tool",
-          "UI/UX User Research"
+          "UI/UX User Research",
         ]}
         descriptions={[
           ["Data Science Intern", " Full-Stack Software Engineering Intern"],
-          ["Mathematical Foundations for Computer Science Lead Course Assistant", "Automata and Computation Theory Course Assistant"],
+          [
+            "Mathematical Foundations for Computer Science Lead Course Assistant",
+            "Automata and Computation Theory Course Assistant",
+          ],
           ["Study Consultant"],
           ["AI & Machine Learning Workshop Instructor"],
           ["Front-End Lead", "Full-Stack Developer (PERN Stack)"],
@@ -132,7 +135,7 @@ function Experience() {
           jhu_icon,
           blue_jay,
           dash_icon,
-          ux_ui
+          ux_ui,
         ]}
         links={[
           ["http://milemarker.me/"],
@@ -156,7 +159,7 @@ function Experience() {
             "https://drive.google.com/file/d/1YLCfANaG2aGdH_h_-4kYBBSpzVSyHphx/view?usp=sharing",
             "https://drive.google.com/file/d/1RUWAHOjEMQJTO_-D-y-gpxwt3p4e09ek/view?usp=sharing",
             "https://youtu.be/D6jiUJfigZY",
-          ]
+          ],
         ]}
       />
     </Container>
