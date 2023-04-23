@@ -152,7 +152,7 @@ function Experience() {
             "https://www.figma.com/file/ryJtpAtK2IzIzZgqsswa1Q/T2?node-id=0%3A1&t=HMfJauiKtIyrodYA-1",
           ],
           [
-            "https://github.com/ayousuf23/ai-final-project",
+            "https://github.com/ai-crew/ai-final-project",
             "https://linear-regression-viz.herokuapp.com/",
           ],
           [

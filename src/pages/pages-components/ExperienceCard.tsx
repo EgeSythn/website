@@ -10,6 +10,7 @@ import {
   Stack,
   Title,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import {
   IconExternalLink,
   IconBrandGithub,
@@ -70,6 +71,7 @@ function ExperienceCard(props: ExperienceCardProps) {
                 radius="md"
                 src={images[index]}
                 style={{ paddingRight: "2.5%" }}
+                hidden={useMediaQuery("(max-width: 600px)")}
               />
               <Stack align="flex-start">
                 <Text size={15} fw={600}>
