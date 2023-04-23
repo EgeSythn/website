@@ -43,12 +43,7 @@ function Bonus() {
               🛸Space Invaders🛸
             </Text>
           </Center>
-          <Image
-            src={spaceinvader} // Replace with the desired image URL
-            fit="cover"
-            height="20%"
-            radius={10}
-          />
+          <Image src={spaceinvader} fit="cover" height="20%" radius={10} />
           <Stack spacing="xs" style={{ paddingTop: "5%" }}>
             <Text fw={500} style={{ paddingBottom: "0.5%" }}>
               &emsp;&emsp;As a little gift for you, you can play Space Invaders,

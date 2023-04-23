@@ -11,6 +11,7 @@ import {
   Badge,
   Group,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import {
   IconPencil,
   IconBackpack,
@@ -46,7 +47,7 @@ function EducationCard(props: EducationCardProps) {
   const institution_control = (
     <>
       <Flex direction="row" gap="md" align="center">
-        <IconBackpack size={25} />
+        {useMediaQuery("(min-width: 600px)") && <IconBackpack size={25} />}
         <Text size={25} fw={700}>
           {institution}
         </Text>
@@ -61,6 +62,7 @@ function EducationCard(props: EducationCardProps) {
         radius="md"
         src={image}
         style={{ paddingRight: "2.5%" }}
+        hidden={useMediaQuery("(max-width: 600px)")}
       />
       <Stack align="flex-start">
         <Text size={15} fw={500}>
@@ -82,7 +84,7 @@ function EducationCard(props: EducationCardProps) {
   const skills_control = (
     <>
       <Flex direction="row" gap="md" align="center">
-        <IconPencil size={25} />
+        {useMediaQuery("(min-width: 600px)") && <IconPencil size={25} />}
         <Text size={25} fw={700}>
           Skills
         </Text>
@@ -132,7 +134,7 @@ function EducationCard(props: EducationCardProps) {
 
   const certifications_control = (
     <Flex direction="row" gap="md" align="center">
-      <IconCertificate size={25} />
+      {useMediaQuery("(min-width: 600px)") && <IconCertificate size={25} />}
       <Text size={25} fw={700}>
         Kaggle Certifications
       </Text>
