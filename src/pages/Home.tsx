@@ -89,9 +89,10 @@ function Home() {
             rights. If you have any questions, feel free to contact me!
           </Text>
           <Text size={18} style={{ lineHeight: "1.6", marginBottom: "24px" }}>
-             If you are a recruiter, and want to access my detailed resume or
-            transcript, please fill out the form below and I will get back to
-            you as soon as possible. Thank you!
+            &emsp;If you are a recruiter, and want to access my detailed resume,
+            transcript, or any other additional information, please fill out the
+            form below and I will get back to you as soon as possible. Thank
+            you!
           </Text>
         </Grid.Col>
       </Grid>
