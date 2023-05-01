@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Paper } from "@mantine/core";
-import { Transition } from "@mantine/core";
 
 interface SideDrawerProps {
   side: "left" | "right";
-  content: any;
-  children: any;
+  content: React.ReactNode;
+  children: React.ReactNode;
 }
 
 function SideDrawer(props: SideDrawerProps) {
@@ -18,15 +17,16 @@ function SideDrawer(props: SideDrawerProps) {
   const drawerStyle: any = {
     position: "absolute",
     top: 0,
+    left: 20,
     bottom: 0,
     width: "100%",
-    overflow: "hidden",
-    zIndex: 1,
-    transform: isOpen
+    zIndex: isOpen ? 1 : 0,
+    transform: !isOpen
       ? "translateX(0)"
       : `translateX(${props.side === "right" ? "100%" : "-100%"})`,
-    transition: "transform 200ms ease",
+    transition: "transform 200ms ease, visibility 100ms",
     boxShadow: isOpen ? "rgba(0, 0, 0, 0.1) 0px 4px 12px" : "none",
+    visibility: isOpen ? "visible" : "hidden",
   };
 
   return (
