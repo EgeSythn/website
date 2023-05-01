@@ -3,15 +3,24 @@ import {
   Title,
   Divider,
   useMantineTheme,
+  Card,
+  Accordion,
   Image,
   Stack,
   Text,
 } from "@mantine/core";
-import ProjectCard from "./pages-components/ProjectCard";
 import hard_hat from "../assets/hard_hat.png";
+import SideDrawer from "./pages-components/SideDrawer";
 
 function Tools() {
   const theme = useMantineTheme();
+
+  const content = (
+    <div>
+      <h1>Drawer Content</h1>
+      <p>Here is the content of your custom drawer!</p>
+    </div>
+  );
 
   return (
     <Container style={{ paddingTop: "2.5%" }}>
@@ -38,6 +47,19 @@ function Tools() {
           </a>
         </Text>
       </Stack>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <SideDrawer side="right" content={content}>
+          <h3>Click me</h3>
+        </SideDrawer>
+      </div>
     </Container>
   );
 }
