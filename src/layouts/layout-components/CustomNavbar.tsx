@@ -13,7 +13,6 @@ import {
   Flex,
   Center,
   useMantineTheme,
-  Divider,
 } from "@mantine/core";
 import {
   IconSun,
@@ -154,19 +153,18 @@ const useStyles = createStyles((theme) => ({
     position: "absolute",
     width: "30px",
     height: "30px",
-    bottom: "110%",
-    left: "calc(50% - 10px)",
-    transformOrigin: "center bottom",
-  },
-  
-  time: {
-    position: 'absolute',
-    top: '75%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    color: theme.colorScheme === "dark" ? theme.colors.blue[0] : theme.colors.dark[7],
   },
 
+  time: {
+    position: "absolute",
+    top: "75%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.blue[0]
+        : theme.colors.dark[7],
+  },
 }));
 
 const data = [
@@ -183,13 +181,14 @@ interface CustomNavbarProps {
 
 function CustomNavbar(props: CustomNavbarProps) {
   const { classes, cx } = useStyles();
-  const theme = useMantineTheme();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
   const location = useLocation();
   const [timeOfDay, setTimeOfDay] = useState<number>(new Date().getHours());
-  const [currentMinutes, setCurrentMinutes] = useState<number>(new Date().getMinutes());
+  const [currentMinutes, setCurrentMinutes] = useState<number>(
+    new Date().getMinutes()
+  );
   const [isDay, setIsDay] = useState<boolean>(
-    timeOfDay >= 6 && timeOfDay <= 18
+    timeOfDay >= 8 && timeOfDay <= 20
   );
   const [active, setActive] = useState(() => {
     const pathname = location.pathname;
@@ -199,7 +198,7 @@ function CustomNavbar(props: CustomNavbarProps) {
 
   useEffect(() => {
     setTimeOfDay(new Date().getHours());
-    setIsDay(timeOfDay >= 6 && timeOfDay <= 18);
+    setIsDay(timeOfDay >= 8 && timeOfDay <= 20);
   }, [new Date().getHours()]);
 
   useEffect(() => {
@@ -208,13 +207,12 @@ function CustomNavbar(props: CustomNavbarProps) {
       const currentHour = currentDate.getHours();
       const currentMinute = currentDate.getMinutes();
       setTimeOfDay((prevTimeOfDay) => currentHour);
-      setIsDay((prevIsDay) => currentHour >= 6 && currentHour < 18);
+      setIsDay((prevIsDay) => currentHour >= 8 && currentHour < 20);
       setCurrentMinutes((prevCurrentMinutes) => currentMinute);
-    }, 1000); 
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
-
 
   useEffect(() => {
     const label = data.find((item) => item.to === location.pathname)?.name;
@@ -227,7 +225,7 @@ function CustomNavbar(props: CustomNavbarProps) {
       align="center"
       style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}
     >
-      {timeOfDay < 12
+      {timeOfDay < 12 && timeOfDay >= 5
         ? "Good Morning"
         : timeOfDay < 17
         ? "Good Afternoon"
@@ -316,32 +314,53 @@ function CustomNavbar(props: CustomNavbarProps) {
     );
   };
 
+  const image = () => {
+    let degree = isDay
+      ? ((timeOfDay - 8) / 12) * 180
+      : (((timeOfDay + 8) % 24) / 12) * 180;
+
+    let theta = (degree / 180) * Math.PI;
+    let radius = 100;
+    let newX = radius * (1 - Math.cos(theta)) - 15;
+    let newY = radius * Math.sin(theta) - 15;
+
+    return (
+      <>
+        <img
+          src={isDay ? sunny : moon}
+          className={classes.overlayImage}
+          style={{
+            left: `${newX}px`,
+            bottom: `${newY}px`,
+          }}
+          alt="time of day"
+        />
+      </>
+    );
+  };
+
   const topSection = () => {
     return (
       <>
         {darkMode()}
         <Center>
           <div className={classes.halfCircle}>
-            <img
-              src={isDay ? sunny : moon}
-              className={classes.overlayImage}
-              style={{
-                transform: `rotate(${
-                  isDay
-                    ? ((timeOfDay - 6) / 12) * 180
-                    : ((timeOfDay + 6) % 24 / 12) * 180
-                }deg)`,
-              }}
-              alt="time of day"
-            />
-          <div className={classes.time}>
-            {`${timeOfDay} : ${currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes}`}
-          </div>
+            {image()}
+
+            <div className={classes.time}>
+              {`${timeOfDay} : ${
+                currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes
+              }`}
+            </div>
           </div>
         </Center>
 
         {greeting}
-        <Stack style={{ paddingTop: "5%", paddingBottom: "5%" }} justify="center" align="center">
+        <Stack
+          style={{ paddingTop: "5%", paddingBottom: "5%" }}
+          justify="center"
+          align="center"
+        >
           {mediaButtons()}
           <a
             href="mailto:dev_seyithan@outlook.com?subject=Web Contact: <Enter Subject Here>"
