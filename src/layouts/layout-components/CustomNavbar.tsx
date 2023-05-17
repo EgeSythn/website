@@ -139,24 +139,34 @@ const useStyles = createStyles((theme) => ({
   halfCircle: {
     position: "relative",
     width: "200px",
-    height: "100px", 
-    border: theme.colorScheme === "dark" ? `2px solid ${theme.colors.blue[4]}` : `2px solid ${theme.colors.dark[4]}`,
-    borderRadius: "100px 100px 0 0", 
-    borderBottom: "0", 
-    background: "transparent", 
-    boxSizing: "border-box", 
+    height: "100px",
+    border:
+      theme.colorScheme === "dark"
+        ? `2px solid ${theme.colors.blue[4]}`
+        : `2px solid ${theme.colors.dark[4]}`,
+    borderRadius: "100px 100px 0 0",
+    borderBottom: "0",
+    background: "transparent",
+    boxSizing: "border-box",
   },
 
   overlayImage: {
     position: "absolute",
     width: "30px",
     height: "30px",
-    bottom: "110%", 
-    left: "calc(50% - 10px)", 
-    transformOrigin: "center bottom", 
-  }
+    bottom: "110%",
+    left: "calc(50% - 10px)",
+    transformOrigin: "center bottom",
+  },
   
-    
+  time: {
+    position: 'absolute',
+    top: '75%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    color: theme.colorScheme === "dark" ? theme.colors.blue[0] : theme.colors.dark[7],
+  },
+
 }));
 
 const data = [
@@ -177,7 +187,10 @@ function CustomNavbar(props: CustomNavbarProps) {
   const { colorScheme, toggleColorScheme } = useStoredTheme();
   const location = useLocation();
   const [timeOfDay, setTimeOfDay] = useState<number>(new Date().getHours());
-  const [isDay, setIsDay] = useState<boolean>(timeOfDay >= 6 && timeOfDay <= 18);
+  const [currentMinutes, setCurrentMinutes] = useState<number>(new Date().getMinutes());
+  const [isDay, setIsDay] = useState<boolean>(
+    timeOfDay >= 6 && timeOfDay <= 18
+  );
   const [active, setActive] = useState(() => {
     const pathname = location.pathname;
     const label = data.find((item) => item.to === pathname)?.name;
@@ -186,8 +199,22 @@ function CustomNavbar(props: CustomNavbarProps) {
 
   useEffect(() => {
     setTimeOfDay(new Date().getHours());
-    setIsDay(timeOfDay >= 6 && timeOfDay <= 18)
+    setIsDay(timeOfDay >= 6 && timeOfDay <= 18);
   }, [new Date().getHours()]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentDate = new Date();
+      const currentHour = currentDate.getHours();
+      const currentMinute = currentDate.getMinutes();
+      setTimeOfDay((prevTimeOfDay) => currentHour);
+      setIsDay((prevIsDay) => currentHour >= 6 && currentHour < 18);
+      setCurrentMinutes((prevCurrentMinutes) => currentMinute);
+    }, 1000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
 
   useEffect(() => {
     const label = data.find((item) => item.to === location.pathname)?.name;
@@ -195,7 +222,11 @@ function CustomNavbar(props: CustomNavbarProps) {
   }, [location.pathname]);
 
   const greeting = (
-    <Title order={3} align="center" style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}>
+    <Title
+      order={3}
+      align="center"
+      style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}
+    >
       {timeOfDay < 12
         ? "Good Morning"
         : timeOfDay < 17
@@ -291,26 +322,26 @@ function CustomNavbar(props: CustomNavbarProps) {
         {darkMode()}
         <Center>
           <div className={classes.halfCircle}>
-          <img 
-            src={isDay ? sunny : moon} 
-            className={classes.overlayImage} 
-            style={{ 
-              transform: `rotate(${isDay ? ((timeOfDay - 6) / 12) * 180 : ((timeOfDay < 18 ? timeOfDay + 6 : timeOfDay - 18) / 12) * 180}deg)` 
-            }}             
-            alt="time of day"
-          />
+            <img
+              src={isDay ? sunny : moon}
+              className={classes.overlayImage}
+              style={{
+                transform: `rotate(${
+                  isDay
+                    ? ((timeOfDay - 6) / 12) * 180
+                    : ((timeOfDay + 6) % 24 / 12) * 180
+                }deg)`,
+              }}
+              alt="time of day"
+            />
+          <div className={classes.time}>
+            {`${timeOfDay} : ${currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes}`}
+          </div>
           </div>
         </Center>
+
         {greeting}
-        <Divider
-          style={{ marginTop: "1.5%" }}
-          color={
-            theme.colorScheme === "dark"
-              ? theme.colors.blue[1]
-              : theme.colors.blue[4]
-          }
-        />
-        <Stack style={{ paddingTop: "5%" }} justify="center" align="center">
+        <Stack style={{ paddingTop: "5%", paddingBottom: "5%" }} justify="center" align="center">
           {mediaButtons()}
           <a
             href="mailto:dev_seyithan@outlook.com?subject=Web Contact: <Enter Subject Here>"
@@ -318,7 +349,7 @@ function CustomNavbar(props: CustomNavbarProps) {
             rel="noopener noreferrer"
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            <Text weight={500} size="md" className={classes.title} mb="xs">
+            <Text weight={500} size="sm" className={classes.title} mb="xs">
               dev_seyithan@outlook.com
             </Text>
           </a>
@@ -344,14 +375,7 @@ function CustomNavbar(props: CustomNavbarProps) {
       >
         <div>
           <Navbar.Section>{topSection()}</Navbar.Section>
-          <Divider
-            style={{ marginTop: "1.5%", marginBottom: "5%" }}
-            color={
-              theme.colorScheme === "dark"
-                ? theme.colors.blue[1]
-                : theme.colors.blue[4]
-            }
-          />
+
           <Navbar.Section grow>
             {data.map((item, index) => (
               <NavLink
