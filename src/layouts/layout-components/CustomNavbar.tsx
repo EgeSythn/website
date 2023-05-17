@@ -7,25 +7,25 @@ import {
   Text,
   Stack,
   Group,
-  Center,
   Navbar,
-  Avatar,
   ActionIcon,
-  Tooltip,
   Title,
   Flex,
+  Center,
+  useMantineTheme,
+  Divider,
 } from "@mantine/core";
 import {
   IconSun,
   IconHome,
-  IconTool,
   IconGift,
   IconBackpack,
   IconMoonStars,
   IconBrandGithub,
   IconBrandLinkedin,
 } from "@tabler/icons-react";
-import panda from "../../assets/panda.png";
+import sunny from "../../assets/sunny.png";
+import moon from "../../assets/crescent-moon.png";
 import useStoredTheme from "../../hooks/useStoredTheme";
 
 const useStyles = createStyles((theme) => ({
@@ -135,25 +135,49 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.blue[4]
     }`,
   },
+
+  halfCircle: {
+    position: "relative",
+    width: "200px",
+    height: "100px", 
+    border: theme.colorScheme === "dark" ? `2px solid ${theme.colors.blue[4]}` : `2px solid ${theme.colors.dark[4]}`,
+    borderRadius: "100px 100px 0 0", 
+    borderBottom: "0", 
+    background: "transparent", 
+    boxSizing: "border-box", 
+  },
+
+  overlayImage: {
+    position: "absolute",
+    width: "30px",
+    height: "30px",
+    bottom: "110%", 
+    left: "calc(50% - 10px)", 
+    transformOrigin: "center bottom", 
+  }
+  
+    
 }));
 
 const data = [
   { name: "Home", icon: IconHome, to: "/" },
   { name: "Education", icon: IconBackpack, to: "/education" },
   { name: "Experience", icon: IconBrandGithub, to: "/experience" },
-  { name: "Tools", icon: IconTool, to: "/tools" },
   { name: "Bonus", icon: IconGift, to: "/bonus" },
 ];
 
 interface CustomNavbarProps {
-  hidden: boolean;
+  opened: boolean;
   setOpened: Function;
 }
 
 function CustomNavbar(props: CustomNavbarProps) {
   const { classes, cx } = useStyles();
+  const theme = useMantineTheme();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
   const location = useLocation();
+  const [timeOfDay, setTimeOfDay] = useState<number>(new Date().getHours());
+  const [isDay, setIsDay] = useState<boolean>(timeOfDay >= 6 && timeOfDay <= 18);
   const [active, setActive] = useState(() => {
     const pathname = location.pathname;
     const label = data.find((item) => item.to === pathname)?.name;
@@ -161,19 +185,22 @@ function CustomNavbar(props: CustomNavbarProps) {
   });
 
   useEffect(() => {
+    setTimeOfDay(new Date().getHours());
+    setIsDay(timeOfDay >= 6 && timeOfDay <= 18)
+  }, [new Date().getHours()]);
+
+  useEffect(() => {
     const label = data.find((item) => item.to === location.pathname)?.name;
     setActive((label ? label : "Home") as string);
-    props.setOpened(false);
   }, [location.pathname]);
 
-  const time = new Date().getHours();
   const greeting = (
-    <Title order={3} align="center" style={{ paddingTop: "2.5%" }}>
-      {time < 12
+    <Title order={3} align="center" style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}>
+      {timeOfDay < 12
         ? "Good Morning"
-        : time < 17
+        : timeOfDay < 17
         ? "Good Afternoon"
-        : time < 19
+        : timeOfDay < 19
         ? "Good Evening"
         : "Good Night"}
     </Title>
@@ -209,21 +236,6 @@ function CustomNavbar(props: CustomNavbarProps) {
           )}
         </ActionIcon>
       </Group>
-    );
-  };
-
-  const label = () => {
-    return (
-      <>
-        <Center style={{ paddingBottom: "5%" }}>
-          <Title order={4}>Why No Profile Image?</Title>
-        </Center>
-        I appreacite your interest in seeing my image. While it's not cruical to
-        get to know me, a quick Google search should help you out.
-        <br />
-        <br />
-        Thank you for understanding and happy browsing!
-      </>
     );
   };
 
@@ -277,17 +289,28 @@ function CustomNavbar(props: CustomNavbarProps) {
     return (
       <>
         {darkMode()}
+        <Center>
+          <div className={classes.halfCircle}>
+          <img 
+            src={isDay ? sunny : moon} 
+            className={classes.overlayImage} 
+            style={{ 
+              transform: `rotate(${isDay ? ((timeOfDay - 6) / 12) * 180 : ((timeOfDay < 18 ? timeOfDay + 6 : timeOfDay - 18) / 12) * 180}deg)` 
+            }}             
+            alt="time of day"
+          />
+          </div>
+        </Center>
         {greeting}
+        <Divider
+          style={{ marginTop: "1.5%" }}
+          color={
+            theme.colorScheme === "dark"
+              ? theme.colors.blue[1]
+              : theme.colors.blue[4]
+          }
+        />
         <Stack style={{ paddingTop: "5%" }} justify="center" align="center">
-          <Tooltip
-            multiline
-            withArrow
-            width={220}
-            className={classes.tooltip}
-            label={label()}
-          >
-            <Avatar radius="xl" size="xl" src={panda} />
-          </Tooltip>
           {mediaButtons()}
           <a
             href="mailto:dev_seyithan@outlook.com?subject=Web Contact: <Enter Subject Here>"
@@ -304,29 +327,12 @@ function CustomNavbar(props: CustomNavbarProps) {
     );
   };
 
-  const bottomSection = () => {
-    return (
-      <Center>
-        <a
-          href="https://www.flaticon.com/free-icons/panda"
-          target="_blank"
-          title="panda icons"
-          style={{ textDecoration: "none", color: "white" }}
-        >
-          <Text size="xs" className={classes.text}>
-            Panda icon created by Freepik - Flaticon
-          </Text>
-        </a>
-      </Center>
-    );
-  };
-
   return (
     <Navbar
       width={{ sm: 300 }}
       p="md"
       className={classes.navbar}
-      style={{ display: props.hidden ? "none" : "block" }}
+      hidden={!props.opened}
     >
       <div
         style={{
@@ -338,6 +344,14 @@ function CustomNavbar(props: CustomNavbarProps) {
       >
         <div>
           <Navbar.Section>{topSection()}</Navbar.Section>
+          <Divider
+            style={{ marginTop: "1.5%", marginBottom: "5%" }}
+            color={
+              theme.colorScheme === "dark"
+                ? theme.colors.blue[1]
+                : theme.colors.blue[4]
+            }
+          />
           <Navbar.Section grow>
             {data.map((item, index) => (
               <NavLink
@@ -356,9 +370,6 @@ function CustomNavbar(props: CustomNavbarProps) {
             ))}
           </Navbar.Section>
         </div>
-        <Navbar.Section className={classes.footer}>
-          {bottomSection()}
-        </Navbar.Section>
       </div>
     </Navbar>
   );
