@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
 import { useMantineTheme, AppShell, Header, Burger } from "@mantine/core";
 import CustomNavbar from "./layout-components/CustomNavbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 function Shell() {
   const theme = useMantineTheme();
+  const location = useLocation();
   const [opened, setOpened] = useState(false);
   const [navbar, setNavbar] = useState(
     <CustomNavbar opened={opened} setOpened={setOpened} />
   );
+
+  useEffect(() => {
+    setOpened(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (opened) {

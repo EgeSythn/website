@@ -65,7 +65,7 @@ function ExperienceCard(props: ExperienceCardProps) {
             <Text fw={600}>{locations[index]}</Text>
           </Accordion.Control>
           <Accordion.Panel>
-            <Flex direction="row" align="flex-start">
+            <Flex direction="row" align="flex-start" wrap="wrap">
               <Image
                 maw={200}
                 radius="md"
@@ -94,7 +94,7 @@ function ExperienceCard(props: ExperienceCardProps) {
                     </List.Item>
                   ))}
                 </List>
-                <Flex direction="row" gap="md" align="center">
+                <Flex direction="row" gap="md" align="center" wrap="wrap">
                   {links[index].map((link) => {
                     return (
                       <>
