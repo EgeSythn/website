@@ -12,7 +12,6 @@ import {
   Title,
   Flex,
   Center,
-  useMantineTheme,
 } from "@mantine/core";
 import {
   IconSun,
@@ -24,7 +23,7 @@ import {
   IconBrandLinkedin,
 } from "@tabler/icons-react";
 import sunny from "../../assets/sunny.png";
-import moon from "../../assets/crescent-moon.png";
+import moon from "../../assets/moon.png";
 import useStoredTheme from "../../hooks/useStoredTheme";
 
 const useStyles = createStyles((theme) => ({
@@ -183,23 +182,20 @@ function CustomNavbar(props: CustomNavbarProps) {
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
   const location = useLocation();
-  const [timeOfDay, setTimeOfDay] = useState<number>(new Date().getHours());
+  const [timeOfDay, setTimeOfDay] = useState<number>(() => new Date().getHours());
   const [currentMinutes, setCurrentMinutes] = useState<number>(
-    new Date().getMinutes()
+      () => new Date().getMinutes()
   );
   const [isDay, setIsDay] = useState<boolean>(
-    timeOfDay >= 8 && timeOfDay <= 20
+      () => timeOfDay >= 8 && timeOfDay < 20
   );
+
   const [active, setActive] = useState(() => {
     const pathname = location.pathname;
     const label = data.find((item) => item.to === pathname)?.name;
     return (label ? label : "Home") as string;
   });
 
-  useEffect(() => {
-    setTimeOfDay(new Date().getHours());
-    setIsDay(timeOfDay >= 8 && timeOfDay <= 20);
-  }, [new Date().getHours()]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -225,11 +221,11 @@ function CustomNavbar(props: CustomNavbarProps) {
       align="center"
       style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}
     >
-      {timeOfDay < 12 && timeOfDay >= 5
+      {timeOfDay < 12 && timeOfDay >= 8
         ? "Good Morning"
         : timeOfDay < 17
         ? "Good Afternoon"
-        : timeOfDay < 19
+        : timeOfDay < 20
         ? "Good Evening"
         : "Good Night"}
     </Title>
@@ -317,7 +313,9 @@ function CustomNavbar(props: CustomNavbarProps) {
   const image = () => {
     let degree = isDay
       ? ((timeOfDay - 8) / 12) * 180
-      : (((timeOfDay + 8) % 24) / 12) * 180;
+      : (((timeOfDay + 4) % 24) / 12) * 180;
+
+    degree += currentMinutes * 0.25 ;
 
     let theta = (degree / 180) * Math.PI;
     let radius = 100;
