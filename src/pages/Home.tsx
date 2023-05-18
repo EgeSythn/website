@@ -8,6 +8,7 @@ import {
   Button,
   Grid,
 } from "@mantine/core";
+import { TypeAnimation } from "react-type-animation";
 import { IconExternalLink } from "@tabler/icons-react";
 import Map from "./pages-components/Map";
 
@@ -15,6 +16,19 @@ function Home() {
   const theme = useMantineTheme();
   return (
     <Container style={{ paddingTop: "2.5%" }}>
+      {/*<TypeAnimation
+        sequence={[
+          "Hi, I'm a student!",
+          1500,
+          "Hi, I'm an engineer!",
+          1500,
+          "Hi, I'm Ege!",
+        ]}
+        wrapper="span"
+        cursor={false}
+        repeat={0}
+        style={{ fontSize: "2.5rem", fontWeight: 700, display: "inline-block" }}
+      />*/}
       <Title order={1}>Welcome!</Title>
       <Divider
         style={{ marginTop: "1.5%" }}

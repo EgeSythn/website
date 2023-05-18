@@ -182,12 +182,14 @@ function CustomNavbar(props: CustomNavbarProps) {
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useStoredTheme();
   const location = useLocation();
-  const [timeOfDay, setTimeOfDay] = useState<number>(() => new Date().getHours());
-  const [currentMinutes, setCurrentMinutes] = useState<number>(
-      () => new Date().getMinutes()
+  const [timeOfDay, setTimeOfDay] = useState<number>(() =>
+    new Date().getHours()
+  );
+  const [currentMinutes, setCurrentMinutes] = useState<number>(() =>
+    new Date().getMinutes()
   );
   const [isDay, setIsDay] = useState<boolean>(
-      () => timeOfDay >= 8 && timeOfDay < 20
+    () => timeOfDay >= 8 && timeOfDay < 20
   );
 
   const [active, setActive] = useState(() => {
@@ -195,7 +197,6 @@ function CustomNavbar(props: CustomNavbarProps) {
     const label = data.find((item) => item.to === pathname)?.name;
     return (label ? label : "Home") as string;
   });
-
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -217,7 +218,7 @@ function CustomNavbar(props: CustomNavbarProps) {
 
   const greeting = (
     <Title
-      order={3}
+      order={5}
       align="center"
       style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}
     >
@@ -315,7 +316,7 @@ function CustomNavbar(props: CustomNavbarProps) {
       ? ((timeOfDay - 8) / 12) * 180
       : (((timeOfDay + 4) % 24) / 12) * 180;
 
-    degree += currentMinutes * 0.25 ;
+    degree += currentMinutes * 0.25;
 
     let theta = (degree / 180) * Math.PI;
     let radius = 100;
