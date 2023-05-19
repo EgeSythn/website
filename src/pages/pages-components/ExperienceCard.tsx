@@ -66,13 +66,14 @@ function ExperienceCard(props: ExperienceCardProps) {
           </Accordion.Control>
           <Accordion.Panel>
             <Flex direction="row" align="flex-start" wrap="wrap">
-              <Image
-                maw={200}
-                radius="md"
-                src={images[index]}
-                style={{ paddingRight: "2.5%" }}
-                hidden={useMediaQuery("(max-width: 600px)")}
-              />
+              {!useMediaQuery("(max-width: 600px)") && (
+                <Image
+                  maw={200}
+                  radius="md"
+                  src={images[index]}
+                  style={{ paddingRight: "2.5%" }}
+                />
+              )}
               <Stack align="flex-start">
                 <Text size={15} fw={600}>
                   Role:
