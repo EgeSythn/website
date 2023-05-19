@@ -30,8 +30,9 @@ const useStyles = createStyles((theme) => ({
   navbar: {
     backgroundColor:
       theme.colorScheme === "dark"
-        ? theme.colors.dark[7]
-        : theme.colors.blue[3],
+        ? theme.colors.dark[6]
+        : theme.colors.blue[4],
+    borderRight: "none",
   },
 
   link: {

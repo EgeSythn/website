@@ -1,19 +1,14 @@
 import { useState, useEffect } from "react";
 import { useMantineTheme, AppShell, Header, Burger } from "@mantine/core";
 import CustomNavbar from "./layout-components/CustomNavbar";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 function Shell() {
   const theme = useMantineTheme();
-  const location = useLocation();
   const [opened, setOpened] = useState(false);
   const [navbar, setNavbar] = useState(
     <CustomNavbar opened={opened} setOpened={setOpened} />
   );
-
-  useEffect(() => {
-    setOpened(false);
-  }, [location.pathname]);
 
   useEffect(() => {
     if (opened) {
@@ -41,8 +36,9 @@ function Shell() {
           style={{
             backgroundColor:
               theme.colorScheme === "dark"
-                ? theme.colors.dark[8]
-                : theme.colors.blue[0],
+                ? theme.colors.dark[6]
+                : theme.colors.blue[4],
+            borderBottom: "none",
           }}
         >
           <div
@@ -54,7 +50,7 @@ function Shell() {
                 setOpened((o) => !o);
               }}
               size="sm"
-              color={theme.colors.gray[6]}
+              color={theme.colors.gray[2]}
             />
           </div>
         </Header>
