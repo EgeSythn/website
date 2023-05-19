@@ -17,7 +17,7 @@ const localStorageMiddleware = {
 const useStoredTheme = create(
   persist(
     (set) => ({
-      colorScheme: "dark",
+      colorScheme: "light",
       toggleColorScheme: (value: ThemeState["toggleColorScheme"]) => {
         set((state: any) => ({
           colorScheme:
