@@ -121,9 +121,9 @@ function Home() {
       <div className={classes.section}>
         <TypeAnimation
           sequence={[
-            "I'm a student!",
+            "Hi, I'm a student!",
             1000,
-            "I'm an engineer!",
+            "Hi, I'm an engineer!",
             1000,
             "Hi, I'm Ege!",
           ]}
