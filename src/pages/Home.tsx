@@ -40,9 +40,9 @@ const useStyles = createStyles((theme) => ({
   },
   curve3: {
     position: "absolute",
-    height: "50px",
+    height: "225px",
     width: "100%",
-    top: 25,
+    top: 50,
     left: 0,
     right: 0,
   },
