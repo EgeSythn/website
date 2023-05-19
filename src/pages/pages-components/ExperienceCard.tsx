@@ -66,7 +66,7 @@ function ExperienceCard(props: ExperienceCardProps) {
           </Accordion.Control>
           <Accordion.Panel>
             <Flex direction="row" align="flex-start" wrap="wrap">
-              {useMediaQuery("(min-width: 600px)") && (
+              {!useMediaQuery("(max-width: 600px)") && (
                 <Image
                   maw={200}
                   radius="md"

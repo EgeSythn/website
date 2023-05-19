@@ -59,7 +59,7 @@ function EducationCard(props: EducationCardProps) {
 
   const institution_panel = (
     <Flex direction="row" align="flex-start">
-      {useMediaQuery("(min-width: 600px)") && (
+      {!useMediaQuery("(max-width: 600px)") && (
         <Image
           maw={200}
           radius="md"
