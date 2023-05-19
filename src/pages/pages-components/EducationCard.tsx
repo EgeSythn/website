@@ -25,6 +25,7 @@ interface EducationCardProps {
   study: string;
   startDate: string;
   endDate: string;
+  gpa: string;
   image: string;
   location: string;
   skills: { name: string; skills: string[]; note: string }[];
@@ -38,6 +39,7 @@ function EducationCard(props: EducationCardProps) {
     study,
     startDate,
     endDate,
+    gpa,
     image,
     location,
     skills,
@@ -76,6 +78,9 @@ function EducationCard(props: EducationCardProps) {
         </Text>
         <Text size={15} fw={500}>
           <strong>Attendance:</strong> {startDate} - {endDate}
+        </Text>
+        <Text size={15} fw={500}>
+          <strong>Graduating GPA:</strong> {gpa}
         </Text>
       </Stack>
     </Flex>

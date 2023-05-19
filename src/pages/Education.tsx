@@ -97,6 +97,7 @@ function Education() {
         study="Computer Science & Cognitive Science"
         startDate="August 2019"
         endDate="May 2023"
+        gpa={"3.75"}
         location="Baltimore, MD"
         image={jhu_icon}
         skills={skills}
