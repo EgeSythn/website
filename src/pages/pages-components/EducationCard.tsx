@@ -59,13 +59,14 @@ function EducationCard(props: EducationCardProps) {
 
   const institution_panel = (
     <Flex direction="row" align="flex-start">
-      <Image
-        maw={200}
-        radius="md"
-        src={image}
-        style={{ paddingRight: "2.5%" }}
-        hidden={useMediaQuery("(max-width: 600px)")}
-      />
+      {!useMediaQuery("(max-width: 600px)") && (
+        <Image
+          maw={200}
+          radius="md"
+          src={image}
+          style={{ paddingRight: "2.5%" }}
+        />
+      )}
       <Stack align="flex-start">
         <Text size={15} fw={500}>
           <strong>Degree:</strong> {degree}
