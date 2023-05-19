@@ -3,7 +3,6 @@ import {
   Container,
   Title,
   Text,
-  Divider,
   Center,
   Button,
   Grid,
@@ -12,6 +11,7 @@ import {
 import { TypeAnimation } from "react-type-animation";
 import { IconExternalLink } from "@tabler/icons-react";
 import Map from "./pages-components/Map";
+import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -115,6 +115,7 @@ const waveFront = (style: any) => {
 function Home() {
   const theme = useMantineTheme();
   const { classes, cx } = useStyles();
+
   return (
     <>
       <div className={classes.section}>{waveFront(classes.curve3)}</div>
