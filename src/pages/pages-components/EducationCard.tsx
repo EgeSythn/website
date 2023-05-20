@@ -31,7 +31,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface EducationCardProps {
   institution: string;
@@ -97,13 +97,13 @@ function EducationCard(props: EducationCardProps) {
     payload,
     label,
   }) => {
-    console.log(payload);
     if (active && payload && payload.length) {
       return (
         <div
           style={{
             backgroundColor: "#fff",
             border: "1px solid #999",
+            width: "100px",
             margin: "0 auto",
             padding: "10px",
             borderRadius: "10px",
@@ -126,23 +126,22 @@ function EducationCard(props: EducationCardProps) {
               <Text style={{ marginTop: "3px" }} size={14}></Text>
             )}
             {payload[1] ? (
-              <Text
-                style={{ marginTop: "3px" }}
-                size={14}
-              >{`Term GPA: ${payload[1].value}`}</Text>
+              <Text style={{ marginTop: "3px" }} size={14}>
+                <strong>Term GPA:</strong> <br /> {payload[1].value}
+              </Text>
             ) : (
               <Text style={{ marginTop: "3px" }} size={14}>
-                Term GPA: Not Applicable
+                <strong>Term GPA:</strong> <br /> Not Applicable
               </Text>
             )}
             {payload[0] ? (
-              <Text
-                style={{ marginTop: "3px" }}
-                size={14}
-              >{`Cumulative GPA: ${payload[0].value}`}</Text>
+              <Text style={{ marginTop: "3px" }} size={14}>
+                {" "}
+                <strong>Cumulative GPA:</strong> <br /> {payload[0].value}
+              </Text>
             ) : (
               <Text style={{ marginTop: "3px" }} size={14}>
-                Cumulative GPA: Not Applicable
+                Cumulative GPA: <br /> Not Applicable
               </Text>
             )}
             {payload[0] ? (
