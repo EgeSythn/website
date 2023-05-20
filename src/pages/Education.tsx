@@ -80,6 +80,134 @@ function Education() {
     },
   ];
 
+  const termData = [
+    {
+      name: "Fall 2019",
+      courses: [
+        "Calculus I",
+        "General Physics: Physical Science Major I",
+        "General Physics Laboratory I",
+        "SOUL: Wind Energy: Science, Technology, and Policy",
+        "HEART: Machine Learning for Biomedical Applications",
+        "Gateway Computing: JAVA",
+      ],
+      gpa: 3.57,
+      cumulative: 3.57,
+      deans: "Dean's List",
+      notes: "",
+    },
+    {
+      name: "Spring 2020",
+      courses: [
+        "Expository Writing: Negotiating Religious Difference",
+        "Calculus II (For Physical Sciences and Engineering)",
+        "General Physics: Physical Science Major II",
+        "General Physics Laboratory II",
+        "Intermediate Programming",
+      ],
+      gpa: null,
+      cumulative: 3.57,
+      deans: "N/A",
+      notes:
+        "GPA & Dean's List consideration not available due to Covid-19 closed grading policy, all grades evaluated on a Satisfactory/Unsatisfactory basis",
+    },
+    {
+      name: "Fall 2020",
+      courses: [
+        "Introduction to Cognitive Neuropsychology",
+        "Philosophy of Mind",
+        "Research Methods in Psychology",
+        "Discrete Mathematics",
+        "Data Structures",
+      ],
+      gpa: 3.56,
+      cumulative: 3.56,
+      deans: "Dean's List",
+      notes: "",
+    },
+    {
+      name: "Intersession 2021",
+      courses: ["Matlab for EVERYONE", "Python for EVERYONE"],
+      gpa: null,
+      cumulative: 3.56,
+      deans: "N/A",
+      notes:
+        "Intersession courses are evaluated on a Satifactory/Unsatisfactory basis and do not receive Dean's List consideration",
+    },
+    {
+      name: "Spring 2021",
+      courses: [
+        "Visual Cognition",
+        "Neuroscience: Cognitive",
+        "Linear Algebra",
+        "Design & Statistical Analysis for Psychology",
+        "Computer Ethics",
+      ],
+      gpa: 3.67,
+      cumulative: 3.6,
+      deans: "Dean's List",
+      notes: "",
+    },
+    {
+      name: "Fall 2021",
+      courses: [
+        "Introduction to Psychology",
+        "Introduction to Social Psychology",
+        "Intro to Probability",
+        "Computer System Fundamentals",
+        "Automata & Computation Theory",
+      ],
+      gpa: 3.75,
+      cumulative: 3.63,
+      deans: "Dean's List",
+      notes: "",
+    },
+    {
+      name: "Spring 2022",
+      courses: [
+        "Developmental Cognitive Neuroscience",
+        "Foundations of Brain Behavior and Cognition",
+        "Probability and Statistics for the Biological Sciences and Engineering",
+        "User Interfaces and Mobile Applications",
+        "Intro Algorithms",
+      ],
+      gpa: 3.81,
+      cumulative: 3.67,
+      deans: "Dean's List",
+      notes: "",
+    },
+    {
+      name: "Fall 2022",
+      courses: [
+        "Clinical Neuropsychology",
+        "Full-Stack JavaScript",
+        "Introduction to Human Language Technology",
+        "Introduction to Human-Computer Interaction",
+        "Independent Study",
+      ],
+      gpa: 3.93,
+      cumulative: 3.71,
+      deans: "Dean's List",
+      notes:
+        "Independent Study is a development project under the supervision of Professor Ali Madooei on a Course Assistant Application Management System",
+    },
+    {
+      name: "Spring 2023",
+      courses: [
+        "Cognitive Development",
+        "The Ethics of Artificial Intelligence and Automation",
+        "Artificial Intelligence",
+        "Oral Presentations",
+        "Independent Study",
+      ],
+      gpa: 4.0,
+      cumulative: 3.75,
+      deans: "Dean's List",
+      notes:
+        "Independent Study is a development project under the supervision of Professor Ali Madooei on a Course Assistant Application Management System",
+    },
+  ];
+
   return (
     <Container style={{ paddingTop: "2.5%" }}>
       <Title>Education</Title>
@@ -97,11 +225,13 @@ function Education() {
         study="Computer Science & Cognitive Science"
         startDate="August 2019"
         endDate="May 2023"
+        totalCredits="126"
         gpa={"3.75"}
         location="Baltimore, MD"
         image={jhu_icon}
         skills={skills}
         certifications={certifications}
+        termData={termData}
       />
     </Container>
   );

@@ -10,6 +10,9 @@ import {
   Title,
   Badge,
   Group,
+  Table,
+  Center,
+  Divider,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import {
@@ -18,6 +21,17 @@ import {
   IconCertificate,
   IconExternalLink,
 } from "@tabler/icons-react";
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import { useState } from "react";
 
 interface EducationCardProps {
   institution: string;
@@ -25,11 +39,20 @@ interface EducationCardProps {
   study: string;
   startDate: string;
   endDate: string;
+  totalCredits: string;
   gpa: string;
   image: string;
   location: string;
   skills: { name: string; skills: string[]; note: string }[];
   certifications: { name: string; source: string }[];
+  termData: {
+    name: string;
+    courses: string[];
+    cumulative: number | null;
+    gpa: number | null;
+    deans: string;
+    notes: string;
+  }[];
 }
 
 function EducationCard(props: EducationCardProps) {
@@ -39,12 +62,18 @@ function EducationCard(props: EducationCardProps) {
     study,
     startDate,
     endDate,
+    totalCredits,
     gpa,
     image,
     location,
     skills,
     certifications,
+    termData,
   } = props;
+
+  const [selectedTerm, setSelectedTerm] = useState<
+    { name: string; courses: string[] } | undefined
+  >(undefined);
 
   const institution_control = (
     <>
@@ -57,34 +86,203 @@ function EducationCard(props: EducationCardProps) {
     </>
   );
 
+  interface TooltipProps {
+    active?: boolean;
+    payload?: any;
+    label?: string;
+  }
+
+  const CustomTooltip: React.FC<TooltipProps> = ({
+    active,
+    payload,
+    label,
+  }) => {
+    console.log(payload);
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            backgroundColor: "#fff",
+            border: "1px solid #999",
+            margin: "0 auto",
+            padding: "10px",
+            borderRadius: "10px",
+            flexWrap: "wrap",
+          }}
+        >
+          <center>
+            <Text>
+              <strong>{`${label}`}</strong>
+            </Text>
+            <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+            {payload[0] ? (
+              <Text
+                style={{ marginTop: "3px" }}
+                size={14}
+                fw={500}
+                color="blue"
+              >{`${payload[0].payload.deans}`}</Text>
+            ) : (
+              <Text style={{ marginTop: "3px" }} size={14}></Text>
+            )}
+            {payload[1] ? (
+              <Text
+                style={{ marginTop: "3px" }}
+                size={14}
+              >{`Term GPA: ${payload[1].value}`}</Text>
+            ) : (
+              <Text style={{ marginTop: "3px" }} size={14}>
+                Term GPA: Not Applicable
+              </Text>
+            )}
+            {payload[0] ? (
+              <Text
+                style={{ marginTop: "3px" }}
+                size={14}
+              >{`Cumulative GPA: ${payload[0].value}`}</Text>
+            ) : (
+              <Text style={{ marginTop: "3px" }} size={14}>
+                Cumulative GPA: Not Applicable
+              </Text>
+            )}
+            {payload[0] ? (
+              <Text
+                style={{ marginTop: "3px" }}
+                size={9}
+                color="red"
+              >{`${payload[0].payload.notes}`}</Text>
+            ) : (
+              <Text style={{ marginTop: "3px" }} size={9}></Text>
+            )}
+          </center>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   const institution_panel = (
-    <Flex direction="row" align="flex-start">
-      {!useMediaQuery("(max-width: 600px)") && (
-        <Image
-          maw={200}
-          radius="md"
-          src={image}
-          style={{ paddingRight: "2.5%" }}
-        />
+    <>
+      <Flex direction="row" align="flex-start" wrap="wrap">
+        {!useMediaQuery("(max-width: 600px)") && (
+          <Image
+            maw={200}
+            radius="md"
+            src={image}
+            style={{ paddingRight: "2.5%" }}
+          />
+        )}
+        <Stack align="flex-start" style={{ paddingBottom: "2.5%" }}>
+          <Text size={15} fw={500}>
+            <strong>Degree:</strong> {degree}
+          </Text>
+          <Text size={15} fw={500}>
+            <strong>Areas of Study:</strong> {study}
+          </Text>
+          <Text size={15} fw={500}>
+            <strong>Location:</strong> {location}
+          </Text>
+          <Text size={15} fw={500}>
+            <strong>Attendance:</strong> {startDate} - {endDate}
+          </Text>
+          <Text size={15} fw={500}>
+            <strong>Total Credits:</strong> {totalCredits}
+          </Text>
+          <Text size={15} fw={500}>
+            <strong>Cumulative GPA:</strong> {gpa}
+          </Text>
+        </Stack>
+      </Flex>
+      <Flex direction="column" align="center" style={{ paddingBottom: "2.5%" }}>
+        <Title style={{ paddingTop: "2.5%" }}>Progress Across Terms</Title>
+        <ResponsiveContainer width="100%" height={400}>
+          <LineChart
+            data={termData}
+            onClick={(data: any) => {
+              const term = termData.find(
+                (term) => term.name === data.activeLabel
+              );
+              if (term) {
+                setSelectedTerm(term);
+              }
+            }}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+              dataKey="name"
+              angle={-45}
+              textAnchor="end"
+              interval={0}
+              height={100}
+            />
+            <YAxis
+              domain={[3.5, 4.0]}
+              type="number"
+              dataKey="gpa"
+              ticks={[3.5, 3.6, 3.7, 3.8, 3.9, 4.0]}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Legend
+              verticalAlign="top"
+              align="center"
+              layout="horizontal"
+              wrapperStyle={{ padding: "10px 0" }}
+            />
+            <Line
+              type="monotone"
+              dataKey="gpa"
+              stroke="#58D68D"
+              fill="#58D68D"
+              activeDot={{ r: 7 }}
+              dot={{
+                r: 2,
+              }}
+              connectNulls={true}
+              name="Term GPA"
+            />
+            <Line
+              type="monotone"
+              dataKey="cumulative"
+              stroke="#ff0000"
+              dot={{
+                r: 2,
+              }}
+              activeDot={{ r: 7 }}
+              isAnimationActive={false}
+              connectNulls={true}
+              name="Cumulative GPA"
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </Flex>
+
+      {selectedTerm ? (
+        <Table>
+          <thead>
+            <tr>
+              <th>
+                <center>
+                  <Title order={3}>Courses Taken in {selectedTerm.name}</Title>
+                </center>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {selectedTerm.courses.map((course, index) => (
+              <tr key={index}>
+                <td>{course}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <center>
+          <Text>Select a term to view courses taken.</Text>
+        </center>
       )}
-      <Stack align="flex-start">
-        <Text size={15} fw={500}>
-          <strong>Degree:</strong> {degree}
-        </Text>
-        <Text size={15} fw={500}>
-          <strong>Areas of Study:</strong> {study}
-        </Text>
-        <Text size={15} fw={500}>
-          <strong>Location:</strong> {location}
-        </Text>
-        <Text size={15} fw={500}>
-          <strong>Attendance:</strong> {startDate} - {endDate}
-        </Text>
-        <Text size={15} fw={500}>
-          <strong>Graduating GPA:</strong> {gpa}
-        </Text>
-      </Stack>
-    </Flex>
+    </>
   );
 
   const skills_control = (

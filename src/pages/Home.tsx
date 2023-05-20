@@ -11,7 +11,6 @@ import {
 import { TypeAnimation } from "react-type-animation";
 import { IconExternalLink } from "@tabler/icons-react";
 import Map from "./pages-components/Map";
-import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -19,7 +18,7 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     minHeight: "200px",
-    padding: "100px 0",
+    padding: "50px 0",
     fontSize: "2.5rem",
     fontWeight: 700,
   },
@@ -132,8 +131,9 @@ function Home() {
           cursor={false}
           repeat={0}
           style={{
-            fontSize: "5rem",
+            fontSize: "4rem",
             fontWeight: 700,
+            height: "200px",
             textAlign: "center",
             background: `linear-gradient(90deg, ${theme.colors.blue[4]} 0%, ${theme.colors.red[7]} 100%)`,
             WebkitBackgroundClip: "text",
