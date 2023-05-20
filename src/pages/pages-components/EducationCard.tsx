@@ -111,7 +111,7 @@ function EducationCard(props: EducationCardProps) {
           }}
         >
           <center>
-            <Text>
+            <Text style={{ color: "black" }}>
               <strong>{`${label}`}</strong>
             </Text>
             <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
@@ -126,21 +126,22 @@ function EducationCard(props: EducationCardProps) {
               <Text style={{ marginTop: "3px" }} size={14}></Text>
             )}
             {payload[1] ? (
-              <Text style={{ marginTop: "3px" }} size={14}>
-                <strong>Term GPA:</strong> <br /> {payload[1].value}
+              <Text style={{ marginTop: "3px", color: "black" }} size={14}>
+                <strong>Term GPA:</strong> <br /> {payload[1].value.toFixed(2)}
               </Text>
             ) : (
-              <Text style={{ marginTop: "3px" }} size={14}>
+              <Text style={{ marginTop: "3px", color: "black" }} size={14}>
                 <strong>Term GPA:</strong> <br /> Not Applicable
               </Text>
             )}
             {payload[0] ? (
-              <Text style={{ marginTop: "3px" }} size={14}>
+              <Text style={{ marginTop: "3px", color: "black" }} size={14}>
                 {" "}
-                <strong>Cumulative GPA:</strong> <br /> {payload[0].value}
+                <strong>Cumulative GPA:</strong> <br />{" "}
+                {payload[0].value.toFixed(2)}
               </Text>
             ) : (
-              <Text style={{ marginTop: "3px" }} size={14}>
+              <Text style={{ marginTop: "3px", color: "black" }} size={14}>
                 Cumulative GPA: <br /> Not Applicable
               </Text>
             )}
