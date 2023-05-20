@@ -196,7 +196,7 @@ function EducationCard(props: EducationCardProps) {
       </Flex>
       <Flex direction="column" align="center" style={{ paddingBottom: "2.5%" }}>
         <Title style={{ paddingTop: "2.5%" }}>Progress Across Terms</Title>
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="110%" height={400}>
           <LineChart
             data={termData}
             onClick={(data: any) => {
@@ -216,7 +216,7 @@ function EducationCard(props: EducationCardProps) {
               textAnchor="end"
               interval={0}
               height={100}
-              fontSize="12px"
+              fontSize={useMediaQuery("(min-width: 600px)") ? "12px" : "10px"}
             />
             <YAxis
               domain={[3.5, 4.0]}
