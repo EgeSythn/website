@@ -12,6 +12,7 @@ If you managed to find your way here, welcome! Below is some information about t
 ## What to do if you want more information?
 
 - Due to various concerns, from privacy to intellectual rights of team members, I cannot fully share everything. If you saw something mentioned and you want further information, or to look at a specific project and its codebase, you can contact me from the relevant _[email](mailto:dev_seyithan@outlook.com?subject=Web%20Contact:%20<Enter%20Subject%20Here>)_, which you can also find on the website.
+- Alternatively, you can also fill this _[form](https://forms.gle/CjLDnHVoThv2kiYB7)_ for any document or information requests.
 
 ## Relevant technologies
 
