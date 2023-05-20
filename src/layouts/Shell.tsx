@@ -7,9 +7,7 @@ function Shell() {
   const theme = useMantineTheme();
   const location = useLocation();
   const [opened, setOpened] = useState(false);
-  const [navbar, setNavbar] = useState(
-    <CustomNavbar opened={opened} setOpened={setOpened} />
-  );
+  const [navbar, setNavbar] = useState(<></>);
 
   useEffect(() => {
     setOpened(false);
