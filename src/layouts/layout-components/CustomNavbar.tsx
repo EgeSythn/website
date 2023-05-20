@@ -223,7 +223,9 @@ function CustomNavbar(props: CustomNavbarProps) {
       align="center"
       style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}
     >
-      {timeOfDay < 12 && timeOfDay >= 8
+      {timeOfDay < 8
+        ? "Good Night"
+        : timeOfDay < 12
         ? "Good Morning"
         : timeOfDay < 17
         ? "Good Afternoon"
