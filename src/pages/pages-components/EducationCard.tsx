@@ -216,6 +216,7 @@ function EducationCard(props: EducationCardProps) {
               textAnchor="end"
               interval={0}
               height={100}
+              fontSize="12px"
             />
             <YAxis
               domain={[3.5, 4.0]}
@@ -228,7 +229,7 @@ function EducationCard(props: EducationCardProps) {
               verticalAlign="top"
               align="center"
               layout="horizontal"
-              wrapperStyle={{ padding: "10px 0" }}
+              wrapperStyle={{ padding: "10px 0", fontSize: "12px" }}
             />
             <Line
               type="monotone"
@@ -246,6 +247,7 @@ function EducationCard(props: EducationCardProps) {
               type="monotone"
               dataKey="cumulative"
               stroke="#ff0000"
+              fill="#ff0000"
               dot={{
                 r: 2,
               }}
