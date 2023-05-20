@@ -31,7 +31,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 interface EducationCardProps {
   institution: string;
@@ -97,6 +97,9 @@ function EducationCard(props: EducationCardProps) {
     payload,
     label,
   }) => {
+    const term = payload[1] ? payload[0] : null;
+    const cumulative = payload[1] ? payload[1] : payload[0];
+
     if (active && payload && payload.length) {
       return (
         <div
@@ -115,42 +118,42 @@ function EducationCard(props: EducationCardProps) {
               <strong>{`${label}`}</strong>
             </Text>
             <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
-            {payload[0] ? (
+            {cumulative ? (
               <Text
                 style={{ marginTop: "3px" }}
                 size={14}
                 fw={500}
                 color="blue"
-              >{`${payload[0].payload.deans}`}</Text>
+              >{`${cumulative.payload.deans}`}</Text>
             ) : (
               <Text style={{ marginTop: "3px" }} size={14}></Text>
             )}
-            {payload[1] ? (
+            {term ? (
               <Text style={{ marginTop: "3px", color: "black" }} size={14}>
-                <strong>Term GPA:</strong> <br /> {payload[1].value.toFixed(2)}
+                <strong>Term GPA:</strong> <br /> {term.value.toFixed(2)}
               </Text>
             ) : (
               <Text style={{ marginTop: "3px", color: "black" }} size={14}>
-                <strong>Term GPA:</strong> <br /> Not Applicable
+                <strong>Term GPA:</strong> <br /> N/A
               </Text>
             )}
-            {payload[0] ? (
+            {cumulative ? (
               <Text style={{ marginTop: "3px", color: "black" }} size={14}>
                 {" "}
                 <strong>Cumulative GPA:</strong> <br />{" "}
-                {payload[0].value.toFixed(2)}
+                {cumulative.value.toFixed(2)}
               </Text>
             ) : (
               <Text style={{ marginTop: "3px", color: "black" }} size={14}>
-                Cumulative GPA: <br /> Not Applicable
+                <strong>Cumulative GPA:</strong> <br /> N/A
               </Text>
             )}
-            {payload[0] ? (
+            {cumulative ? (
               <Text
                 style={{ marginTop: "3px" }}
                 size={9}
                 color="red"
-              >{`${payload[0].payload.notes}`}</Text>
+              >{`${cumulative.payload.notes}`}</Text>
             ) : (
               <Text style={{ marginTop: "3px" }} size={9}></Text>
             )}
