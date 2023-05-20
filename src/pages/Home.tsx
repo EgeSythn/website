@@ -47,7 +47,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const waveFront = (style: any) => {
+const waveFront = (style: any, d: string) => {
   const theme = useMantineTheme();
   return (
     <>
@@ -61,7 +61,7 @@ const waveFront = (style: any) => {
           <path
             fill={theme.colors.blue[4]}
             fillOpacity={theme.colorScheme === "dark" ? "1" : "0.3"}
-            d="M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+            d={d}
           ></path>
         </svg>
       </div>
@@ -75,7 +75,7 @@ const waveFront = (style: any) => {
           <path
             fill={theme.colors.blue[4]}
             fillOpacity={theme.colorScheme === "dark" ? "0.7" : "0.5"}
-            d="M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+            d={d}
           ></path>
         </svg>
       </div>
@@ -89,7 +89,7 @@ const waveFront = (style: any) => {
           <path
             fill={theme.colors.blue[4]}
             fillOpacity={theme.colorScheme === "dark" ? "0.5" : "0.7"}
-            d="M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+            d={d}
           ></path>
         </svg>
       </div>
@@ -103,7 +103,7 @@ const waveFront = (style: any) => {
           <path
             fill={theme.colors.blue[4]}
             fillOpacity={theme.colorScheme === "dark" ? "0.3" : "1"}
-            d="M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+            d={d}
           ></path>
         </svg>
       </div>
@@ -117,7 +117,12 @@ function Home() {
 
   return (
     <>
-      <div className={classes.section}>{waveFront(classes.curve3)}</div>
+      <div className={classes.section}>
+        {waveFront(
+          classes.curve3,
+          "M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        )}
+      </div>
       <div className={classes.section}>
         <TypeAnimation
           sequence={[
@@ -144,10 +149,18 @@ function Home() {
         />
       </div>
       <div className={classes.section}>
-        {waveFront(classes.curve2)}
-        {waveFront(classes.curve)}
+        {waveFront(
+          classes.curve2,
+          "M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        )}
+        {waveFront(
+          classes.curve,
+          "M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        )}
       </div>
-      <Container style={{ paddingTop: "2.5%", marginTop: "20px" }}>
+      <Container
+        style={{ paddingTop: "2.5%", marginTop: "20px", minHeight: "900px" }}
+      >
         <Title order={2} style={{ paddingTop: "5%" }}>
           Who am I?
         </Title>
@@ -188,6 +201,18 @@ function Home() {
             </Text>
           </Grid.Col>
         </Grid>
+      </Container>
+      <div className={classes.section}>
+        {waveFront(
+          classes.curve2,
+          "M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+        )}
+        {waveFront(
+          classes.curve,
+          "M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+        )}
+      </div>
+      <Container style={{ paddingTop: "2.5%", marginTop: "50px" }}>
         <Title order={2} style={{ paddingTop: "5%" }}>
           What is this website about?
         </Title>
