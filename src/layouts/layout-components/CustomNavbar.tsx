@@ -6,7 +6,6 @@ import {
   getStylesRef,
   Text,
   Stack,
-  Group,
   Navbar,
   ActionIcon,
   Title,
@@ -14,17 +13,14 @@ import {
   Center,
 } from "@mantine/core";
 import {
-  IconSun,
   IconHome,
   IconGift,
   IconBackpack,
-  IconMoonStars,
   IconBrandGithub,
   IconBrandLinkedin,
 } from "@tabler/icons-react";
 import sunny from "../../assets/sunny.png";
 import moon from "../../assets/moon.png";
-import useStoredTheme from "../../hooks/useStoredTheme";
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -181,7 +177,6 @@ interface CustomNavbarProps {
 
 function CustomNavbar(props: CustomNavbarProps) {
   const { classes, cx } = useStyles();
-  const { colorScheme, toggleColorScheme } = useStoredTheme();
   const location = useLocation();
   const [timeOfDay, setTimeOfDay] = useState<number>(() =>
     new Date().getHours()
@@ -234,39 +229,6 @@ function CustomNavbar(props: CustomNavbarProps) {
         : "Good Night"}
     </Title>
   );
-
-  const darkMode = () => {
-    return (
-      <Group position="right">
-        <ActionIcon
-          onClick={() => toggleColorScheme()}
-          size="lg"
-          sx={(theme) => ({
-            backgroundColor:
-              theme.colorScheme === "dark"
-                ? theme.colors.dark[4]
-                : theme.colors.gray[0],
-            color:
-              theme.colorScheme === "dark"
-                ? theme.colors.yellow[4]
-                : theme.colors.blue[6],
-            "&:hover": {
-              backgroundColor:
-                theme.colorScheme === "dark"
-                  ? theme.colors.dark[3]
-                  : theme.colors.gray[2],
-            },
-          })}
-        >
-          {colorScheme === "dark" ? (
-            <IconSun size="1.2rem" />
-          ) : (
-            <IconMoonStars size="1.2rem" />
-          )}
-        </ActionIcon>
-      </Group>
-    );
-  };
 
   const mediaButtons = () => {
     return (
@@ -344,7 +306,6 @@ function CustomNavbar(props: CustomNavbarProps) {
   const topSection = () => {
     return (
       <>
-        {darkMode()}
         <Center>
           <div className={classes.halfCircle}>
             {image()}
