@@ -16,3 +16,5 @@ If you managed to find your way here, welcome! Below is some information about t
 ## Relevant technologies
 
 - This is a front-end web application with React & TypeScript, utilizing the _[Mantine](https://mantine.dev/)_ component library.
+- For charts, the _[Recharts](https://www.npmjs.com/package/recharts)_ charting library has been used.
+- For animated text, the _[react-type-animation](https://www.npmjs.com/package/react-type-animation)_ library has been used.
