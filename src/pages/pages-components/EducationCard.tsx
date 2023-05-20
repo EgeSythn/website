@@ -195,7 +195,9 @@ function EducationCard(props: EducationCardProps) {
         </Stack>
       </Flex>
       <Flex direction="column" align="center" style={{ paddingBottom: "2.5%" }}>
-        <Title style={{ paddingTop: "2.5%" }}>Progress Across Terms</Title>
+        <Title style={{ paddingTop: "2.5%" }}>
+          <center>Progress Across Terms</center>
+        </Title>
         <ResponsiveContainer width="110%" height={400}>
           <LineChart
             data={termData}
