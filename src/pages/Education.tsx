@@ -189,7 +189,7 @@ function Education() {
       cumulative: 3.71,
       deans: "Dean's List",
       notes:
-        "Independent Study is a development project under the supervision of Professor Ali Madooei on a Course Assistant Application Management System",
+        "Independent Study course during the term is a software development project under the supervision of Professor Ali Madooei on a Course Assistant Application Management System",
     },
     {
       name: "Spring 2023",
@@ -204,7 +204,7 @@ function Education() {
       cumulative: 3.75,
       deans: "Dean's List",
       notes:
-        "Independent Study is a development project under the supervision of Professor Ali Madooei on a Course Assistant Application Management System",
+        "Independent Study course during the term is a software development project under the supervision of Professor Ali Madooei on a Course Assistant Application Management System",
     },
   ];
 

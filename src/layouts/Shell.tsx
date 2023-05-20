@@ -40,6 +40,7 @@ function Shell() {
                   ? theme.colors.dark[3]
                   : theme.colors.gray[2],
             },
+            borderRadius: "20px",
           })}
         >
           {colorScheme === "dark" ? (
@@ -82,7 +83,7 @@ function Shell() {
           style={{
             backgroundColor:
               theme.colorScheme === "dark"
-                ? theme.colors.dark[6]
+                ? theme.colors.dark[8]
                 : theme.colors.blue[4],
             borderBottom: "none",
           }}
