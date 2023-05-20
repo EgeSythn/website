@@ -155,9 +155,21 @@ function Home() {
       <div className={classes.section}>
         <TypeAnimation
           sequence={[
-            "Hi, I'm a student!",
+            "Hi, I'm Ege!",
             1000,
-            "Hi, I'm an engineer!",
+            "Merhaba, ben Ege!",
+            1000,
+            "¡Hola, soy Ege!",
+            1000,
+            "Salut, je suis Ege!",
+            1000,
+            "こんにちは、エゲです！",
+            1000,
+            "Привет я Эге!",
+            1000,
+            "嗨，我是埃格!",
+            1000,
+            "Hallo, ich bin Ege!",
             1000,
             "Hi, I'm Ege!",
           ]}
