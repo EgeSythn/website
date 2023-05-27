@@ -21,6 +21,7 @@ const useStyles = createStyles((theme) => ({
     padding: "50px 0",
     fontSize: "2.5rem",
     fontWeight: 700,
+    zIndex: -1,
   },
   curve: {
     position: "absolute",
@@ -53,7 +54,6 @@ const waveFront = (style: any, d: string, animated: string) => {
     <>
       <div className={style}>
         <svg
-          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 100 1440 320" : "0 40 1240 320"
@@ -75,7 +75,6 @@ const waveFront = (style: any, d: string, animated: string) => {
       </div>
       <div className={style}>
         <svg
-          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 80 1390 320" : "0 60 1320 320"
@@ -97,7 +96,6 @@ const waveFront = (style: any, d: string, animated: string) => {
       </div>
       <div className={style}>
         <svg
-          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 60 1320 320" : " 0 80 1390 320"
@@ -119,7 +117,6 @@ const waveFront = (style: any, d: string, animated: string) => {
       </div>
       <div className={style}>
         <svg
-          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 40 1240 320" : "0 100 1440 320"
@@ -156,7 +153,15 @@ function Home() {
           "M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z;M0,208L60,197.3C120,187,240,165,360,170.7C480,176,600,208,720,213.3C840,219,960,197,1080,202.7C1200,208,1320,240,1380,256L1440,272L1440,16L1380,16C1320,16,1200,16,1080,16C960,16,840,16,720,16C600,16,480,16,360,16C240,16,120,16,60,16L0,16Z;M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
         )}
       </div>
-      <div className={classes.section}>
+      <div
+        className={classes.section}
+        style={{
+          position: "relative",
+          zIndex: 1,
+          margin: "20vh",
+          marginBottom: "20vh",
+        }}
+      >
         <TypeAnimation
           sequence={[
             "Hi, I'm Ege!",
@@ -206,7 +211,12 @@ function Home() {
         )}
       </div>
       <Container
-        style={{ paddingTop: "2.5%", marginTop: "20px", minHeight: "900px" }}
+        style={{
+          paddingTop: "2.5%",
+          marginTop: "20vh",
+          marginBottom: "20vh",
+          minHeight: "900px",
+        }}
       >
         <Title order={2} style={{ paddingTop: "5%" }}>
           Who am I?
@@ -261,7 +271,9 @@ function Home() {
           "M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z;M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,176C1120,160,1280,160,1360,160L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z;M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         )}
       </div>
-      <Container style={{ paddingTop: "2.5%", marginTop: "50px" }}>
+      <Container
+        style={{ paddingTop: "2.5%", marginTop: "20vh", marginBottom: "20vh" }}
+      >
         <Title order={2} style={{ paddingTop: "5%" }}>
           What is this website about?
         </Title>
