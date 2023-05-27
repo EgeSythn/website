@@ -212,9 +212,8 @@ function Home() {
       </div>
       <Container
         style={{
-          paddingTop: "2.5%",
-          marginTop: "20vh",
-          marginBottom: "20vh",
+          marginTop: "25vh",
+          marginBottom: "30vh",
           minHeight: "900px",
         }}
       >
@@ -271,9 +270,7 @@ function Home() {
           "M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z;M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,176C1120,160,1280,160,1360,160L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z;M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         )}
       </div>
-      <Container
-        style={{ paddingTop: "2.5%", marginTop: "20vh", marginBottom: "20vh" }}
-      >
+      <Container style={{ marginTop: "30vh", marginBottom: "20vh" }}>
         <Title order={2} style={{ paddingTop: "5%" }}>
           What is this website about?
         </Title>
