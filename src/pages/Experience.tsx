@@ -100,10 +100,13 @@ function Experience() {
           [
             "Instructed workshop for high school students",
             "Prepared a curriculum of theoretical Machine Learning",
+            "Held Q/A sessions for students",
           ],
           [
+            "Developed full-stack features for an Application Management System using the PERN stack",
             "Designed and implemented front-end features using React",
             "Lead the front-end developer team",
+            "Created developer documentation",
           ],
           [
             "Designed and implemented visualizations",

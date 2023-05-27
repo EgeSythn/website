@@ -53,6 +53,7 @@ const waveFront = (style: any, d: string, animated: string) => {
     <>
       <div className={style}>
         <svg
+          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 100 1440 320" : "0 40 1240 320"
@@ -74,6 +75,7 @@ const waveFront = (style: any, d: string, animated: string) => {
       </div>
       <div className={style}>
         <svg
+          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 80 1390 320" : "0 60 1320 320"
@@ -95,6 +97,7 @@ const waveFront = (style: any, d: string, animated: string) => {
       </div>
       <div className={style}>
         <svg
+          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 60 1320 320" : " 0 80 1390 320"
@@ -116,6 +119,7 @@ const waveFront = (style: any, d: string, animated: string) => {
       </div>
       <div className={style}>
         <svg
+          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={
             theme.colorScheme === "dark" ? "0 40 1240 320" : "0 100 1440 320"
