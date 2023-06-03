@@ -4,14 +4,17 @@ import {
   Title,
   Text,
   Center,
+  Flex,
   Button,
   Grid,
+  Box,
   createStyles,
 } from "@mantine/core";
 import { TypeAnimation } from "react-type-animation";
 import { IconExternalLink } from "@tabler/icons-react";
 import Map from "./pages-components/Map";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   sectionOne: {
@@ -266,7 +269,14 @@ function Home() {
                 &emsp;I am Turkish-American, and originally from the beautiful
                 coastal city of Izmir, Turkey, where I lived up until college.
                 Currently, I am situated in Baltimore, Maryland; the Charm City!
-                <Map />
+                <Flex
+                  direction={
+                    useMediaQuery("(min-width: 720px)") ? "row" : "column"
+                  }
+                >
+                  <Map embedLink="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d200066.1412561952!2d26.93963684718978!3d38.41759168090275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd862a762cacd%3A0x628cbba1a59ce8fe!2zxLB6bWlyLCBUw7xya2l5ZQ!5e0!3m2!1sen!2sus!4v1680709194534!5m2!1sen!2sus" />
+                  <Map embedLink="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98821.00069851437!2d-76.62049675!3d39.2847064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803aed6f483b7%3A0x44896a84223e758!2sBaltimore%2C%20MD!5e0!3m2!1sen!2sus!4v1685813113813!5m2!1sen!2sus" />
+                </Flex>
               </Text>
             </Text>
           </Grid.Col>
