@@ -6,6 +6,7 @@ function Map(props: { embedLink: string }) {
     <Container style={{ paddingTop: "2.5%" }}>
       <Center>
         <iframe
+          title="map"
           src={embedLink}
           width="300"
           height="300"
