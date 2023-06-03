@@ -8,9 +8,11 @@ import {
   Grid,
   createStyles,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { TypeAnimation } from "react-type-animation";
 import { IconExternalLink } from "@tabler/icons-react";
 import Map from "./pages-components/Map";
+import { useEffect, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -146,6 +148,25 @@ const waveFront = (style: any, d: string, animated: string) => {
 function Home() {
   const theme = useMantineTheme();
   const { classes, cx } = useStyles();
+  const [margins, setMargins] = useState("10vh");
+
+  const handleResize = () => {
+    let zoom = Math.floor(((window.outerWidth - 10) / window.innerWidth) * 100);
+    if (window.outerWidth > 782) {
+      setMargins("100vh");
+    } else {
+      setMargins("10vh");
+    }
+    console.log(window.innerWidth, window.outerWidth > 782, zoom, margins);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  console.log(margins);
 
   return (
     <>
@@ -189,7 +210,8 @@ function Home() {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             paddingBottom: "2%",
-            marginBottom: "20px",
+            marginTop: margins,
+            marginBottom: margins,
           }}
         />
       </div>
@@ -206,7 +228,7 @@ function Home() {
         )}
       </div>
       <Container
-        style={{ paddingTop: "2.5%", marginTop: "20px", minHeight: "900px" }}
+        style={{ marginTop: "10vh", marginBottom: "10vh", minHeight: "900px" }}
       >
         <Title order={2} style={{ paddingTop: "5%" }}>
           Who am I?

@@ -257,7 +257,6 @@ function EducationCard(props: EducationCardProps) {
                 r: 2,
               }}
               activeDot={{ r: 7 }}
-              isAnimationActive={false}
               connectNulls={true}
               name="Cumulative GPA"
             />
