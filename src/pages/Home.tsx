@@ -8,13 +8,21 @@ import {
   Grid,
   createStyles,
 } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
 import { TypeAnimation } from "react-type-animation";
 import { IconExternalLink } from "@tabler/icons-react";
 import Map from "./pages-components/Map";
 import { useEffect, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
+  sectionOne: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    height: "60vh",
+    padding: "20vh 0 20vh",
+    fontSize: "2.5rem",
+    fontWeight: 700,
+  },
   section: {
     display: "flex",
     flexDirection: "column",
@@ -148,25 +156,22 @@ const waveFront = (style: any, d: string, animated: string) => {
 function Home() {
   const theme = useMantineTheme();
   const { classes, cx } = useStyles();
-  const [margins, setMargins] = useState("10vh");
+  const [sectionMargins, setSectionMargins] = useState("10vh");
 
   const handleResize = () => {
-    let zoom = Math.floor(((window.outerWidth - 10) / window.innerWidth) * 100);
     if (window.outerWidth > 782) {
-      setMargins("100vh");
+      setSectionMargins("50vh");
     } else {
-      setMargins("10vh");
+      setSectionMargins("10vh");
     }
-    console.log(window.innerWidth, window.outerWidth > 782, zoom, margins);
   };
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
-
-  console.log(margins);
 
   return (
     <>
@@ -177,7 +182,7 @@ function Home() {
           "M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z;M0,208L60,197.3C120,187,240,165,360,170.7C480,176,600,208,720,213.3C840,219,960,197,1080,202.7C1200,208,1320,240,1380,256L1440,272L1440,16L1380,16C1320,16,1200,16,1080,16C960,16,840,16,720,16C600,16,480,16,360,16C240,16,120,16,60,16L0,16Z;M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,197.3C840,203,960,181,1080,186.7C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
         )}
       </div>
-      <div className={classes.section}>
+      <div className={classes.sectionOne}>
         <TypeAnimation
           sequence={[
             "Hi, I'm Ege!",
@@ -192,8 +197,6 @@ function Home() {
             1000,
             "Salut, je suis Ege!",
             1000,
-            "こんにちは、エゲです！",
-            1000,
             "Hallo, ich bin Ege!",
             1000,
             "Hi, I'm Ege!",
@@ -204,14 +207,10 @@ function Home() {
           style={{
             fontSize: "4rem",
             fontWeight: 700,
-            height: "200px",
             textAlign: "center",
             background: `linear-gradient(90deg, ${theme.colors.blue[4]} 0%, ${theme.colors.red[7]} 100%)`,
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            paddingBottom: "2%",
-            marginTop: margins,
-            marginBottom: margins,
           }}
         />
       </div>
@@ -228,11 +227,13 @@ function Home() {
         )}
       </div>
       <Container
-        style={{ marginTop: "10vh", marginBottom: "10vh", minHeight: "900px" }}
+        style={{
+          marginTop: sectionMargins,
+          marginBottom: sectionMargins,
+          minHeight: "800px",
+        }}
       >
-        <Title order={2} style={{ paddingTop: "5%" }}>
-          Who am I?
-        </Title>
+        <Title order={2}>Who am I?</Title>
         <Grid gutter="md" style={{ paddingTop: "2.5%" }}>
           <Grid.Col span={12}>
             <Text size={18} style={{ lineHeight: "1.6" }}>
@@ -283,10 +284,15 @@ function Home() {
           "M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z;M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,176C1120,160,1280,160,1360,160L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z;M0,128L80,160C160,192,320,256,480,256C640,256,800,192,960,160C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         )}
       </div>
-      <Container style={{ paddingTop: "2.5%", marginTop: "50px" }}>
-        <Title order={2} style={{ paddingTop: "5%" }}>
-          What is this website about?
-        </Title>
+      <Container
+        style={{
+          paddingTop: "5%",
+          marginTop: sectionMargins,
+          marginBottom: sectionMargins,
+          minHeight: "800px",
+        }}
+      >
+        <Title order={2}>What is this website about?</Title>
         <Grid gutter="md" style={{ paddingTop: "2.5%" }}>
           <Grid.Col span={12}>
             <Text
