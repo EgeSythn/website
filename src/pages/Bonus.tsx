@@ -30,13 +30,13 @@ function Bonus() {
             : theme.colors.blue[4]
         }
       />
-      <Flex direction="row" gap="6%" justify="center">
+      <Flex direction="row" gap="5%" justify="center">
         <Card
           shadow="sm"
           padding="lg"
           radius="md"
           withBorder
-          style={{ width: "47%" }}
+          style={{ width: "47.5%" }}
         >
           <Flex direction="column" align="stretch">
             <Center>
@@ -51,7 +51,7 @@ function Bonus() {
                 🛸Space Invaders🛸
               </Text>
             </Center>
-            <Image src={spaceinvader} fit="cover" height={100} radius={10} />
+            <Image src={spaceinvader} fit="cover" height={150} radius={10} />
             <Stack spacing="xs" style={{ paddingTop: "5%" }}>
               <Text fw={500} style={{ paddingBottom: "0.5%" }} align="justify">
                 &emsp;&emsp;You can play Space Invaders here! This was one of
@@ -88,7 +88,7 @@ function Bonus() {
           radius="md"
           withBorder
           style={{
-            width: "47%",
+            width: "47.5%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -100,7 +100,10 @@ function Bonus() {
               <a
                 href="https://www.flaticon.com/free-icons/work-in-progress"
                 title="work in progress icons"
-                style={{ color: "black", textDecoration: "none" }}
+                style={{
+                  color: theme.colorScheme === "dark" ? "white" : "black",
+                  textDecoration: "none",
+                }}
               >
                 Work in progress icons created by Freepik - Flaticon
               </a>
