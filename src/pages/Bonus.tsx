@@ -67,8 +67,8 @@ function Bonus() {
               and I'll make sure to see what I can do.{" "}
             </Text>
             <Text fw={400} style={{ paddingBottom: "0.5%" }}>
-              &emsp;&emsp;Unfortunately, the game is not compatible with mobile
-              devices, but if you're on a computer, give it a go!
+              &emsp;&emsp;Unfortunately the game is not compatible with mobile
+              devices, but if you're on a computer, give it a go and enjoy!
             </Text>
             <Center>
               <Text fw={400} style={{ paddingBottom: "2.5%" }}>
