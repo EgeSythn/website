@@ -96,9 +96,9 @@ function ExperienceCard(props: ExperienceCardProps) {
                   ))}
                 </List>
                 <Flex direction="row" gap="md" align="center" wrap="wrap">
-                  {links[index].map((link) => {
+                  {links[index].map((link, linksIndex) => {
                     return (
-                      <>
+                      <div key={linksIndex}>
                         {link.includes("linkedin") ? (
                           <Button
                             variant="outline"
@@ -160,7 +160,7 @@ function ExperienceCard(props: ExperienceCardProps) {
                             Link
                           </Button>
                         )}
-                      </>
+                      </div>
                     );
                   })}
                 </Flex>

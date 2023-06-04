@@ -7,7 +7,6 @@ import {
   Flex,
   Button,
   Grid,
-  Box,
   createStyles,
 } from "@mantine/core";
 import { TypeAnimation } from "react-type-animation";
@@ -239,7 +238,7 @@ function Home() {
         <Title order={2}>Who am I?</Title>
         <Grid gutter="md" style={{ paddingTop: "2.5%" }}>
           <Grid.Col span={12}>
-            <Text size={18} style={{ lineHeight: "1.6" }}>
+            <Text size={18} style={{ lineHeight: "1.6" }} align="justify">
               &emsp;Hi! My name is
               <Text
                 span
@@ -298,8 +297,7 @@ function Home() {
         style={{
           paddingTop: "5%",
           marginTop: sectionMargins,
-          marginBottom: sectionMargins,
-          minHeight: "800px",
+          minHeight: "700px",
         }}
       >
         <Title order={2}>What is this website about?</Title>
@@ -311,6 +309,7 @@ function Home() {
                 lineHeight: "1.6",
                 marginBottom: "24px",
               }}
+              align="justify"
             >
               &emsp;This website is a collection of my projects, my experience,
               and some other information. It is also a place where I can keep
@@ -345,10 +344,7 @@ function Home() {
           </Button>
         </Center>
         <Center>
-          <Title
-            order={3}
-            style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}
-          >
+          <Title order={3} style={{ paddingTop: "2.5%" }}>
             ✨ Enjoy Your Stay ✨
           </Title>
         </Center>

@@ -11,7 +11,6 @@ import {
   Badge,
   Group,
   Table,
-  Center,
   Divider,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
@@ -106,7 +105,7 @@ function EducationCard(props: EducationCardProps) {
           style={{
             backgroundColor: "#fff",
             border: "1px solid #999",
-            width: "100px",
+            width: "125px",
             margin: "0 auto",
             padding: "10px",
             borderRadius: "10px",
