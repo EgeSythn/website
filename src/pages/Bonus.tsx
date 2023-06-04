@@ -13,7 +13,6 @@ import {
 } from "@mantine/core";
 import { IconExternalLink } from "@tabler/icons-react";
 import spaceinvader from "../assets/spaceinvader.png";
-import hard_hat from "../assets/hard_hat.png";
 import { gameUrl } from "../assets/data";
 
 function Bonus() {
@@ -30,87 +29,64 @@ function Bonus() {
             : theme.colors.blue[4]
         }
       />
-      <Flex direction="row" gap="5%" justify="center">
-        <Card
-          shadow="sm"
-          padding="lg"
-          radius="md"
-          withBorder
-          style={{ width: "47.5%" }}
+      <Center>
+        <Text
+          style={{
+            paddingBottom: "2.5%",
+          }}
+          size={10}
+          fw={700}
         >
-          <Flex direction="column" align="stretch">
+          This is a place to share fun, little things with you. If the page
+          looks a bit barren, don't worry, as there is more content is in the
+          works!
+        </Text>
+      </Center>
+      <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Flex direction="column" align="stretch">
+          <Center>
+            <Text
+              style={{
+                paddingTop: "2.5%",
+                paddingBottom: "2.5%",
+              }}
+              size={25}
+              fw={700}
+            >
+              🛸Space Invaders🛸
+            </Text>
+          </Center>
+          <Image src={spaceinvader} fit="cover" height="20%" radius={10} />
+          <Stack spacing="xs" style={{ paddingTop: "5%" }}>
+            <Text fw={400} style={{ paddingBottom: "0.5%" }}>
+              &emsp;&emsp;You can play Space Invaders here! This is nothing
+              special, but as one of the first things I programmed while
+              learning web development (ike many other developers), I wanted to
+              share it with you. I don't have the ability to outright share the
+              source code with you, but if you are curious, you can contact me
+              and I'll make sure to see what I can do.{" "}
+            </Text>
+            <Text fw={400} style={{ paddingBottom: "0.5%" }}>
+              &emsp;&emsp;Unfortunately, the game is not compatible with mobile
+              devices, but if you're on a computer, give it a go!
+            </Text>
             <Center>
-              <Text
-                style={{
-                  paddingTop: "2.5%",
-                  paddingBottom: "2.5%",
-                }}
-                size={25}
-                fw={700}
-              >
-                🛸Space Invaders🛸
+              <Text fw={400} style={{ paddingBottom: "2.5%" }}>
+                Good luck brave explorer 🚀
               </Text>
             </Center>
-            <Image src={spaceinvader} fit="cover" height={150} radius={10} />
-            <Stack spacing="xs" style={{ paddingTop: "5%" }}>
-              <Text fw={500} style={{ paddingBottom: "0.5%" }} align="justify">
-                &emsp;&emsp;You can play Space Invaders here! This was one of
-                the one of the first things I (and perhaps a lot of people)
-                programmed while learning web development. I don't have the
-                ability to outright share the source code with you, but if you
-                are curious, you can contact me and I'll make sure to see what I
-                can do.
-              </Text>
-              <Text fw={500} style={{ paddingBottom: "0.5%" }} align="justify">
-                &emsp;&emsp;Unfortunately, the game is not compatible with
-                mobile devices, but if you are on a computer, give it a try!
-              </Text>
-              <Center>
-                <Text fw={500} style={{ paddingBottom: "2.5%" }}>
-                  Good luck brave explorer 🚀
-                </Text>
-              </Center>
 
-              <Button
-                variant="outline"
-                radius="xl"
-                rightIcon={<IconExternalLink size={15} />}
-                onClick={() => window.open(gameUrl, "_blank")}
-              >
-                Play
-              </Button>
-            </Stack>
-          </Flex>
-        </Card>
-        <Card
-          shadow="sm"
-          padding="lg"
-          radius="md"
-          withBorder
-          style={{
-            width: "47.5%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Stack style={{ paddingTop: "2.5%" }} align="center">
-            <Image src={hard_hat} maw={240} />
-            <Text size={10}>
-              <a
-                href="https://www.flaticon.com/free-icons/work-in-progress"
-                title="work in progress icons"
-                style={{
-                  color: theme.colorScheme === "dark" ? "white" : "black",
-                  textDecoration: "none",
-                }}
-              >
-                Work in progress icons created by Freepik - Flaticon
-              </a>
-            </Text>
+            <Button
+              variant="outline"
+              radius="xl"
+              rightIcon={<IconExternalLink size={15} />}
+              onClick={() => window.open(gameUrl, "_blank")}
+            >
+              Play
+            </Button>
           </Stack>
-        </Card>
-      </Flex>
+        </Flex>
+      </Card>
     </Container>
   );
 }
