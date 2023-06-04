@@ -232,7 +232,7 @@ function Home() {
         style={{
           marginTop: sectionMargins,
           marginBottom: sectionMargins,
-          minHeight: "800px",
+          minHeight: "720px",
         }}
       >
         <Title order={2}>Who am I?</Title>
@@ -295,9 +295,9 @@ function Home() {
       </div>
       <Container
         style={{
-          paddingTop: "5%",
+          paddingTop: "3%",
           marginTop: sectionMargins,
-          minHeight: "700px",
+          minHeight: "720px",
         }}
       >
         <Title order={2}>What is this website about?</Title>
