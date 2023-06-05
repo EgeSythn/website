@@ -61,10 +61,8 @@ function Bonus() {
             <Text fw={400} style={{ paddingBottom: "0.5%" }}>
               &emsp;&emsp;You can play Space Invaders here! This is nothing
               special, but as one of the first things I programmed while
-              learning web development (ike many other developers), I wanted to
-              share it with you. I don't have the ability to outright share the
-              source code with you, but if you are curious, you can contact me
-              and I'll make sure to see what I can do.{" "}
+              learning web development (like many other developers), I wanted to
+              share it with you.{" "}
             </Text>
             <Text fw={400} style={{ paddingBottom: "0.5%" }}>
               &emsp;&emsp;Unfortunately the game is not compatible with mobile
