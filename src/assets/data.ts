@@ -210,9 +210,9 @@ export const skillsEducation = [
     note: "",
   },
   {
-    name: "Foreign Languages",
-    skills: ["Turkish (Native)", "Spanish (Beginner)"],
-    note: "",
+    name: "Languages",
+    skills: ["Turkish", "English", "Spanish"],
+    note: "Native / bilingual proficiency in Turkish and English, working proficiency in Spanish",
   },
 ];
 export const certifications = [
