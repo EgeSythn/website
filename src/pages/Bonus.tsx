@@ -37,9 +37,9 @@ function Bonus() {
           size={10}
           fw={700}
         >
-          This is a place to share fun, little things with you. If the page
-          looks a bit barren, don't worry, as there is more content in the
-          works!
+          This is a place to share some fun and small scale personal endeavors
+          with you. If the page looks a bit barren, don't worry, as there is
+          more content in the works!
         </Text>
       </Center>
       <Card shadow="sm" padding="lg" radius="md" withBorder>

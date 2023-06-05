@@ -164,6 +164,8 @@ export const skillsEducation = [
   {
     name: "Full-Stack Development",
     skills: [
+      "HTML5",
+      "CSS3",
       "JavaScript",
       "TypeScript",
       "React",
@@ -178,7 +180,11 @@ export const skillsEducation = [
     ],
     note: "Expertise with MERN and PERN stacks",
   },
-  { name: "UI/UX Design", skills: ["Figma", "Canva"], note: "" },
+  {
+    name: "UI/UX Design",
+    skills: ["Figma", "User Research & Testing"],
+    note: "",
+  },
   {
     name: "Machine Learning & Data Science",
     skills: ["Python", "PyTorch", "Pandas", "NumPy", "sci-kit learn"],
@@ -191,7 +197,8 @@ export const skillsEducation = [
       "C",
       "C++",
       "Ruby",
-      "Shell Script",
+      "R",
+      "Bash Shell Script",
       "Git",
       "GitHub Actions",
     ],
@@ -199,13 +206,15 @@ export const skillsEducation = [
   },
   { name: "Operating Systems", skills: ["Windows", "Linux"], note: "" },
   {
-    name: "Software & Development Tools",
+    name: "Software & Development Environments",
     skills: [
       "Visual Studio Code",
-      "Android Studio",
       "JetBrains Suite",
-      "LaTeX",
+      "Android Studio",
+      "Postman",
+      "RStudio",
       "pgAdmin",
+      "LaTeX",
     ],
     note: "",
   },
