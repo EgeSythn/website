@@ -3,6 +3,7 @@ import {
   Card,
   Button,
   Accordion,
+  Grid,
   Text,
   Flex,
   List,
@@ -66,105 +67,112 @@ function ExperienceCard(props: ExperienceCardProps) {
           </Accordion.Control>
           <Accordion.Panel>
             <Flex direction="row" align="flex-start" wrap="wrap">
-              {!useMediaQuery("(max-width: 600px)") && (
-                <Image
-                  maw={200}
-                  radius="md"
-                  src={images[index]}
-                  style={{ paddingRight: "2.5%" }}
-                />
-              )}
-              <Stack align="flex-start">
-                <Text size={15} fw={600}>
-                  Role:
-                </Text>
-                <List style={{ paddingLeft: "2.5%" }}>
-                  {descriptions[index].map((description, index) => (
-                    <List.Item key={index} fw={400}>
-                      {description}
-                    </List.Item>
-                  ))}
-                </List>
-                <Text size={15} fw={600}>
-                  Skills:
-                </Text>
-                <List style={{ paddingLeft: "2.5%" }}>
-                  {skills[index].map((skill, skillIndex) => (
-                    <List.Item key={skillIndex} fw={400}>
-                      {skill}
-                    </List.Item>
-                  ))}
-                </List>
-                <Flex direction="row" gap="md" align="center" wrap="wrap">
-                  {links[index].map((link, linksIndex) => {
-                    return (
-                      <div key={linksIndex}>
-                        {link.includes("linkedin") ? (
-                          <Button
-                            variant="outline"
-                            radius="xl"
-                            leftIcon={<IconBrandLinkedin size={15} />}
-                            rightIcon={<IconExternalLink size={15} />}
-                            onClick={() => window.open(link, "_blank")}
-                          >
-                            LinkedIn
-                          </Button>
-                        ) : link.includes("github") &&
-                          !link.includes("egesythn") ? (
-                          <Button
-                            variant="outline"
-                            radius="xl"
-                            leftIcon={<IconBrandGithub size={15} />}
-                            rightIcon={<IconExternalLink size={15} />}
-                            onClick={() => window.open(link, "_blank")}
-                          >
-                            GitHub
-                          </Button>
-                        ) : link.includes("figma") ? (
-                          <Button
-                            variant="outline"
-                            radius="xl"
-                            leftIcon={<IconBrandFigma size={15} />}
-                            rightIcon={<IconExternalLink size={15} />}
-                            onClick={() => window.open(link, "_blank")}
-                          >
-                            Figma
-                          </Button>
-                        ) : link.includes("youtu") ? (
-                          <Button
-                            variant="outline"
-                            radius="xl"
-                            leftIcon={<IconBrandYoutube size={15} />}
-                            rightIcon={<IconExternalLink size={15} />}
-                            onClick={() => window.open(link, "_blank")}
-                          >
-                            Video
-                          </Button>
-                        ) : link.includes("drive") ? (
-                          <Button
-                            variant="outline"
-                            radius="xl"
-                            leftIcon={<IconBrandGoogleDrive size={15} />}
-                            rightIcon={<IconExternalLink size={15} />}
-                            onClick={() => window.open(link, "_blank")}
-                          >
-                            File
-                          </Button>
-                        ) : (
-                          <Button
-                            variant="outline"
-                            radius="xl"
-                            rightIcon={<IconExternalLink size={15} />}
-                            onClick={() => window.open(link, "_blank")}
-                          >
-                            Link
-                          </Button>
-                        )}
-                      </div>
-                    );
-                  })}
-                </Flex>
-              </Stack>
+              <Grid>
+                <Grid.Col span={4}>
+                  {!useMediaQuery("(max-width: 600px)") && (
+                    <Image
+                      maw={150}
+                      mah={150}
+                      radius="md"
+                      src={images[index]}
+                      style={{ paddingRight: "2.5%" }}
+                    />
+                  )}
+                </Grid.Col>
+                <Grid.Col span={8}>
+                  <Stack align="flex-start">
+                    <Text size={15} fw={600}>
+                      Role:
+                    </Text>
+                    <List style={{ paddingLeft: "2.5%" }}>
+                      {descriptions[index].map((description, index) => (
+                        <List.Item key={index} fw={400}>
+                          {description}
+                        </List.Item>
+                      ))}
+                    </List>
+                    <Text size={15} fw={600}>
+                      Skills:
+                    </Text>
+                    <List style={{ paddingLeft: "2.5%" }}>
+                      {skills[index].map((skill, skillIndex) => (
+                        <List.Item key={skillIndex} fw={400}>
+                          {skill}
+                        </List.Item>
+                      ))}
+                    </List>
+                    <Flex direction="row" gap="md" align="center" wrap="wrap">
+                      {links[index].map((link, linksIndex) => {
+                        return (
+                          <div key={linksIndex}>
+                            {link.includes("linkedin") ? (
+                              <Button
+                                variant="outline"
+                                radius="xl"
+                                leftIcon={<IconBrandLinkedin size={15} />}
+                                rightIcon={<IconExternalLink size={15} />}
+                                onClick={() => window.open(link, "_blank")}
+                              >
+                                LinkedIn
+                              </Button>
+                            ) : link.includes("github") &&
+                              !link.includes("egesythn") ? (
+                              <Button
+                                variant="outline"
+                                radius="xl"
+                                leftIcon={<IconBrandGithub size={15} />}
+                                rightIcon={<IconExternalLink size={15} />}
+                                onClick={() => window.open(link, "_blank")}
+                              >
+                                GitHub
+                              </Button>
+                            ) : link.includes("figma") ? (
+                              <Button
+                                variant="outline"
+                                radius="xl"
+                                leftIcon={<IconBrandFigma size={15} />}
+                                rightIcon={<IconExternalLink size={15} />}
+                                onClick={() => window.open(link, "_blank")}
+                              >
+                                Figma
+                              </Button>
+                            ) : link.includes("youtu") ? (
+                              <Button
+                                variant="outline"
+                                radius="xl"
+                                leftIcon={<IconBrandYoutube size={15} />}
+                                rightIcon={<IconExternalLink size={15} />}
+                                onClick={() => window.open(link, "_blank")}
+                              >
+                                Video
+                              </Button>
+                            ) : link.includes("drive") ? (
+                              <Button
+                                variant="outline"
+                                radius="xl"
+                                leftIcon={<IconBrandGoogleDrive size={15} />}
+                                rightIcon={<IconExternalLink size={15} />}
+                                onClick={() => window.open(link, "_blank")}
+                              >
+                                File
+                              </Button>
+                            ) : (
+                              <Button
+                                variant="outline"
+                                radius="xl"
+                                rightIcon={<IconExternalLink size={15} />}
+                                onClick={() => window.open(link, "_blank")}
+                              >
+                                Link
+                              </Button>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </Flex>
+                  </Stack>
+                </Grid.Col>
+              </Grid>
             </Flex>
           </Accordion.Panel>
         </Accordion.Item>
