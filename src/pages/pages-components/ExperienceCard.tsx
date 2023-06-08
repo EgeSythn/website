@@ -79,7 +79,7 @@ function ExperienceCard(props: ExperienceCardProps) {
                     />
                   )}
                 </Grid.Col>
-                <Grid.Col span={8}>
+                <Grid.Col span={!useMediaQuery("(max-width: 600px)") ? 8 : 12}>
                   <Stack align="flex-start">
                     <Text size={15} fw={600}>
                       Role:
