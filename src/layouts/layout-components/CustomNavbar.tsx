@@ -185,7 +185,7 @@ function CustomNavbar(props: CustomNavbarProps) {
     new Date().getMinutes()
   );
   const [isDay, setIsDay] = useState<boolean>(
-    () => timeOfDay >= 8 && timeOfDay < 20
+    () => timeOfDay >= 7 && timeOfDay < 20
   );
 
   const [active, setActive] = useState(() => {
@@ -199,9 +199,9 @@ function CustomNavbar(props: CustomNavbarProps) {
       const currentDate = new Date();
       const currentHour = currentDate.getHours();
       const currentMinute = currentDate.getMinutes();
-      setTimeOfDay((prevTimeOfDay) => currentHour);
-      setIsDay((prevIsDay) => currentHour >= 8 && currentHour < 20);
-      setCurrentMinutes((prevCurrentMinutes) => currentMinute);
+      setTimeOfDay(() => currentHour);
+      setIsDay(() => currentHour >= 7 && currentHour < 20);
+      setCurrentMinutes(() => currentMinute);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -218,7 +218,7 @@ function CustomNavbar(props: CustomNavbarProps) {
       align="center"
       style={{ paddingTop: "2.5%", paddingBottom: "2.5%" }}
     >
-      {timeOfDay < 8
+      {timeOfDay < 7
         ? "Good Night"
         : timeOfDay < 12
         ? "Good Morning"
@@ -278,7 +278,7 @@ function CustomNavbar(props: CustomNavbarProps) {
 
   const image = () => {
     let degree = isDay
-      ? ((timeOfDay - 8) / 12) * 180
+      ? ((timeOfDay - 7) / 12) * 180
       : (((timeOfDay + 4) % 24) / 12) * 180;
 
     degree += currentMinutes * 0.25;
