@@ -134,7 +134,7 @@ function Bonus() {
                 rightIcon={<IconExternalLink size={15} />}
                 onClick={() => window.open(ebruUrl, "_blank")}
               >
-                Try It Out
+                Experience
               </Button>
             </Stack>
           </Flex>
@@ -179,7 +179,7 @@ function Bonus() {
                 rightIcon={<IconExternalLink size={15} />}
                 onClick={() => window.open(anatolianUrl, "_blank")}
               >
-                Try It Out
+                Explore
               </Button>
             </Stack>
           </Flex>
