@@ -15,6 +15,10 @@ import ux_ui from "../assets/ux_ui.png";
 export const gameUrl =
   "https://cs280fa22-homework.github.io/homework-2-EgeSythn/";
 
+export const ebruUrl = "";
+
+export const anatolianUrl = "";
+
 // experience data
 export const names = [
   "MileMarker (EduMD, LLC) – Resident Health Education System",
