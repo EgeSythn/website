@@ -26,10 +26,10 @@ export const names = [
   "JHU Study Consulting Program",
   "mySEV Bootcamp",
   "Project CAAMS – JHU CS Department Course Assistant Application System",
-  "Wealth, Health, and Racial Inequality",
-  "HopReview - JHU Course Review Application",
   "Linear Regression Web Tool",
+  "Wealth, Health, and Racial Inequality",
   "UI/UX User Research",
+  "HopReview - JHU Course Review Application",
 ];
 export const descriptions = [
   ["Data Science Intern", " Full-Stack Software Engineering Intern"],
@@ -40,10 +40,10 @@ export const descriptions = [
   ["Study Consultant"],
   ["AI & Machine Learning Workshop Instructor"],
   ["Front-End Lead", "Full-Stack Developer (PERN Stack)"],
-  ["Front-End Developer (React)"],
-  ["Android Developer (Java)"],
   ["Front-End Developer (Dash)"],
+  ["Front-End Developer (React)"],
   ["User Researcher"],
+  ["Android Developer (Java)"],
 ];
 export const startDates = [
   "June 2022",
@@ -51,10 +51,10 @@ export const startDates = [
   "September 2021",
   "August 2021",
   "September 2022",
+  "January 2023",
+  "September 2022",
   "September 2022",
   "January 2022",
-  "January 2022",
-  "September 2022",
 ];
 export const endDates = [
   "August 2022",
@@ -62,10 +62,10 @@ export const endDates = [
   "May 2023",
   "August 2021",
   "Present",
+  "May 2023",
+  "December 2022",
   "December 2022",
   "May 2022",
-  "May 2022",
-  "December 2022",
 ];
 export const locations = [
   "United States / DC – Baltimore Area",
@@ -107,24 +107,24 @@ export const skillsExperience = [
     "Created developer documentation",
   ],
   [
+    "Used Dash to create a single page web application for linear regression",
+    "Engaged in data visualizations",
+    "Documented development process and user guide",
+  ],
+  [
     "Designed and implemented visualizations",
     "Handled and organized JSON data",
     "Deployed features to production using GitHub Actions",
+  ],
+  [
+    "Conducted user research to identify user needs, and usability issues",
+    "Redesigned the user interface of a mobile application based on identified problems",
   ],
   [
     "Conducted user research",
     "Prototyped UI/UX designs with Figma",
     "Worked in an Agile development team",
     "Created mock datasets and integrated front-end and back-end",
-  ],
-  [
-    "Used Dash to create a single page web application for linear regression",
-    "Engaged in data visualizations",
-    "Documented development process and user guide",
-  ],
-  [
-    "Conducted user research to identify user needs, and usability issues",
-    "Redesigned the user interface of a mobile application based on identified problems",
   ],
 ];
 export const images = [
@@ -133,10 +133,10 @@ export const images = [
   jhu_icon,
   mySev,
   jhu_icon,
-  jhu_icon,
-  blue_jay,
   dash_icon,
+  jhu_icon,
   ux_ui,
+  blue_jay,
 ];
 export const links = [
   ["http://milemarker.me/"],
@@ -145,21 +145,21 @@ export const links = [
   ["https://www.linkedin.com/company/mysev-bootcamp/"],
   ["https://www.linkedin.com/company/jhu-collab/mycompany/"],
   [
-    "https://github.com/EgeSythn/hci_project_2",
-    "https://egesythn.github.io/hci_project_2/",
-  ],
-  [
-    "https://github.com/HopReview/HopReview",
-    "https://www.figma.com/file/ryJtpAtK2IzIzZgqsswa1Q/T2?node-id=0%3A1&t=HMfJauiKtIyrodYA-1",
-  ],
-  [
     "https://github.com/ai-crew/ai-final-project",
     "https://linear-regression-viz.herokuapp.com/",
+  ],
+  [
+    "https://github.com/EgeSythn/hci_project_2",
+    "https://egesythn.github.io/hci_project_2/",
   ],
   [
     "https://drive.google.com/file/d/1YLCfANaG2aGdH_h_-4kYBBSpzVSyHphx/view?usp=sharing",
     "https://drive.google.com/file/d/1RUWAHOjEMQJTO_-D-y-gpxwt3p4e09ek/view?usp=sharing",
     "https://youtu.be/D6jiUJfigZY",
+  ],
+  [
+    "https://github.com/HopReview/HopReview",
+    "https://www.figma.com/file/ryJtpAtK2IzIzZgqsswa1Q/T2?node-id=0%3A1&t=HMfJauiKtIyrodYA-1",
   ],
 ];
 
