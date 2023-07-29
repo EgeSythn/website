@@ -159,7 +159,7 @@ export const links = [
   ],
   [
     "https://github.com/HopReview/HopReview",
-    "https://www.figma.com/file/ryJtpAtK2IzIzZgqsswa1Q/T2?node-id=0%3A1&t=HMfJauiKtIyrodYA-1",
+    "https://www.figma.com/file/ryJtpAtK2IzIzZgqsswa1Q/T2?type=design&node-id=0%3A1&mode=design&t=x5W1YXOK2bVBDFWu-1",
   ],
 ];
 
