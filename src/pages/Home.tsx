@@ -263,8 +263,8 @@ function Home() {
               >
                 &emsp;I am Turkish-American, and originally from the beautiful
                 coastal city of Izmir, Turkey, where I lived up until college.
-                During my time at Johns Hopkins University, I lived in
-                Baltimore, Maryland; the Charm City!
+                During my time at Johns Hopkins University I lived in Baltimore,
+                Maryland; the Charm City!
                 <Flex
                   direction={
                     useMediaQuery("(min-width: 720px)") ? "row" : "column"
