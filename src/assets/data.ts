@@ -146,7 +146,7 @@ export const images_alt = [
   "Johns Hopkins University Logo",
   "Dash Plotly Web Framework Logo",
   "Johns Hopkins University Logo",
-  "Image with 3D abbreviations User Interface and User Experience",
+  "Image with 3D abbreviations of User Interface and User Experience",
   "Image of the Johns Hopkins University Mascot",
 ];
 export const links = [

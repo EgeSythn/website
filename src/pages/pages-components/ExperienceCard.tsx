@@ -78,6 +78,7 @@ function ExperienceCard(props: ExperienceCardProps) {
                       radius="md"
                       src={images[index]}
                       alt={images_alt[index]}
+                      title={images_alt[index]}
                       style={{ paddingRight: "2.5%" }}
                     />
                   )}

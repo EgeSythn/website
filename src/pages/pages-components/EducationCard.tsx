@@ -177,6 +177,7 @@ function EducationCard(props: EducationCardProps) {
             radius="md"
             src={image}
             alt={image_alt}
+            title={image_alt}
             style={{ paddingRight: "2.5%" }}
           />
         )}

@@ -74,7 +74,13 @@ function Bonus() {
           </Flex>
           <Flex direction="row">
             {!useMediaQuery("(max-width: 600px)") && (
-              <Image src={spaceinvader} alt="Image of an alien invader from the famous game Space Invaders" maw="20%" radius={10} />
+              <Image
+                src={spaceinvader}
+                alt="Image of an alien invader from the famous game Space Invaders"
+                title="Image of an alien invader from the famous game Space Invaders"
+                maw="20%"
+                radius={10}
+              />
             )}
             <Stack spacing="xs" style={{ paddingLeft: "2.5%" }}>
               <Text fw={400} style={{ paddingBottom: "0.5%" }}>
@@ -126,6 +132,7 @@ function Bonus() {
               <Image
                 src={swirl}
                 alt="Swirling colors on water representing Ebru Art"
+                title="Swirling colors on water representing Ebru Art"
                 maw="20%"
                 radius={10}
               />
@@ -133,7 +140,7 @@ function Bonus() {
             <Stack spacing="xs" style={{ paddingLeft: "2.5%" }}>
               <Text fw={400} style={{ paddingBottom: "0.5%" }}>
                 This is a visualizer for Ebru Art, a traditional Turkish art
-                form of water marbling. You can hope on, and create a simple
+                form of water marbling. You can hop on, and create a simple
                 version of Ebru art. Give it a try!{" "}
               </Text>
 
@@ -176,6 +183,7 @@ function Bonus() {
               <Image
                 src={anatolian}
                 alt="An Anatolian string instrument called saz resting on a chair"
+                title="An Anatolian string instrument called saz resting on a chair"
                 maw="20%"
                 radius={10}
               />
