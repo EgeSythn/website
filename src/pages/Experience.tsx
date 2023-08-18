@@ -8,6 +8,7 @@ import {
   locations,
   skillsExperience,
   images,
+  images_alt,
   links,
 } from "../assets/data";
 
@@ -33,6 +34,7 @@ function Experience() {
         locations={locations}
         skills={skillsExperience}
         images={images}
+        images_alt={images_alt}
         links={links}
       />
     </Container>

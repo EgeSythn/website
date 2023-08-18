@@ -27,7 +27,7 @@ function Bonus() {
 
   return (
     <Container style={{ paddingTop: "2.5%" }}>
-      <Title>Bonus Content!</Title>
+      <Title>Development</Title>
       <Divider
         style={{ marginTop: "1.5%", marginBottom: "5%" }}
         color={
@@ -65,11 +65,16 @@ function Bonus() {
             <Text style={{}} size={25} fw={700}>
               &nbsp;Space Invaders&nbsp;
             </Text>
-            <Image src={flying_saucer} maw="5%" radius={10} />
+            <Image
+              src={flying_saucer}
+              alt="A flying saucer gif"
+              maw="5%"
+              radius={10}
+            />
           </Flex>
           <Flex direction="row">
             {!useMediaQuery("(max-width: 600px)") && (
-              <Image src={spaceinvader} maw="20%" radius={10} />
+              <Image src={spaceinvader} alt="Image of an alien invader from the famous game Space Invaders" maw="20%" radius={10} />
             )}
             <Stack spacing="xs" style={{ paddingLeft: "2.5%" }}>
               <Text fw={400} style={{ paddingBottom: "0.5%" }}>
@@ -118,7 +123,12 @@ function Bonus() {
           </Flex>
           <Flex direction="row">
             {!useMediaQuery("(max-width: 600px)") && (
-              <Image src={swirl} maw="20%" radius={10} />
+              <Image
+                src={swirl}
+                alt="Swirling colors on water representing Ebru Art"
+                maw="20%"
+                radius={10}
+              />
             )}
             <Stack spacing="xs" style={{ paddingLeft: "2.5%" }}>
               <Text fw={400} style={{ paddingBottom: "0.5%" }}>
@@ -163,7 +173,12 @@ function Bonus() {
           </Flex>
           <Flex direction="row">
             {!useMediaQuery("(max-width: 600px)") && (
-              <Image src={anatolian} maw="20%" radius={10} />
+              <Image
+                src={anatolian}
+                alt="An Anatolian string instrument called saz resting on a chair"
+                maw="20%"
+                radius={10}
+              />
             )}
             <Stack spacing="xs" style={{ paddingLeft: "2.5%" }}>
               <Text fw={400} style={{ paddingBottom: "0.5%" }}>

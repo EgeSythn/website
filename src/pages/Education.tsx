@@ -26,6 +26,7 @@ function Education() {
         gpa={"3.75"}
         location="Baltimore, MD"
         image={jhu_icon}
+        image_alt="Logo of Johns Hopkins University"
         skills={skillsEducation}
         certifications={certifications}
         termData={termData}

@@ -1,8 +1,8 @@
 import { Center, Container, Loader } from "@mantine/core";
 import { useState } from "react";
 
-function Map(props: { embedLink: string }) {
-  const { embedLink } = props;
+function Map(props: { alt: string; embedLink: string }) {
+  const { alt, embedLink } = props;
   const [isLoading, setIsLoading] = useState(true);
 
   const iframeContainerStyle: React.CSSProperties = {
@@ -35,6 +35,7 @@ function Map(props: { embedLink: string }) {
           <iframe
             title="map"
             src={embedLink}
+            aria-label={alt}
             width="300"
             height="300"
             style={{

@@ -167,7 +167,7 @@ const data = [
   { name: "Home", icon: IconHome, to: "/" },
   { name: "Education", icon: IconBackpack, to: "/education" },
   { name: "Experience", icon: IconBrandGithub, to: "/experience" },
-  { name: "Bonus", icon: IconGift, to: "/bonus" },
+  { name: "Development", icon: IconGift, to: "/development" },
 ];
 
 interface CustomNavbarProps {

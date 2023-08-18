@@ -41,6 +41,7 @@ interface EducationCardProps {
   totalCredits: string;
   gpa: string;
   image: string;
+  image_alt: string;
   location: string;
   skills: { name: string; skills: string[]; note: string }[];
   certifications: { name: string; source: string }[];
@@ -64,6 +65,7 @@ function EducationCard(props: EducationCardProps) {
     totalCredits,
     gpa,
     image,
+    image_alt,
     location,
     skills,
     certifications,
@@ -77,7 +79,9 @@ function EducationCard(props: EducationCardProps) {
   const institution_control = (
     <>
       <Flex direction="row" gap="md" align="center">
-        {useMediaQuery("(min-width: 600px)") && <IconBackpack size={25} />}
+        {useMediaQuery("(min-width: 600px)") && (
+          <IconBackpack aria-label="Backpack Icon" size={25} />
+        )}
         <Text size={25} fw={700}>
           {institution}
         </Text>
@@ -172,6 +176,7 @@ function EducationCard(props: EducationCardProps) {
             maw={200}
             radius="md"
             src={image}
+            alt={image_alt}
             style={{ paddingRight: "2.5%" }}
           />
         )}
@@ -293,7 +298,9 @@ function EducationCard(props: EducationCardProps) {
   const skills_control = (
     <>
       <Flex direction="row" gap="md" align="center">
-        {useMediaQuery("(min-width: 600px)") && <IconPencil size={25} />}
+        {useMediaQuery("(min-width: 600px)") && (
+          <IconPencil aria-label="Pencil Icon" size={25} />
+        )}
         <Text size={25} fw={700}>
           Skills
         </Text>
@@ -343,7 +350,9 @@ function EducationCard(props: EducationCardProps) {
 
   const certifications_control = (
     <Flex direction="row" gap="md" align="center">
-      {useMediaQuery("(min-width: 600px)") && <IconCertificate size={25} />}
+      {useMediaQuery("(min-width: 600px)") && (
+        <IconCertificate aria-label="Certificate Icon" size={25} />
+      )}
       <Text size={25} fw={700}>
         Kaggle Certifications
       </Text>

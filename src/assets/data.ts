@@ -138,6 +138,17 @@ export const images = [
   ux_ui,
   blue_jay,
 ];
+export const images_alt = [
+  "MileMarker EduMD LLC Logo",
+  "Johns Hopkins University Logo",
+  "Johns Hopkins University Logo",
+  "mySEV Bootcamp Logo",
+  "Johns Hopkins University Logo",
+  "Dash Plotly Web Framework Logo",
+  "Johns Hopkins University Logo",
+  "Image with 3D abbreviations User Interface and User Experience",
+  "Image of the Johns Hopkins University Mascot",
+];
 export const links = [
   ["http://milemarker.me/"],
   [],

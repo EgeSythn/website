@@ -29,6 +29,7 @@ interface ExperienceCardProps {
   locations: string[];
   skills: string[][];
   images: string[];
+  images_alt: string[];
   links: string[][];
 }
 
@@ -41,6 +42,7 @@ function ExperienceCard(props: ExperienceCardProps) {
     locations,
     skills,
     images,
+    images_alt,
     links,
   } = props;
 
@@ -75,6 +77,7 @@ function ExperienceCard(props: ExperienceCardProps) {
                       mah={150}
                       radius="md"
                       src={images[index]}
+                      alt={images_alt[index]}
                       style={{ paddingRight: "2.5%" }}
                     />
                   )}

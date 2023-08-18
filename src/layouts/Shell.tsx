@@ -44,9 +44,9 @@ function Shell() {
           })}
         >
           {colorScheme === "dark" ? (
-            <IconSun size="1.2rem" />
+            <IconSun size="1.2rem" aria-label="Sun Emoji" />
           ) : (
-            <IconMoonStars size="1.2rem" />
+            <IconMoonStars size="1.2rem" aria-label="Moon Emoji" />
           )}
         </ActionIcon>
       </Group>
