@@ -61,7 +61,7 @@ export const endDates = [
   "May 2023",
   "May 2023",
   "August 2021",
-  "Present",
+  "August 2023",
   "May 2023",
   "December 2022",
   "December 2022",
