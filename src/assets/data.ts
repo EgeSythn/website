@@ -86,7 +86,7 @@ export const locations = [
 ];
 export const skillsExperience = [
   [
-    "Working as a backedn software engineer",
+    "Working as a backend software engineer",
     "Maintaining and developing development & production databases",
     "Developing tools and processes to optimize R&D processes",
   ],
