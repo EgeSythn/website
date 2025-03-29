@@ -283,7 +283,7 @@ function CustomNavbar(props: CustomNavbarProps) {
 
     degree += currentMinutes * 0.25;
 
-    let theta = (degree / 180) * Math.PI;
+    let theta = (degree / 180 > 1 ? 1 : degree / 180) * Math.PI;
     let radius = 100;
     let newX = radius * (1 - Math.cos(theta)) - 15;
     let newY = radius * Math.sin(theta) - 15;

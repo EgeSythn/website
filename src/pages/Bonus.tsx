@@ -46,11 +46,9 @@ function Bonus() {
           fw={700}
         >
           This is a place to share some fun little personal endeavors with you.
-          If the page looks a bit barren, don't worry, as there is always more
-          content in the works!
         </Text>
       </Center>
-      <Card
+      {/* <Card
         shadow="sm"
         padding="lg"
         radius="md"
@@ -105,7 +103,7 @@ function Bonus() {
             </Stack>
           </Flex>
         </Flex>
-      </Card>
+      </Card> */}
       <Card
         shadow="sm"
         padding="lg"

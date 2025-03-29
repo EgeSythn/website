@@ -264,7 +264,8 @@ function Home() {
                 &emsp;I am Turkish-American, and originally from the beautiful
                 coastal city of Izmir, Turkey, where I lived up until college.
                 During my time at Johns Hopkins University I lived in Baltimore,
-                Maryland; the Charm City!
+                the Charm City. And currently, I live in Pittsburgh where I work
+                as a software engineer!
                 <Flex
                   direction={
                     useMediaQuery("(min-width: 720px)") ? "row" : "column"
@@ -277,6 +278,10 @@ function Home() {
                   <Map
                     alt="Google Maps embed to Baltimore, Maryland"
                     embedLink="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98821.00069851437!2d-76.62049675!3d39.2847064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803aed6f483b7%3A0x44896a84223e758!2sBaltimore%2C%20MD!5e0!3m2!1sen!2sus!4v1685813113813!5m2!1sen!2sus"
+                  />
+                  <Map
+                    alt="Google Maps embed to Pittsburgh, Pennsylvania"
+                    embedLink="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97183.64254231588!2d-80.06298572818471!3d40.43124624982425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f16f48068503%3A0x8df915a15aa21b34!2sPittsburgh%2C%20PA!5e0!3m2!1sen!2sus!4v1743208318895!5m2!1sen!2sus"
                   />
                 </Flex>
               </Text>
@@ -327,10 +332,9 @@ function Home() {
               rights. If you have any questions, feel free to contact me!
             </Text>
             <Text size={18} style={{ lineHeight: "1.6", marginBottom: "24px" }}>
-              &emsp;If you are a recruiter, and want to access my detailed
-              resume, transcript, or any other additional information, please
-              fill out the form below and I will get back to you as soon as
-              possible. Thank you!
+              &emsp;If you are curious about me, for personal or bussiness
+              reasons, and want additional information please fill out the form
+              below and I will get back to you as soon as possible. Thank you!
             </Text>
           </Grid.Col>
         </Grid>

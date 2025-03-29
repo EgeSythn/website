@@ -70,7 +70,7 @@ function ExperienceCard(props: ExperienceCardProps) {
           <Accordion.Panel>
             <Flex direction="row" align="flex-start" wrap="wrap">
               <Grid>
-                <Grid.Col span={4}>
+                <Grid.Col span={4} style={{ maxWidth: 200 }}>
                   {!useMediaQuery("(max-width: 600px)") && (
                     <Image
                       maw={150}
@@ -79,7 +79,6 @@ function ExperienceCard(props: ExperienceCardProps) {
                       src={images[index]}
                       alt={images_alt[index]}
                       title={images_alt[index]}
-                      style={{ paddingRight: "2.5%" }}
                     />
                   )}
                 </Grid.Col>

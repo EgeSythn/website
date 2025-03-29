@@ -10,6 +10,7 @@ import mySev from "../assets/mySev.png";
 import blue_jay from "../assets/blue_jay.png";
 import dash_icon from "../assets/dash_icon.png";
 import ux_ui from "../assets/ux_ui.png";
+import innovative from "../assets/innovativesystems.png";
 
 // bonus data
 export const gameUrl =
@@ -21,6 +22,7 @@ export const anatolianUrl = "";
 
 // experience data
 export const names = [
+  "Innovative Systems, Inc.",
   "MileMarker (EduMD, LLC) – Resident Health Education System",
   "JHU Computer Science Department",
   "JHU Study Consulting Program",
@@ -32,6 +34,7 @@ export const names = [
   "HopReview - JHU Course Review Application",
 ];
 export const descriptions = [
+  ["Software Engineer", "Database Administrator"],
   ["Data Science Intern", " Full-Stack Software Engineering Intern"],
   [
     "Mathematical Foundations for Computer Science Lead Course Assistant",
@@ -46,6 +49,7 @@ export const descriptions = [
   ["Android Developer (Java)"],
 ];
 export const startDates = [
+  "January 2024",
   "June 2022",
   "January 2022",
   "September 2021",
@@ -57,6 +61,7 @@ export const startDates = [
   "January 2022",
 ];
 export const endDates = [
+  "Present",
   "August 2022",
   "May 2023",
   "May 2023",
@@ -68,6 +73,7 @@ export const endDates = [
   "May 2022",
 ];
 export const locations = [
+  "United States / Pittsburgh",
   "United States / DC – Baltimore Area",
   "United States / DC – Baltimore Area",
   "United States / DC – Baltimore Area",
@@ -79,6 +85,11 @@ export const locations = [
   "United States / DC – Baltimore Area",
 ];
 export const skillsExperience = [
+  [
+    "Working as a backedn software engineer",
+    "Maintaining and developing development & production databases",
+    "Developing tools and processes to optimize R&D processes",
+  ],
   [
     "Developed machine learning models",
     "Created data visualizations and dashboard prototypes",
@@ -128,6 +139,7 @@ export const skillsExperience = [
   ],
 ];
 export const images = [
+  innovative,
   milemarker,
   jhu_icon,
   jhu_icon,
@@ -139,6 +151,7 @@ export const images = [
   blue_jay,
 ];
 export const images_alt = [
+  "Innovative Systems, Inc. Logo",
   "MileMarker EduMD LLC Logo",
   "Johns Hopkins University Logo",
   "Johns Hopkins University Logo",
@@ -150,6 +163,7 @@ export const images_alt = [
   "Image of the Johns Hopkins University Mascot",
 ];
 export const links = [
+  ["https://www.innovativesystems.com/"],
   ["http://milemarker.me/"],
   [],
   ["https://academicsupport.jhu.edu/study-consulting/"],
@@ -179,6 +193,10 @@ export const skillsEducation = [
   {
     name: "Full-Stack Development",
     skills: [
+      "C#",
+      "ASP.NET Core",
+      "Microsoft SQL Server",
+      "Visual Basic",
       "HTML5",
       "CSS3",
       "JavaScript",
@@ -217,6 +235,8 @@ export const skillsEducation = [
     name: "Software & Development Environments",
     skills: [
       "Visual Studio Code",
+      "Visual Studio",
+      "SQL Server Management Studio",
       "JetBrains Suite",
       "Android Studio",
       "Postman",
